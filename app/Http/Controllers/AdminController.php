@@ -14,100 +14,44 @@ use Validator;
 use App\Rules\Captcha; 
 class AdminController extends Controller
 {
-    public function login_google(){
-        return Socialite::driver('google')->redirect();
-    }
-    public function callback_google(){
-            $users = Socialite::driver('google')->stateless()->user(); 
-            // // return $users->id;
-            // return $users->name;
-            // return $users->email;
-            $authUser = $this->findOrCreateUser($users,'google');
-            $account_name = Login::where('admin_id',$authUser->user)->first();
-            Session::put('admin_name',$account_name->admin_name);
-            Session::put('admin_id',$account_name->admin_id);
-            return redirect('/dashboard')->with('message', 'Đăng nhập Admin thành công');  
-    }
-    public function findOrCreateUser($users, $provider){
-            $authUser = Social::where('provider_user_id', $users->id)->first();
-            if($authUser){
+    // public function findOrCreateUser($users, $provider){
+    //         $authUser = Social::where('provider_user_id', $users->id)->first();
+    //         if($authUser){
 
-                return $authUser;
-            }
+    //             return $authUser;
+    //         }
           
-            $hieu = new Social([
-                'provider_user_id' => $users->id,
-                'provider' => strtoupper($provider)
-            ]);
+    //         $hieu = new Social([
+    //             'provider_user_id' => $users->id,
+    //             'provider' => strtoupper($provider)
+    //         ]);
 
-            $orang = Login::where('admin_email',$users->email)->first();
+    //         $orang = Login::where('admin_email',$users->email)->first();
 
-                if(!$orang){
-                    $orang = Login::create([
-                        'admin_name' => $users->name,
-                        'admin_email' => $users->email,
-                        'admin_password' => '',
-                        'admin_phone' => '',
-                        'admin_status' => 1
+    //             if(!$orang){
+    //                 $orang = Login::create([
+    //                     'admin_name' => $users->name,
+    //                     'admin_email' => $users->email,
+    //                     'admin_password' => '',
+    //                     'admin_phone' => '',
+    //                     'admin_status' => 1
                         
-                    ]);
-                }
+    //                 ]);
+    //             }
 
-            $hieu->login()->associate($orang);
+    //         $hieu->login()->associate($orang);
                 
-            $hieu->save();
+    //         $hieu->save();
 
-            $account_name = Login::where('admin_id',$hieu->user)->first();
-            Session::put('admin_name',$account_name->admin_name);
-            Session::put('admin_id',$account_name->admin_id); 
+    //         $account_name = Login::where('admin_id',$hieu->user)->first();
+    //         Session::put('admin_name',$account_name->admin_name);
+    //         Session::put('admin_id',$account_name->admin_id); 
           
-            return redirect('/dashboard')->with('message', 'Đăng nhập Admin thành công');
+    //         return redirect('/dashboard')->with('message', 'Đăng nhập Admin thành công');
 
 
-    }
-
-
-    public function login_facebook(){
-        return Socialite::driver('facebook')->redirect();
-    }
-
-    public function callback_facebook(){
-        $provider = Socialite::driver('facebook')->user();
-        $account = Social::where('provider','facebook')->where('provider_user_id',$provider->getId())->first();
-        if($account){
-            //login in vao trang quan tri  
-            $account_name = Login::where('admin_id',$account->user)->first();
-            Session::put('admin_name',$account_name->admin_name);
-            Session::put('admin_id',$account_name->admin_id);
-            return redirect('/dashboard')->with('message', 'Đăng nhập Admin thành công');
-        }else{
-
-            $hieu = new Social([
-                'provider_user_id' => $provider->getId(),
-                'provider' => 'facebook'
-            ]);
-
-            $orang = Login::where('admin_email',$provider->getEmail())->first();
-
-            if(!$orang){
-                $orang = Login::create([
-                    'admin_name' => $provider->getName(),
-                    'admin_email' => $provider->getEmail(),
-                    'admin_password' => '',
-                    'admin_phone' => ''
-                    
-                ]);
-            }
-            $hieu->login()->associate($orang);
-            $hieu->save();
-
-            $account_name = Login::where('admin_id',$account->user)->first();
-            Session::put('admin_name',$account_name->admin_name);
-            Session::put('admin_id',$account_name->admin_id);
-            return redirect('/dashboard')->with('message', 'Đăng nhập Admin thành công');
-        } 
-    }
-
+    // }
+    // kiểm tra nếu đăng nhập rồi thì phi vào dashboard không thì phi vào đăng nhập
     public function AuthLogin(){
         $admin_id = Session::get('admin_id');
         if($admin_id){
@@ -116,26 +60,26 @@ class AdminController extends Controller
             return Redirect::to('admin')->send();
         }
     }
-
+    // mặc định phi vào view đăng nhập
     public function index(){
     	return view('admin_login');
     }
+    // nếu login thì phi vào trang dash board
     public function show_dashboard(){
         $this->AuthLogin();
     	return view('admin.dashboard');
     }
     public function dashboard(Request $request){
-        //$data = $request->all();
+        // kiểm tra không để trống
         $data = $request->validate([
-            //validation laravel 
             'admin_email' => 'required',
-            'admin_password' => 'required',
-           'g-recaptcha-response' => new Captcha(),    //dòng kiểm tra Captcha
+            'admin_password' => 'required'
         ]);
-
-
+        // lấy gmail
         $admin_email = $data['admin_email'];
+        // lấy mật khẩu kiểm tra dùng hàm mã hóa md5
         $admin_password = md5($data['admin_password']);
+        // kiểm tra trong db
         $login = Login::where('admin_email',$admin_email)->where('admin_password',$admin_password)->first();
         if($login){
             $login_count = $login->count();
@@ -151,6 +95,7 @@ class AdminController extends Controller
        
 
     }
+    // đăng xuất xóa session
     public function logout(){
         $this->AuthLogin();
         Session::put('admin_name',null);

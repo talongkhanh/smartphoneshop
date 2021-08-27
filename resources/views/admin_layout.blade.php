@@ -54,22 +54,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="{{('public/backend/images/2.png')}}">
                 <span class="username">
                 	<?php
 					$name = Session::get('admin_name');
 					if($name){
 						echo $name;
-						
 					}
 					?>
-
                 </span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                <li><a href="#"><i class=" fa fa-suitcase"></i>Hồ sơ</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
                 <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i>Đăng xuất</a></li>
             </ul>
         </li>
@@ -99,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Slider</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{URL::to('/manage-slider')}}">Liệt kê slider</a></li>
+                        <li><a href="{{URL::to('/manage-slider')}}">Danh sách slider</a></li>
                         <li><a href="{{URL::to('/add-slider')}}">Thêm slider</a></li>
                     </ul>
                 </li>
@@ -185,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <!-- footer -->
 		  <div class="footer">
 			<div class="wthree-copyright">
-			  <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+			  <p>Học phần Phần mềm mã nguồn mở - Trường đại học Công Nghiệp Hà Nội </p>
 			</div>
 		  </div>
   <!-- / footer -->
