@@ -62,7 +62,7 @@
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{ $slide->slider_name }}</td>
-            <td><a href="{{URL::to('/manage_slide/'.$slide->slider_id)}}"><img src="public/uploads/slider/{{ $slide->slider_image }}" height="120" width="500"></a></td>
+            <td><a href="{{URL::to('/manage-slider/'.$slide->slider_id)}}"><img src="public/uploads/slider/{{ $slide->slider_image }}" height="120" width="500"></a></td>
             <td>{{ $slide->slider_desc }}</td>
             <td><span class="text-ellipsis">
               <?php

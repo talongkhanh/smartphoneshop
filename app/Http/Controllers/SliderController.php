@@ -28,36 +28,37 @@ class SliderController extends Controller
     }
     
     // show màn hình chi tiết slide
-    public function detail_slider(){
+    public function detail_slider($slide_id){
         $this->AuthLogin();
-        $slide = DB::table('tbl_slider')->where('slider_id',$slide_id);
-        return view('admin.slider.detail_slider');
+        $slide = DB::table('tbl_slider')->where('slider_id',$slide_id)->get();
+        return view('admin.slider.detail_slider', ['slides' => $slide]);
     }
     // sửa lại slide
-    public function update_slider(){
+    public function update_slider($slide_id,Request $request){
         $this->AuthLogin();
 
    		$data = $request->all();
        	$get_image = request('slider_image');
-      
         if($get_image){
             $get_name_image = $get_image->getClientOriginalName();
             $name_image = current(explode('.',$get_name_image));
             $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
             $get_image->move('public/uploads/slider', $new_image);
-
-            $slider = new Slider();
-            $slider->slider_name = $data['slider_name'];
-            $slider->slider_image = $new_image;
-            $slider->slider_status = $data['slider_status'];
-            $slider->slider_desc = $data['slider_desc'];
-           	$slider->save();
-            Session::put('message','Sửa slider thành công');
-            return Redirect::to('manage-slider');
-        }else{
-        	Session::put('message','Làm ơn thêm hình ảnh');
-    		return Redirect::to('add-slider');
         }
+        $slider = [
+            'slider_name' => $data['slider_name'],
+            'slider_status' => $data['slider_status'],
+            'slider_desc' => $data['slider_desc'],
+        ];
+        
+        if(isset($new_image)) {
+        $slider['slider_image'] = $new_image;
+        }
+        DB::table('tbl_slider')
+            ->where('slider_id', $slide_id)
+            ->update($slider);
+        Session::put('message','Sửa slider thành công');
+        return Redirect::to('manage-slider');
     }
     // nhừng kichs hoạt slide
     public function unactive_slide($slide_id){
