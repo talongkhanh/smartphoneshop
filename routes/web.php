@@ -129,9 +129,9 @@ Route::post('/select-feeship','DeliveryController@select_feeship');
 Route::post('/update-delivery','DeliveryController@update_delivery');
 
 //Banner
-Route::get('/manage-slider','SliderController@manage_slider');
 Route::get('/manage-slider/{slide_id}','SliderController@detail_slider');
-Route::put('/manage-slider/{slide_id}','SliderController@update_slider');
+Route::post('/manage-slider/{slide_id}','SliderController@update_slider');
+Route::get('/manage-slider','SliderController@manage_slider');
 Route::get('/add-slider','SliderController@add_slider');
 Route::post('/insert-slider','SliderController@insert_slider');
 Route::get('/unactive-slide/{slide_id}','SliderController@unactive_slide');
