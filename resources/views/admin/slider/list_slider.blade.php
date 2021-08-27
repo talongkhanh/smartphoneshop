@@ -3,7 +3,7 @@
     <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt kê Banner
+      Danh sách banner trang web
     </div>
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
@@ -21,19 +21,26 @@
         <div class="input-group">
           <input type="text" class="input-sm form-control" placeholder="Search">
           <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">Go!</button>
+            <button class="btn btn-sm btn-default" type="button">Tìm kiếm!</button>
           </span>
         </div>
       </div>
     </div>
     <div class="table-responsive">
                       <?php
-                            $message = Session::get('message');
-                            if($message){
-                                echo '<span class="text-alert">'.$message.'</span>';
-                                Session::put('message',null);
-                            }
-                            ?>
+                        $message = Session::get('message');
+                        if($message){
+                        ?>
+                        <div id="snackbar"><?php echo $message; ?></div>
+                        <script>
+                          var x = document.getElementById("snackbar");
+                          x.className = "show";
+                          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+                        </script>
+                        <?php
+                            Session::put('message',null);
+                        }
+                      ?>
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
@@ -45,7 +52,7 @@
             <th>Tên slide</th>
             <th>Hình ảnh</th>
             <th>Mô tả</th>
-            <th>Tình trạng</th>
+            <th>Trạng thái</th>
             
             <th style="width:30px;"></th>
           </tr>
@@ -55,7 +62,7 @@
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{ $slide->slider_name }}</td>
-            <td><img src="public/uploads/slider/{{ $slide->slider_image }}" height="120" width="500"></td>
+            <td><a href="{{URL::to('/manage_slide/'.$slide->slider_id)}}"><img src="public/uploads/slider/{{ $slide->slider_image }}" height="120" width="500"></a></td>
             <td>{{ $slide->slider_desc }}</td>
             <td><span class="text-ellipsis">
               <?php
@@ -71,7 +78,6 @@
               ?>
             </span></td>
             <td>
-             
               <a onclick="return confirm('Bạn có chắc là muốn xóa slide này ko?')" href="{{URL::to('/delete-slide/'.$slide->slider_id)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
