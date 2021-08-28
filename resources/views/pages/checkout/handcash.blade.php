@@ -5,11 +5,8 @@
 		<div class="container">
 			
 			<div class="review-payment">
-				<h2>Cảm ơn bạn đã đặt hàng ở chỗ chúng tôi,chúng tôi sẽ liên hệ với bạn sớm nhất</h2>
+				<h2>Cảm ơn bạn đã đặt hàng !Nếu bạn cần mình giúp gì thì cứ thoải mái nhắn mình nhé. </h2>
 			</div>
-			
-			
-			
 		</div>
 	</section> <!--/#cart_items-->
 
