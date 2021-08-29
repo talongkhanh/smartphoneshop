@@ -24,11 +24,18 @@
 
                                             <a href="{{URL::to('/chi-tiet/'.$product->product_slug)}}">
                                                 <img src="{{URL::to('public/uploads/product/'.$product->product_image)}}" alt="" />
-                                                <h2>{{number_format($product->product_price,0,',','.').' '.'VNĐ'}}</h2>
+                                                <h3>{{number_format($product->product_price,0,',','.').' '.'đ'}}</h3>
                                                 <p>{{$product->product_name}}</p>
 
                                              
                                              </a>
+                                                <div style="text-align: center !important;">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                </div>
                                             <input type="button" value="Thêm giỏ hàng" class="btn btn-default add-to-cart" data-id_product="{{$product->product_id}}" name="add-to-cart">
                                             </form>
 

@@ -34,9 +34,9 @@ class HomeController extends Controller
         //slide
         $slider = Slider::orderBy('slider_id','DESC')->where('slider_status','1')->take(4)->get();
         //seo 
-        $meta_desc = "Chuyên bán những phụ kiện gym và thực phẩm dinh dưỡng, Là 1 gymer ngoài việc có body đẹp cần là 1 người có ích trong xã hội: trí tuệ, sức khỏe"; 
-        $meta_keywords = "thuc pham chuc nang, thực phẩm chức năng, phụ kiện gym";
-        $meta_title = "Thực phẩm bổ sung thể hình, phụ kiện tập GYM VIP";
+        $meta_desc = "Smartphone Shop"; 
+        $meta_keywords = "Smartphone Shop";
+        $meta_title = "Smartphone Shop";
         $url_canonical = $request->url();
         //--seo
         
