@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background:;
+  background-color: #FFF;
   position: relative;
   font-weight:400px;
 }
@@ -223,8 +223,9 @@ a#scrollUp i{
 
 
 .header-bottom {
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background: #03a9f4;
 }
 
 .navbar-collapse.collapse{
@@ -241,7 +242,7 @@ a#scrollUp i{
 }
 
 .mainmenu ul li a {
-	color: #696763;
+	color: #ffffff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
 	font-weight: 300;
@@ -251,7 +252,7 @@ a#scrollUp i{
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
 	background:none;
-	color:#fdb45e;
+	color: #ffe10c;
 }
 
 .search_box input {
@@ -304,7 +305,7 @@ ul.sub-menu {
 }
 
 .dropdown ul.sub-menu li .active{
-  color: #FDB45E;
+  color: #03a9f4;;
   padding-left: 0;
 }
 
@@ -322,7 +323,7 @@ ul.sub-menu {
 }
 
 .navbar-nav li ul.sub-menu li a:hover{
-    color: #FDB45E;
+    color: #03a9f4;
 }
 
 .fa-angle-down{
@@ -656,7 +657,7 @@ ul.sub-menu {
 }
 
 .category-products {
-  border: 1px solid #F7F7F0;
+  border: 1px solid #eef7c1;
   margin-bottom: 35px;
   padding-bottom: 20px;
   padding-top: 15px;
@@ -2704,5 +2705,18 @@ h2.title {
     margin-left: 0;
   }
 
+}
+.panel-heading{
+  color: white !important;
+  padding: 10px 20px;
+  background: #03A9F4 !important;
+}
+.panel-heading:hover{
+  background: red!important;
+  color: white !important;
+}
+
+.checked {
+  color: orange;
 }
 
