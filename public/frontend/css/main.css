@@ -70,7 +70,7 @@ a#scrollUp i{
 **************************/
 
 .header_top {
-  background: none repeat scroll 0 0 #F0F0E9;
+  background: none repeat scroll 0 0 #252525;
 }
 
 .contactinfo ul li:first-child{
@@ -79,7 +79,7 @@ a#scrollUp i{
 
 .contactinfo ul li a{
   font-size: 12px;
-  color: #696763;
+  color: #fff;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -92,7 +92,7 @@ a#scrollUp i{
 .social-icons ul li a {
   border: 0 none;
   border-radius: 0;
-  color: #696763;
+  color: #fff;
   padding:0px;
 }
 
@@ -222,14 +222,11 @@ a#scrollUp i{
 }
 
 
+
 .header-bottom {
   padding-bottom: 20px;
   padding-top: 20px;
-<<<<<<< HEAD
   background: #CD1818;
-=======
-  background:#9e0b0e; /*mau menu tren*/
->>>>>>> 9611abc (update)
 }
 
 .navbar-collapse.collapse{
@@ -667,9 +664,9 @@ ul.sub-menu {
   padding-top: 15px;
 }
 .left-sidebar h2, .brands_products h2 {
-  color: #FE980F;
+  color: #212529;
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   margin: 0 auto 30px;
   text-align: center;
@@ -842,9 +839,9 @@ h2.title:before{
 
 
 h2.title {
-  color: #FE980F;
+  color: #212529;
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   margin: 0 15px;
   text-transform: uppercase;
@@ -906,7 +903,7 @@ h2.title {
   transition: height 500ms ease 0s;
   width: 100%;
   display: block;
-  opacity:;
+  
 }
 
 .single-products:hover .product-overlay {

@@ -116,13 +116,8 @@
                             <form action="{{URL::to('/tim-kiem')}}" method="POST">
                                 {{csrf_field()}}
                                 <div class="search_box pull-right">
-<<<<<<< HEAD
                                     <input type="text" name="keywords_submit" style="width: 250px" placeholder="Tìm kiếm sản phẩm"/>
                                     <button type="submit" name="search_items" style="padding: 6px 10px"><i class="fa fa-search"></i></button>
-=======
-                                    <input type="text" name="keywords_submit" placeholder="Tìm kiếm sản phẩm"/>
-                                    <input type="submit" style="margin-top:0;color:#fff; background: #333" name="search_items" class="btn btn-success btn-sm" value="Tìm kiếm">
->>>>>>> 9611abc (update)
                                 </div>
                             </form>
                         </div>
@@ -196,7 +191,7 @@
                         </div><!--/category-products-->
                     
                         <div class="brands_products"><!--brands_products-->
-                            <h2>Thương hiệu sản phẩm</h2>
+                            <h2>Hãng sản xuất</h2>
                             <div class="panel-group " id="accordian" style="padding-bottom: 30px">
                                 @foreach($brand as $key => $brand)
                                     <div class="panel panel-default">
@@ -242,7 +237,7 @@
                     <a href="#">Contact</a>
                 </p>
 
-                <p class="footer-company-name" style="color: white">Copyright 2021 Deign Nhom18</p>
+                <p class="footer-company-name" style="color: white">Copyright 2021 Design Nhom18</p>
             </div>
 
             <div class="footer-center">
