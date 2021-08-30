@@ -1002,7 +1002,7 @@ h2.title {
 
 .category-tab ul {
   background: #40403E;
-  border-bottom: 1px solid #FE980F;
+  border-bottom: 1px solid #f0f0e9;
   list-style: none outside none;
   margin: 0 0 30px;
   padding: 0;
@@ -1020,8 +1020,8 @@ h2.title {
 }
 
 .category-tab ul  li  a:hover{
-	background:#FE980F;
-	color:#fff;
+	background:#fff;
+	color: #000;;
 }
 
 .nav-tabs  li.active  a, .nav-tabs  li.active  a:hover, .nav-tabs  li.active  a:focus {
@@ -1029,9 +1029,9 @@ h2.title {
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  background-color: #FE980F;
+  background-color: #CD1818;
   border:0px;
-  color: #FFFFFF;
+  color: #fff;
   cursor: default;
   margin-right:0;
   margin-left:0;
@@ -1219,7 +1219,7 @@ h2.title {
 }
 
 .product-information {
-  border: 1px solid #F7F7F0;
+  border: 1px solid #f1f1e3;
   overflow: hidden;
   padding-bottom: 60px;
   padding-left: 60px;
@@ -1232,18 +1232,22 @@ h2.title {
 	top:0;
 	left:0
 }
-
 .product-information h2 {
   color: #363432;
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
+  font-size: 19px;
   margin-top: 0;
+  
 }
-
+.product-information .newarrival h2
+{
+  font-size: 30px;
+}
 .product-information p {
   color: #696763;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 5px;
+  font-size: 20px;
 }
 
 .product-information span {
@@ -1253,7 +1257,7 @@ h2.title {
 }
 
 .product-information span span {
-  color: #FE980F;
+  color: #CD1818;
   float: left;
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
@@ -1263,7 +1267,7 @@ h2.title {
 }
 .product-information span input {
   border: 1px solid #DEDEDC;
-  color: #696763;
+  color: #000;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -1286,7 +1290,7 @@ h2.title {
 
 
 .cart {
-  background: #FE980F;
+  background: #CD1818;
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
@@ -1331,13 +1335,13 @@ h2.title {
 }
 
 #reviews ul li a i{
-	color:#FE980F;
+	color:#000000;
 	padding-right:8px;
 }
 
 #reviews ul li a:hover{
 	background:#fff;
-	color:#FE980F;
+	color:#CD1818;
 }
 
 #reviews p{
@@ -2396,10 +2400,11 @@ h2.title {
 }
 
 .btn.btn-primary {
-  background:#FE980F;
+  background:#CD1818;
   border: 0 none;
   border-radius: 0;
   margin-top: 16px;
+  color: #FFF;
 }
 
 .blank-arrow {
@@ -2718,6 +2723,6 @@ h2.title {
 }
 
 .checked {
-  color: orange;
+  color: #CD1818;
 }
 
