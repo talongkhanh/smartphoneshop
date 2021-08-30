@@ -135,7 +135,7 @@
 						<tr>
 							<td colspan="5"><center>
 							@php 
-							echo 'Làm ơn thêm sản phẩm vào giỏ hàng';
+							echo 'Bạn cần thêm sản phẩm vào giỏ hàng';
 							@endphp
 							</center></td>
 						</tr>
