@@ -225,7 +225,7 @@ a#scrollUp i{
 .header-bottom {
   padding-bottom: 20px;
   padding-top: 20px;
-  background: #03a9f4;
+  background: #CD1818;
 }
 
 .navbar-collapse.collapse{
@@ -245,7 +245,7 @@ a#scrollUp i{
 	color: #ffffff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
-	font-weight: 300;
+	font-weight: 600;
 	padding: 0;
 	padding-bottom: 10px;
 }
@@ -2709,7 +2709,7 @@ h2.title {
 .panel-heading{
   color: white !important;
   padding: 10px 20px;
-  background: #03A9F4 !important;
+  background: #CD1818 !important;
 }
 .panel-heading:hover{
   background: red!important;

@@ -81,17 +81,17 @@
                                     <span class="icon-bar"></span>
                                 </button>
                             </div>
-                            <div class="mainmenu pull-left" style="padding-top: 6px">
+                            <div class="mainmenu pull-left" style="padding-top: 6px; font-weight: 600 !important;">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="{{URL::to('/trang-chu')}}" class="active">Trang chủ</a></li>
-                                    <li class="dropdown"><a href="#">Sản phẩm</a>
+                                    <li class="dropdown"><a href="#">Sản phẩm <i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
                                             @foreach($category as $key => $danhmuc)
                                                 <li><a href="{{URL::to('/danh-muc/'.$danhmuc->slug_category_product)}}">{{$danhmuc->category_name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
+                                    <li class="dropdown"><a href="#">Tin tức <i class="fa fa-angle-down"></i></a>
 
                                     </li>
                                     <li><a href="{{URL::to('/gio-hang')}}">Giỏ hàng</a></li>
@@ -116,8 +116,8 @@
                             <form action="{{URL::to('/tim-kiem')}}" method="POST">
                                 {{csrf_field()}}
                                 <div class="search_box pull-right">
-                                    <input type="text" name="keywords_submit" placeholder="Tìm kiếm sản phẩm"/>
-                                    <input type="submit" style="margin-top:0;color:#666; background: #6fcbff" name="search_items" class="btn btn-success btn-sm" value="Tìm kiếm">
+                                    <input type="text" name="keywords_submit" style="width: 250px" placeholder="Tìm kiếm sản phẩm"/>
+                                    <button type="submit" name="search_items" style="padding: 6px 10px"><i class="fa fa-search"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -217,65 +217,67 @@
         </div>
     </section>
 
-    <footer class="footer-distributed">
+    <footer class="footer-distributed" style="background: #1E232B">
+        <div class="container">
+            <div class="footer-left">
 
-        <div class="footer-left">
+                <h3>S<span>-Phone</span></h3>
 
-            <h3>S<span>-Phone</span></h3>
+                <p class="footer-links">
+                    <a href="#" class="link-1">Home</a>
 
-            <p class="footer-links">
-                <a href="#" class="link-1">Home</a>
+                    <a href="#">Blog</a>
 
-                <a href="#">Blog</a>
+                    <a href="#">Pricing</a>
 
-                <a href="#">Pricing</a>
+                    <a href="#">About</a>
 
-                <a href="#">About</a>
+                    <a href="#">Faq</a>
 
-                <a href="#">Faq</a>
+                    <a href="#">Contact</a>
+                </p>
 
-                <a href="#">Contact</a>
-            </p>
+                <p class="footer-company-name" style="color: white">Copyright 2021 Deign Nhom18</p>
+            </div>
 
-            <p class="footer-company-name">Copyright 2021 Deign Nhom18</p>
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>295 Minh Khai</span> Bắc Từ Liêm, Hà Nội</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+84 0981 110 557</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:nhom18mnm@company.com" style="color: white">nhom18mnm@company.com</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span style="font-size: 20px">Shop smartphone</span>
+                    Chuyên cung cấp những loại điện thoại tốt nhất hiện nay
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
         </div>
 
-        <div class="footer-center">
-
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span>295 Minh Khai</span> Bắc Từ Liêm, Hà Nội</p>
-            </div>
-
-            <div>
-                <i class="fa fa-phone"></i>
-                <p>+84 0981 110 557</p>
-            </div>
-
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="mailto:support@company.com">nhom18mnm@company.com</a></p>
-            </div>
-
-        </div>
-
-        <div class="footer-right">
-
-            <p class="footer-company-about">
-                <span>Shop smartphone</span>
-                Chuyên cung cấp những loại điện thoại tốt nhất hiện nay
-            </p>
-
-            <div class="footer-icons">
-
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
-
-            </div>
-
-        </div>
 
     </footer>
     
