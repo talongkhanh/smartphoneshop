@@ -116,8 +116,13 @@
                             <form action="{{URL::to('/tim-kiem')}}" method="POST">
                                 {{csrf_field()}}
                                 <div class="search_box pull-right">
+<<<<<<< HEAD
                                     <input type="text" name="keywords_submit" style="width: 250px" placeholder="Tìm kiếm sản phẩm"/>
                                     <button type="submit" name="search_items" style="padding: 6px 10px"><i class="fa fa-search"></i></button>
+=======
+                                    <input type="text" name="keywords_submit" placeholder="Tìm kiếm sản phẩm"/>
+                                    <input type="submit" style="margin-top:0;color:#fff; background: #333" name="search_items" class="btn btn-success btn-sm" value="Tìm kiếm">
+>>>>>>> 9611abc (update)
                                 </div>
                             </form>
                         </div>

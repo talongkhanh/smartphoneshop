@@ -225,7 +225,11 @@ a#scrollUp i{
 .header-bottom {
   padding-bottom: 20px;
   padding-top: 20px;
+<<<<<<< HEAD
   background: #CD1818;
+=======
+  background:#9e0b0e; /*mau menu tren*/
+>>>>>>> 9611abc (update)
 }
 
 .navbar-collapse.collapse{
