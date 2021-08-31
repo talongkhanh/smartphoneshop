@@ -89,22 +89,22 @@
 							<div class="tab-pane fade" id="reviews" >
 								<div class="col-sm-12">
 									<ul>
-										<li><a href=""><i class="fa fa-user"></i>KhachHang</a></li>
-										<li><a href=""><i class="fa fa-clock-o"></i>8:41 AM</a></li>
-										<li><a href=""><i class="fa fa-calendar-o"></i>31 tháng 8 năm 2021</a></li>
+										<li><i class="fa fa-user"></i> KhachHang </li>
+										<li><i class="fa fa-clock-o"></i> 8:41 AM</a></li>
+										<li><i class="fa fa-calendar-o"></i> 31 tháng 8 năm 2021</li>
 									</ul>
 									<p>Bạn cảm thấy dịch vụ và chất lượng sản phẩm bên mình như nào ?</p>
 									<p><b>Đánh giá của bạn</b></p>
 									
 									<form action="#">
 										<span>
-											<input type="text" placeholder="Your Name"/>
-											<input type="email" placeholder="Email Address"/>
+											<input type="text" placeholder="Tên của bạn"/>
+											<input type="email" placeholder="Email của bạn"/>
 										</span>
-										<textarea name="" ></textarea>
-										<b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
+										<textarea name="" placeholder="Nội dung"></textarea>
+										<b>Đánh giá: </b> <img src="images/product-details/rating.png" alt="" />
 										<button type="button" class="btn btn-default pull-right">
-											Submit
+											Gửi đánh giá
 										</button>
 									</form>
 								</div>
