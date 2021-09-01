@@ -64,6 +64,5 @@
     <ul class="pagination pagination-sm m-t-none m-b-none">
         {!!$brand_by_id->links()!!}
     </ul>
-
     <!--/recommended_items-->
 @endsection
