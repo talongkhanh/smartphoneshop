@@ -14,6 +14,7 @@
 Route::get('/','HomeController@index' );
 Route::get('/trang-chu','HomeController@index');
 Route::post('/tim-kiem','HomeController@search');
+Route::get('/lien-he','ContactController@contact');
 
 //Danh muc san pham trang chu
 Route::get('/danh-muc/{slug_category_product}','CategoryProduct@show_category_home');
