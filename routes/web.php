@@ -126,11 +126,22 @@ Route::post('/select-feeship','DeliveryController@select_feeship');
 Route::post('/update-delivery','DeliveryController@update_delivery');
 
 //Banner
+// lấy slider theo id
 Route::get('/manage-slider/{slide_id}','SliderController@detail_slider');
+// sửa slider
 Route::post('/manage-slider/{slide_id}','SliderController@update_slider');
+// lấy tất cả slider
 Route::get('/manage-slider','SliderController@manage_slider');
+// mở form add slider
 Route::get('/add-slider','SliderController@add_slider');
+// insert slider
 Route::post('/insert-slider','SliderController@insert_slider');
+// bỏ kích hoạt slider
 Route::get('/unactive-slide/{slide_id}','SliderController@unactive_slide');
+// kích hoạt slider
 Route::get('/active-slide/{slide_id}','SliderController@active_slide');
+// xóa slider
 Route::get('/delete-slide/{slide_id}','SliderController@delete_slide');
+
+
+
