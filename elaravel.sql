@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th9 01, 2021 lúc 04:06 PM
--- Phiên bản máy phục vụ: 10.4.18-MariaDB
--- Phiên bản PHP: 7.3.27
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th9 02, 2021 lúc 06:07 AM
+-- Phiên bản máy phục vụ: 10.4.19-MariaDB
+-- Phiên bản PHP: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,7 +54,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_name`, `admin_phone`, `created_at`, `updated_at`) VALUES
-(1, 'admin@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', 'hieu tan', '0932023992', NULL, NULL);
+(1, 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'tran tam', '0932023992', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -285,12 +285,12 @@ CREATE TABLE `tbl_product` (
   `product_id` int(10) UNSIGNED NOT NULL,
   `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_quantity` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_sold` int(11) NOT NULL,
+  `product_sold` int(11) DEFAULT NULL,
   `product_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category_id` int(11) NOT NULL,
   `brand_id` int(11) NOT NULL,
   `product_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_status` int(11) NOT NULL,
@@ -303,10 +303,20 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_quantity`, `product_sold`, `product_slug`, `category_id`, `brand_id`, `product_desc`, `product_content`, `product_price`, `product_image`, `product_status`, `created_at`, `updated_at`) VALUES
-(1, 'Tay cầm chơi game PS4 màu đỏ', '5', 5, 'tay-cam-ps4-1', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 1, NULL, NULL),
-(2, 'Tay cầm chơi game PS4 màu trắng', '44', 6, 'tay-cam-choi-game-ps4-mau-trang-1', 3, 1, 'Tay cầm chơi game PS4 màu trắng', 'Tay cầm chơi game PS4 màu trắng', '500000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Trắng-Dualshock-4-white-GameStation89.jpg', 1, NULL, NULL),
-(3, 'Máy PS4 màu đỏ', '30', 0, 'may-ps4-mau-do', 2, 1, 'Máy PS4 màu đỏ', 'Máy PS4 màu đỏ', '3500000', 'sony-tung-ra-thi-truong-may-ps4-pro-marvels-spider-man-phien-ban-gioi-han-anh-382.jpg', 1, NULL, NULL),
-(4, 'Tay cầm chơi game PS4 màu đỏ', '30', 0, 'tay-cam-ps4-2', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 0, NULL, NULL);
+(15, 'Xiaomi redmi note 10', '20', NULL, 'xiaomi-redmi-note-10', 6, 4, '<p><strong>Nh&agrave; v&ocirc; địch mới của&nbsp;<a href=\"https://fptshop.com.vn/dien-thoai\" title=\"điện thoại thông minh\" type=\"điện thoại thông minh\">smartphone</a>&nbsp;gi&aacute; rẻ đ&atilde; xuất hiện,&nbsp;<a href=\"https://fptshop.com.vn/dien-thoai/xiaomi-redmi-note-10\" title=\"Redmi Note 10\" type=\"Redmi Note 10\">Xiaomi Redmi Note 10</a>&nbsp;ch&iacute;nh l&agrave; sự lựa chọn ho&agrave;n hảo với sức mạnh v&agrave; tốc độ cực đỉnh, 4 camera 48MP, m&agrave;n h&igrave;nh AMOLED c&ugrave;ng thời lượng pin bền bỉ đ&aacute;ng kinh ngạc.</strong></p>', NULL, '5400000', 'redmi_note1079.png', 0, NULL, NULL),
+(16, 'Xiaomi redmi note 9', '30', NULL, 'xiaomi-redmi-note-9', 6, 1, '<h3><a href=\"https://www.thegioididong.com/dtdd/xiaomi-redmi-note-9\" target=\"_blank\" title=\"Tham khảo giá điện thoại Xiaomi Redmi Note 9 chính hãng\" type=\"Tham khảo giá điện thoại Xiaomi Redmi Note 9 chính hãng\">Xiaomi Redmi Note 9</a>&nbsp;l&agrave; mẫu&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\" title=\"Tham khảo giá điện thoại smartphone chính hãng\" type=\"Tham khảo giá điện thoại smartphone chính hãng\">smartphone</a>&nbsp;tầm trung, c&acirc;n bằng giữa c&aacute;c yếu tố thiết kế, camera v&agrave; hiệu năng, đ&aacute;p ứng mượt m&agrave; hầu hết c&aacute;c nhu cầu từ cơ bản đến n&acirc;ng cao của người d&ugrave;ng.</h3>', NULL, '4190000', 'xiaomi-redmi-note-9-note28.jpg', 0, NULL, NULL),
+(17, 'Samsung galaxy Note 10', '10', NULL, 'samsung-galaxy-note-10', 1, 3, '<p>Samsung Galaxy Note 10 Plus 5G bản H&agrave;n 256GB /12 GB nhập khẩu ch&iacute;nh h&atilde;ng với nhiều ưu đ&atilde;i, trả g&oacute;p 0%.</p>', NULL, '8990000', 'ssnote1063.png', 0, NULL, NULL),
+(18, 'iPhone 11 chính hãng', '18', NULL, 'iphone-11-chinh-hang', 3, 2, '<p>M&aacute;y sử dụng m&agrave;n h&igrave;nh IPS LCD, 6.1&quot;, Liquid Retina. Hỗ trợ hệ điều h&agrave;nh ios 14, sử dụng chip Apple A13 Bionic 6 nh&acirc;n</p>', NULL, '14799000', 'ip1197.png', 0, NULL, NULL),
+(19, 'iPhone 10 chính hãng', '30', NULL, 'iphone-10-chinh-hang', 3, 2, '<p>iPhone X, trả g&oacute;p 0% tại Di Động Mới. L&agrave; điện thoại th&ocirc;ng minh kỷ niệm 10 năm apple iphone được b&aacute;n ra</p>', NULL, '7690000', 'ip1081.png', 0, NULL, NULL),
+(20, 'Samsung galaxy s10', '10', NULL, 'samsung-galaxy-s10', 1, 3, '<h2>L&agrave; chiếc&nbsp;<a href=\"https://www.thegioididong.com/dtdd-oppo\" target=\"_blank\" title=\"Tham khảo các dòng điện thoại OPPO tại Thegioididong.com\" type=\"Tham khảo các dòng điện thoại OPPO tại Thegioididong.com\">s</a>amsung&nbsp;mới nhất sở hữu c&ocirc;ng nghệ sạc VOOC đột ph&aacute;,&nbsp;<a href=\"https://www.thegioididong.com/dtdd/oppo-f9\" target=\"_blank\" title=\"Chi tiết điện thoại OPPO F9 tại Thegioididong.com\" type=\"Chi tiết điện thoại OPPO F9 tại Thegioididong.com\">n</a>&oacute;&nbsp;c&ograve;n được ưu &aacute;i nhiều t&iacute;nh năng nổi trội như thiết kế mặt lưng chuyển m&agrave;u độc đ&aacute;o, m&agrave;n h&igrave;nh tr&agrave;n viền giọt nước v&agrave; camera chụp ch&acirc;n dung t&iacute;ch hợp tr&iacute; tuệ nh&acirc;n tạo AI ho&agrave;n hảo.</h2>', NULL, '7190000', 'opf989.jpg', 0, NULL, NULL),
+(21, 'Ipad Pro 2020', '8', NULL, 'ipad-pro-2020', 5, 2, '<p><a href=\"https://cellphones.com.vn/tablet/ipad-pro.html\">iPad Pro 2020</a>&nbsp;12.9 inch WiFi được trang bị c&ocirc;ng nghệ m&agrave;n h&igrave;nh Liquid Retina Display độ s&aacute;ng 600 nits với c&aacute;c c&ocirc;ng nghệ hỗ trợ như Pro Motion v&agrave; True Tone, gi&uacute;p cho h&igrave;nh ảnh v&agrave; m&agrave;u sắc được thể hiện một c&aacute;ch tự nhi&ecirc;n, sống động v&agrave; trung thực.</p>', NULL, '23500000', 'ipadpro89.jpg', 0, NULL, NULL),
+(22, 'Samsung galaxy Tab S7 Plus', '10', NULL, 'samsung-galaxy-tab-s7-plus', 5, 3, '<p>Chiếc Samsung Tab S7 Plus l&agrave; sản phẩm rất được Samsung ưu &aacute;i, sở hữu thiết kế cứng c&aacute;p với chất liệu kim loại s&aacute;ng b&oacute;ng v&agrave; c&aacute;c g&oacute;c được bo cong một c&aacute;ch ho&agrave;n hảo. Mang đến cho sản phẩm kh&ocirc;ng chỉ l&agrave; sự cứng c&aacute;p, m&agrave; được h&ograve;a hợp tuyệt vời c&ugrave;ng những đường n&eacute;t mềm mại.</p>', NULL, '20700000', 'samsung-galaxy-tab-s7-plus-340.jpg', 0, NULL, NULL),
+(23, 'Loa JBL Charge 4', '20', NULL, 'loa-jbl-4', 7, 4, '<h2>Loa JBL Charge 4 &ndash; Chống nước IPX7, &acirc;m thanh sống động</h2>', NULL, '2650000', 'jbl-charge-497.jpg', 0, NULL, NULL),
+(24, 'Samsung galaxy Note 20', '10', NULL, 'samsung-galaxy-note-20', 2, 3, '<h3>Với thiết kế camera trước nốt ruồi quen thuộc, cụm camera h&igrave;nh chữ nhật mới lạ c&ugrave;ng với vi xử l&yacute; Exynos 990 cao cấp của ch&iacute;nh&nbsp;<a href=\"https://thegioididong.com/samsung\" target=\"_blank\" title=\"Tham khảo sản phẩm Samsung kinh doanh tại Thegioididong.com\" type=\"Tham khảo sản phẩm Samsung kinh doanh tại Thegioididong.com\">Samsung</a>&nbsp;chắc hẳn sẽ mang lại một trải nghiệm th&uacute; vị c&ugrave;ng hiệu năng mạnh mẽ.</h3>', NULL, '23000000', 'samsung-galaxy-note-20-thumbvideo-780x43322.jpg', 0, NULL, NULL),
+(25, 'Tai nghe Bluetooth True Wireless Galaxy Buds Pro', '30', NULL, 'tai-nghe-bluetooth-trrue-wireless', 7, 4, '<h3>Thiết kế sang trọng, thời thượng c&ugrave;ng hộp sạc đồng nhất m&agrave;u sắc đi k&egrave;m</h3>', NULL, '3990000', 'tai-nghe-bluetooth-true-wireless-galaxy-buds-pro-note12.jpg', 0, NULL, NULL),
+(26, 'I Phone 12 64GB', '16', NULL, 'iphone-12', 3, 2, '<p>Apple đ&atilde; trang bị con chip mới nhất của h&atilde;ng (t&iacute;nh đến 11/2020) cho iPhone 12 đ&oacute; l&agrave;&nbsp;<a href=\"https://www.thegioididong.com/hoi-dap/tim-hieu-ve-chip-apple-a14-bionic-tren-iphone-12-va-ipad-1290695\" target=\"_blank\" title=\"Tìm hiểu chip A14 Bionic là gì?\">A14 Bionic</a>, được sản xuất tr&ecirc;n tiến tr&igrave;nh 5 nm với hiệu suất ổn định hơn so với chip A13 được trang bị tr&ecirc;n phi&ecirc;n bản tiền nhiệm&nbsp;<a href=\"https://www.thegioididong.com/dtdd/iphone-11\" target=\"_blank\" title=\"Tham khảo điện thoại iPhone 11 chính hãng tại Thế Giới Di Động\">iPhone 11</a>.</p>', NULL, '20490000', 'vi-vn-iphone-12-178.jpg', 0, NULL, NULL),
+(27, 'Xiaomi redmi 9T', '22', NULL, 'xiaomi-redmi-9-T', 6, 1, '<h3><a href=\"https://www.thegioididong.com/dtdd-xiaomi\" rel=\"noopener\" target=\"_blank\" title=\"Tham khảo giá điện thoại, smartphone Xiaomi chính hãng tại Thegioididong.com\" type=\"Tham khảo giá điện thoại, smartphone Xiaomi chính hãng tại Thegioididong.com\">Xiaomi</a>&nbsp;tiếp tục &ldquo;ph&aacute; đảo&rdquo; ph&acirc;n kh&uacute;c gi&aacute; rẻ tầm trung với&nbsp;<a href=\"https://www.thegioididong.com/dtdd/xiaomi-redmi-9t-6gb\" rel=\"noopener\" target=\"_blank\" title=\"Tham khảo giá điện thoại Xiaomi Redmi 9T chính hãng tại Thegioididong.com\" type=\"Tham khảo giá điện thoại Xiaomi Redmi 9T chính hãng tại Thegioididong.com\">Redmi 9T 6GB/128GB</a>. Nổi bật với thiết kế trẻ trung, m&agrave;n h&igrave;nh si&ecirc;u lớn, bộ 4 camera AI, pin cực khủng, mẫu&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" rel=\"noopener\" target=\"_blank\" title=\"Tham khảo các dòng điện thoại, smartphone chính hãng, giá tốt đang kinh doanh tại Thegioididong.com\" type=\"Tham khảo các dòng điện thoại, smartphone chính hãng, giá tốt đang kinh doanh tại Thegioididong.com\">smartphone</a>&nbsp;n&agrave;y sẽ thỏa m&atilde;n mọi nhu cầu giải tr&iacute;, niềm đam m&ecirc; s&aacute;ng tạo v&agrave; kh&aacute;m ph&aacute; kh&ocirc;ng ngừng của giới trẻ.</h3>', NULL, '3900000', 'xiaomi-redmi-note-9-note8.jpg', 0, NULL, NULL),
+(28, 'Tai nghe chụp tai Mozard IP-840', '32', NULL, 'tai-nghe', 7, 4, '<p>M&agrave;u sắc trẻ trung, kiểu d&aacute;ng gọn đẹp, ph&ugrave; hợp cho c&aacute;c bạn trẻ.</p>', NULL, '350000', 'tai-nghe-chup-tai-mozard-ip-840-314120-02412244.jpg', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12552,7 +12562,7 @@ ALTER TABLE `tbl_order_details`
 -- AUTO_INCREMENT cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_shipping`
