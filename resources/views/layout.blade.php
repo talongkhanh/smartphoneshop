@@ -91,8 +91,12 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="#">Tin tức <i class="fa fa-angle-down"></i></a>
-
+                                    <li class="dropdown"><a href="#">Hãng <i class="fa fa-angle-down"></i></a>
+                                        <ul role="menu" class="sub-menu">
+                                            @foreach($brand as $key => $value)
+                                                <li><a href="{{URL::to('/thuong-hieu/'.$value->brand_slug)}}">{{$value->brand_name}}</a></li>
+                                            @endforeach
+                                        </ul>
                                     </li>
                                     <li><a href="{{URL::to('/gio-hang')}}">Giỏ hàng</a></li>
                                     <li><a href="{{URL::to('/lien-he')}}">Liên hệ</a></li>
@@ -301,13 +305,13 @@
             $('.send_order').click(function(){
                 swal({
                   title: "Xác nhận đơn hàng",
-                  text: "Đơn hàng sẽ không được hoàn trả khi đặt,bạn có muốn đặt không?",
+                  text: "Đơn hàng sẽ không được hoàn trả khi đặt, bạn có muốn đặt không?",
                   type: "warning",
                   showCancelButton: true,
                   confirmButtonClass: "btn-danger",
-                  confirmButtonText: "Cảm ơn, Mua hàng",
+                  confirmButtonText: "Cảm ơn đã Mua hàng",
 
-                    cancelButtonText: "Đóng,chưa mua",
+                    cancelButtonText: "Đóng",
                     closeOnConfirm: false,
                     closeOnCancel: false
                 },
@@ -328,7 +332,7 @@
                             method: 'POST',
                             data:{shipping_email:shipping_email,shipping_name:shipping_name,shipping_address:shipping_address,shipping_phone:shipping_phone,shipping_notes:shipping_notes,_token:_token,order_fee:order_fee,order_coupon:order_coupon,shipping_method:shipping_method},
                             success:function(){
-                               swal("Đơn hàng", "Đơn hàng của bạn đã được gửi thành công", "success");
+                               swal("Đơn hàng", "Đơn hàng của bạn đã được gửi thành công !", "success");
                             }
                         });
 
@@ -337,7 +341,7 @@
                         } ,3000);
 
                       } else {
-                        swal("Đóng", "Đơn hàng chưa được gửi, làm ơn hoàn tất đơn hàng", "error");
+                        swal("Đóng", "Đơn hàng chưa được gửi, làm ơn hoàn tất đơn hàng !", "error");
 
                       }
               
@@ -368,12 +372,12 @@
                     success:function(){
 
                         swal({
-                                title: "Đã thêm sản phẩm vào giỏ hàng",
-                                text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán",
+                                title: "Đã thêm vào giỏ hàng",
+                                text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán. Xin cảm ơn !",
                                 showCancelButton: true,
-                                cancelButtonText: "Xem tiếp",
+                                cancelButtonText: "Tiếp tục mua hàng",
                                 confirmButtonClass: "btn-success",
-                                confirmButtonText: "Đi đến giỏ hàng",
+                                confirmButtonText: "Giỏ hàng",
                                 closeOnConfirm: false
                             },
                             function() {
@@ -419,7 +423,7 @@
                 var xaid = $('.wards').val();
                 var _token = $('input[name="_token"]').val();
                 if(matp == '' && maqh =='' && xaid ==''){
-                    alert('Làm ơn chọn để tính phí vận chuyển');
+                    alert('Làm ơn chọn để tính phí vận chuyển, xin cảm ơn!');
                 }else{
                     $.ajax({
                     url : '{{url('/calculate-fee')}}',

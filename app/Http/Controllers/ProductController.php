@@ -61,25 +61,25 @@ class ProductController extends Controller
             $get_image->move('public/uploads/product',$new_image);
             $data['product_image'] = $new_image;
             DB::table('tbl_product')->insert($data);
-            Session::put('message','Thêm sản phẩm thành công');
+            Session::put('message','Thêm sản phẩm thành công !');
             return Redirect::to('add-product');
         }
         $data['product_image'] = '';
     	DB::table('tbl_product')->insert($data);
-    	Session::put('message','Thêm sản phẩm thành công');
+    	Session::put('message','Thêm sản phẩm thành công !');
     	return Redirect::to('all-product');
     }
     public function unactive_product($product_id){
          $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>1]);
-        Session::put('message','Không kích hoạt sản phẩm thành công');
+        Session::put('message','Không kích hoạt sản phẩm thành công !');
         return Redirect::to('all-product');
 
     }
     public function active_product($product_id){
          $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>0]);
-        Session::put('message','Không kích hoạt sản phẩm thành công');
+        Session::put('message','Không kích hoạt sản phẩm thành công !');
         return Redirect::to('all-product');
     }
     public function edit_product($product_id){

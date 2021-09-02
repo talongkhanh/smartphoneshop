@@ -23,9 +23,9 @@ class ContactController extends Controller
         //slide
         $slider = Slider::orderBy('slider_id','DESC')->where('slider_status','1')->take(4)->get();
         //seo
-        $meta_desc = "Smartphone Shop";
-        $meta_keywords = "Smartphone Shop";
-        $meta_title = "Smartphone Shop";
+        $meta_desc = "Liên hệ";
+        $meta_keywords = "Liên hệ";
+        $meta_title = "Liên hệ";
         $url_canonical = $request->url();
         //--seo
 
