@@ -2,17 +2,24 @@
 @section('admin_content')
 <div class="row">
             <div class="col-lg-12">
-                    <section class="panel">
-                        <header class="panel-heading">
+                <section class="panel">
+                    <header class="panel-heading">
                            Thêm Slider
                         </header>
-                         <?php
-                            $message = Session::get('message');
-                            if($message){
-                                echo '<span class="text-alert">'.$message.'</span>';
-                                Session::put('message',null);
-                            }
-                            ?>
+                        <?php
+                        $message = Session::get('message');
+                        if($message){
+                        ?>
+                        <div id="snackbar"><?php echo $message; ?></div>
+                        <script>
+                        var x = document.getElementById("snackbar");
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+                        </script>
+                        <?php
+                            Session::put('message',null);
+                        }
+                    ?>
                         <div class="panel-body">
 
                             <div class="position-center">
@@ -40,6 +47,7 @@
                                 </div>
                                
                                 <button type="submit" name="add_slider" class="btn btn-info">Thêm slider</button>
+                                <a href="{{URL::to('/manage-slider')}}" class="btn btn-primary">Danh sách slider</a>
                                 </form>
                             </div>
 
