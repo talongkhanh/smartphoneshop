@@ -514,6 +514,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
 .top-nav .username {
     font-size:13px;
     color:#fff;
+    padding-left: 12px;
 }
 .top-nav ul.top-menu>li>a {
     border-radius: 100px;
@@ -3206,4 +3207,26 @@ span.text-alert {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
-  </style>
+.wrap-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.middle-vertical {
+    vertical-align: middle !important;
+}
+.empty-state {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.disable-btn {
+    opacity: .3;
+    pointer-events: none;
+}
+.active-btn {
+    color: #f00 !important;
+    pointer-events: none;
+}
