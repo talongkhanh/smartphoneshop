@@ -138,7 +138,7 @@ class SliderController extends Controller
     public function unactive_slide($slide_id){
         $this->AuthLogin();
         DB::table('tbl_slider')->where('slider_id',$slide_id)->update(['slider_status'=>0]);
-        Session::put('message','Không kích hoạt slider thành công');
+        Session::put('message','Không kích hoạt slider thành công !');
         return Redirect::to('manage-slider');
 
     }
@@ -146,7 +146,7 @@ class SliderController extends Controller
     public function active_slide($slide_id){
         $this->AuthLogin();
         DB::table('tbl_slider')->where('slider_id',$slide_id)->update(['slider_status'=>1]);
-        Session::put('message','Kích hoạt slider thành công');
+        Session::put('message','Kích hoạt slider thành công !');
         return Redirect::to('manage-slider');
     }
     // xóa slide
