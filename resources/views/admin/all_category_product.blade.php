@@ -23,10 +23,7 @@
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-            <th style="width:20px;">
-              <label class="i-checks m-b-none">
-                <input type="checkbox"><i></i>
-              </label>
+            <th style="width:5%" class="text-center">STT
             </th>
             <th style="width: 40%" class="text-left">Tên danh mục</th>
             <th style="width: 20%" >Slug</th>
@@ -38,7 +35,7 @@
         <tbody>
           @foreach($all_category_product as $key => $cate_pro)
           <tr>
-            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td class="text-center">{{ $loop->index }}</td>
             <td>{{ $cate_pro->category_name }}</td>
             <td>{{ $cate_pro->slug_category_product }}</td>
             <td style="width: 15%" class="text-center"><span class="text-ellipsis">
@@ -56,7 +53,7 @@
             </span></td>
 
             <td style="width: 15%" class="text-center">
-              <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active styling-edit" ui-toggle-class="">
+              <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active styling-edit m-r-5" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
               <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
