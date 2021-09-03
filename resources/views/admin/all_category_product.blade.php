@@ -68,7 +68,7 @@
       <div class="row">
 
         <div class="col-sm-5 text-left">
-          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị {{ $all_category_product->count() }} trên tổng số {{ $all_category_product->total() }} bản ghi. </small>
+          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị <b>{{ $all_category_product->count() }}</b> trên tổng số <b>{{ $all_category_product->total() }}</b> bản ghi. </small>
         </div>
         <div class="col-sm-7 text-right text-center-xs">
             {{ $all_category_product->links() }}
