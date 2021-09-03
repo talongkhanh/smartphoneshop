@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                 <section class="panel">
                     <header class="panel-heading">
-                           Thêm Slider
+                        Thêm Slider
                         </header>
                         <?php
                         $message = Session::get('message');
@@ -45,7 +45,6 @@
                                             
                                     </select>
                                 </div>
-                               
                                 <button type="submit" name="add_slider" class="btn btn-info">Thêm slider</button>
                                 <a href="{{URL::to('/manage-slider')}}" class="btn btn-primary">Danh sách slider</a>
                                 </form>
@@ -53,6 +52,5 @@
 
                         </div>
                     </section>
-
             </div>
 @endsection

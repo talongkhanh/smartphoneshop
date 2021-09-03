@@ -19,11 +19,11 @@ class SliderController extends Controller
         }
     }
     public function manage_slider(Request $request){
+        $search = $request->input('q');
         $page_size = 3;
         $all_sliders = Slider::orderBy('slider_id','DESC')->get();
         $total_record = count($all_sliders);
         $total_page = ceil($total_record / $page_size);
-        $search = $request->input('q');
         $page_index = $request->input('page');
         if(!isset($page_index)) {
         $page_index = 1;
@@ -33,11 +33,21 @@ class SliderController extends Controller
             ->offset($offset)
             ->limit($page_size)
             ->get();
+        if(isset($search)) {
+            Session::put('q',$search);
+            $all_slide = Slider::query()
+            ->where('slider_name', 'LIKE', "%{$search}%")
+            ->offset($offset)
+            ->limit($page_size)
+            ->get();
+        }
+
         $start_page = $offset + 1;
         $end_page = $page_size * $page_index;
-        if($end_page > $total_page) {
-            $end_page = $total_page;
+        if($end_page > $total_record) {
+            $end_page = $total_record;
         }
+        
 
         Session::put('prev_page',$page_index - 1);
         Session::put('next_page',$page_index + 1);
@@ -50,16 +60,7 @@ class SliderController extends Controller
 
         if(!isset($search)) {
             Session::put('q','');
-    	    return view('admin.slider.list_slider')->with(compact('all_slide'));
         }
-
-        Session::put('q',$search);
-        $all_slide = Slider::query()
-        ->where('slider_name', 'LIKE', "%{$search}%")
-        ->offset($offset)
-        ->limit($page_size)
-        ->get();
-
         return view('admin.slider.list_slider')->with(compact('all_slide'));
     }
     // show màn hình thêm slide
@@ -138,7 +139,7 @@ class SliderController extends Controller
     public function unactive_slide($slide_id){
         $this->AuthLogin();
         DB::table('tbl_slider')->where('slider_id',$slide_id)->update(['slider_status'=>0]);
-        Session::put('message','Không kích hoạt slider thành công');
+        Session::put('message','Không kích hoạt slider thành công !');
         return Redirect::to('manage-slider');
 
     }
@@ -146,7 +147,7 @@ class SliderController extends Controller
     public function active_slide($slide_id){
         $this->AuthLogin();
         DB::table('tbl_slider')->where('slider_id',$slide_id)->update(['slider_status'=>1]);
-        Session::put('message','Kích hoạt slider thành công');
+        Session::put('message','Kích hoạt slider thành công !');
         return Redirect::to('manage-slider');
     }
     // xóa slide

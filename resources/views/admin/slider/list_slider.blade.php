@@ -57,7 +57,6 @@
             <th>Hình ảnh</th>
             <th>Mô tả</th>
             <th>Trạng thái</th>
-            
             <th style="width:30px;"></th>
           </tr>
         </thead>
@@ -82,10 +81,9 @@
               ?>
             </span></td>
             <td class="middle-vertical">
-              <a onclick="return confirm('Bạn có chắc là muốn xóa slide này ko?')" href="{{URL::to('/delete-slide/'.$slide->slider_id)}}" class="active styling-edit" ui-toggle-class="">
-                <i class="fa fa-times text-danger text"></i>
+              <a onclick="return confirm('Bạn có chắc là muốn xóa slide này ko?')" href="{{URL::to('/delete-slide/'.$slide->slider_id)}}" class="active styling-edit btn btn-sm btn-danger" ui-toggle-class="">
+                Xóa
               </a>
-
             </td>
           </tr>
           @endforeach
@@ -97,11 +95,10 @@
     
     <footer class="panel-footer">
       <div class="row wrap-navigation">
-        
         <div class="col-sm-5 text-left">
-          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị từ <b><?php echo Session::get('start_page') ?> đến <?php echo Session::get('end_page') ?></b> Trên <b><?php echo Session::get('total_record') ?></b> Slider / Mỗi trang <b><?php echo Session::get('page_size') ?> bản ghi</small>
+          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị từ <b><?php echo Session::get('start_page') ?> đến <?php echo Session::get('end_page') ?></b> Trên <b><?php echo Session::get('total_record') ?></b> Slider / Mỗi trang <b><?php echo Session::get('page_size') ?></b> bản ghi</small>
         </div>
-        <div class="col-sm-7 text-right text-center-xs">                
+        <div class="col-sm-7 text-center-xs" style="display: flex; justify-content: flex-end">                
           <ul style="display: flex;" class="pagination pagination-sm m-t-none m-b-none">
             <li><a class="<?php if(Session::get('page_index') == 1) {echo 'disable-btn';} ?>" href="{{URL::to('/manage-slider?page='.Session::get('prev_page'))}}"><i class="fa fa-chevron-left"></i></a></li>
               @for ($i = 1; $i <= Session::get('total_page'); $i++)

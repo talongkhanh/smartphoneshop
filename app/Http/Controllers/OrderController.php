@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Session;
 use App\Feeship;
 use App\Shipping;
 use App\Order;
@@ -114,7 +114,7 @@ class OrderController extends Controller
 			border:1px solid #000;
 		}
 		</style>
-		<h1><centerCông ty TNHH một thành viên ABCD</center></h1>
+		<h1><center>Nhóm 18 Mã nguồn mở</center></h1>
 		<h4><center>Độc lập - Tự do - Hạnh phúc</center></h4>
 		<p>Người đặt hàng</p>
 		<table class="table-styling">
@@ -250,6 +250,7 @@ class OrderController extends Controller
 		return $output;
 
 	}
+	// chi tiết đơn hàng
 	public function view_order($order_code){
 		$order_details = OrderDetails::with('product')->where('order_code',$order_code)->get();
 		$order = Order::where('order_code',$order_code)->get();
@@ -279,8 +280,39 @@ class OrderController extends Controller
 		return view('admin.view_order')->with(compact('order_details','customer','shipping','order_details','coupon_condition','coupon_number','order','order_status'));
 
 	}
-    public function manage_order(){
-    	$order = Order::orderby('created_at','DESC')->get();
+	// danh sách đơn hàng
+    public function manage_order(Request $request){
+		$page_size = 6;
+    	$orders = Order::orderby('created_at','DESC')->get();
+		$total_record = count($orders);
+		$total_page = ceil($total_record / $page_size);
+		$page_index = $request->input('page');
+		if(!isset($page_index)) {
+			$page_index = 1;
+		}
+		$offset = (($page_index - 1) * $page_size);
+		$order = Order::orderby('created_at','DESC')
+		->offset($offset)
+		->limit($page_size)
+		->get();
+		$start_page = $offset + 1;
+        $end_page = $page_size * $page_index;
+        if($end_page > $total_record) {
+            $end_page = $total_record;
+        }
+		Session::put('prev_page',$page_index - 1);
+        Session::put('next_page',$page_index + 1);
+        Session::put('page_index',$page_index);
+        Session::put('page_size',$page_size);
+        Session::put('end_page',$end_page);
+        Session::put('start_page',$start_page);
+        Session::put('total_page',$total_page);
+        Session::put('total_record',$total_record);
+
+		foreach ($order as $key => $value) {
+			$value->created_at = date_format(date_create($value->created_at),"d/m/Y");
+		}
+
     	return view('admin.manage_order')->with(compact('order'));
     }
 }

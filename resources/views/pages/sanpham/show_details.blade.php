@@ -2,22 +2,6 @@
 @section('content')
     <style>
 
-        body {
-            display: grid;
-            grid-template-rows: 1fr;
-            font-family: "Raleway", sans-serif;
-        }
-
-        h3 {
-            letter-spacing: 1.2px;
-            color: #a6a6a6;
-        }
-
-        img {
-            max-width: 100%;
-            filter: drop-shadow(1px 1px 3px #a6a6a6);
-        }
-
         /* ----- Product Section ----- */
         .product {
             display: grid;
@@ -48,66 +32,22 @@
         .photo-main {
             border-radius: 6px 6px 0 0;
             background-color: #ffffff;
-            background: radial-gradient(#e5f89e, #96e001);
-
+        }
         .controls {
             display: flex;
             justify-content: space-between;
             padding: 0.8em;
             color: #fff;
-
-        i {
-            cursor: pointer;
         }
-
-        }
-
-        img {
-            position: absolute;
-            left: -3.5em;
-            top: 2em;
-            max-width: 110%;
-            filter: saturate(150%) contrast(120%) hue-rotate(10deg) drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
-        }
-
         .photo-album {
             padding: 0.7em 1em;
             border-radius: 0 0 6px 6px;
             background-color: #fff;
-
-        ul {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        li {
-            float: left;
-            width: 55px;
-            height: 55px;
-            padding: 7px;
-            border: 1px solid #a6a6a6;
-            border-radius: 3px;
-        }
-
         }
 
         /* ----- Informations Section ----- */
         .product__info {
             padding: 0.8em 0;
-        }
-
-        .title {
-
-        h1 {
-            margin-bottom: 0.1em;
-            color: #4c4c4c;
-            font-size: 1.5em;
-            font-weight: 900;
-        }
-
-        span {
-            font-size: 0.7em;
-            color: #a6a6a6;
         }
 
         .price {
@@ -116,90 +56,15 @@
             font-size: 1.2em;
         }
 
-        span {
-            padding-left: 0.15em;
-            font-size: 2.9em;
-        }
-
-        }
-
         .variant {
             overflow: auto;
-
-        h3 {
-            margin-bottom: 1.1em;
         }
 
-        li {
-            float: left;
-            width: 35px;
-            height: 35px;
-            padding: 3px;
-            border: 1px solid transparent;
-            border-radius: 3px;
-            cursor: pointer;
-
-        :first-child,
-        :hover {
-            border: 1px solid #a6a6a6;
-        }
-
-        li:not(:first-child) {
-            margin-left: 0.1em;
-        }
 
         .description {
             clear: left;
             margin: 2em 0;
-
-        h3 {
-            margin-bottom: 1em;
         }
-
-        ul {
-            font-size: 0.8em;
-            list-style: disc;
-            margin-left: 1em;
-        }
-
-        li {
-            text-indent: -0.6em;
-            margin-bottom: 0.5em;
-        }
-
-        .buy--btn {
-            padding: 1.5em 3.1em;
-            border: none;
-            border-radius: 7px;
-            font-size: 0.8em;
-            font-weight: 700;
-            letter-spacing: 1.3px;
-            color: #fff;
-            background-color: #ff3f40;
-            box-shadow: 2px 2px 25px -7px #4c4c4c;
-            cursor: pointer;
-        }
-
-        :active {
-            transform: scale(0.97);
-        }
-
-        /* ----- Footer Section ----- */
-        footer {
-            padding: 1em;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        a {
-            color: #4c4c4c;
-        }
-
-        :hover {
-            color: #ff3f40;
-        }
-
-
     </style>
     @foreach($product_details as $key => $value)
         <section class="product">
@@ -225,7 +90,7 @@
                        class="cart_product_price_{{$value->product_id}}">
                 <div class="product__info">
                     <div class="title">
-                        <h1>{{$value->product_name}}</h1>
+                        <h3>{{$value->product_name}}</h3>
                         <span>Mã ID: {{$value->product_id}}</span>
                     </div>
                     <div class="price">
