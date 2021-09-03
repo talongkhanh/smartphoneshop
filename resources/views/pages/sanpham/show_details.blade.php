@@ -190,7 +190,7 @@
                 <div class="item active">
                     @foreach($relate as $key => $lienquan)
                         <div class="col-sm-4">
-                            <a class="product-image-wrapper" href="{{ "/edit-product/".$lienquan->product_id}}">
+                            <a class="product-image-wrapper" href="{{URL::to("/chi-tiet/".$lienquan->product_slug)}}">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="{{URL::to('public/uploads/product/'.$lienquan->product_image)}}"
@@ -205,12 +205,8 @@
                             </a>
                         </div>
                     @endforeach
-
-
                 </div>
-
             </div>
-
         </div>
     </div><!--/recommended_items-->
     <ul class="pagination pagination-sm m-t-none m-b-none">
