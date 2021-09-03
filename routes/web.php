@@ -31,6 +31,7 @@ Route::post('/admin-dashboard','AdminController@dashboard');
 Route::get('/add-category-product','CategoryProduct@add_category_product');
 Route::get('/edit-category-product/{category_product_id}','CategoryProduct@edit_category_product');
 Route::get('/delete-category-product/{category_product_id}','CategoryProduct@delete_category_product');
+//list danh mục
 Route::get('/all-category-product','CategoryProduct@all_category_product');
 Route::post('/export-csv','CategoryProduct@export_csv');
 Route::get('/unactive-category-product/{category_product_id}','CategoryProduct@unactive_category_product');
@@ -149,6 +150,3 @@ Route::get('/unactive-slide/{slide_id}','SliderController@unactive_slide');
 Route::get('/active-slide/{slide_id}','SliderController@active_slide');
 // xóa slider
 Route::get('/delete-slide/{slide_id}','SliderController@delete_slide');
-
-
-

@@ -8,8 +8,13 @@
     <div class="row w3-res-tb">
       <div class="col-sm-4">
       </div>
-      <div class="col-sm-3">
-
+      <div class="col-sm-3 m-r-auto">
+        <form class="input-group" action="{{URL::to('/all-category-product')}}" method="get">
+          <input value="" name="search" type="text" class="input-sm form-control" placeholder="Tìm kiếm">
+          <span class="input-group-btn">
+            <button class="ml-2 btn btn-sm btn-success" type="submit">Tìm kiếm</button>
+          </span>
+        </form>
       </div>
     </div>
     <div class="table-responsive">

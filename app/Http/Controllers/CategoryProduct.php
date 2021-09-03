@@ -34,9 +34,13 @@ class CategoryProduct extends Controller
     	return view('admin.add_category_product');
     }
 
-    public function all_category_product(){
+    public function all_category_product(Request $request){
         $this->checkLogin();
-    	$all_category_product = DB::table('tbl_category_product')->paginate(5);
+    	$all_category_product = DB::table('tbl_category_product');
+        if($request->search){
+            $all_category_product = $all_category_product->where('category_name', 'like', "%$request->search%");
+        }
+        $all_category_product = $all_category_product->paginate(5);
     	$manager_category_product = view('admin.all_category_product')->with('all_category_product',$all_category_product);
     	return view('admin_layout')
         ->with('admin.all_category_product', $manager_category_product);
@@ -126,5 +130,6 @@ class CategoryProduct extends Controller
     public function export_csv(){
         return Excel::download(new ExcelExports , 'category_product.xlsx');
     }
+
 
 }
