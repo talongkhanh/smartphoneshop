@@ -40,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			@endforeach
 			<input type="text"  class="ggg" name="admin_email" placeholder="Điền email" >
 			<input type="password" class="ggg" name="admin_password" placeholder="Điền password" >
-			<h6><a href="#">Quên mật khẩu</a></h6>
+			
 				<div class="clearfix"></div>
 				<input type="submit" value="Đăng nhập" name="login">
 
