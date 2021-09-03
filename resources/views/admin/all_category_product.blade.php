@@ -35,7 +35,7 @@
         <tbody>
           @foreach($all_category_product as $key => $cate_pro)
           <tr>
-            <td class="text-center">{{ $loop->index }}</td>
+            <td class="text-center">{{ $loop->index + 1 }}</td>
             <td>{{ $cate_pro->category_name }}</td>
             <td>{{ $cate_pro->slug_category_product }}</td>
             <td style="width: 15%" class="text-center"><span class="text-ellipsis">
@@ -67,13 +67,11 @@
     <footer class="panel-footer">
       <div class="row">
 
-        <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+        <div class="col-sm-5 text-left">
+          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị {{ $all_category_product->count() }} trên tổng số {{ $all_category_product->total() }} bản ghi. </small>
         </div>
         <div class="col-sm-7 text-right text-center-xs">
-          <ul class="pagination pagination-sm m-t-none m-b-none">
             {{ $all_category_product->links() }}
-          </ul>
         </div>
       </div>
     </footer>
