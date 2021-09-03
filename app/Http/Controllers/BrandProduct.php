@@ -20,7 +20,7 @@ class BrandProduct extends Controller
             return Redirect::to('admin')->send();
         }
     }
-    
+
     public function add_brand_product(){
         $this->AuthLogin();
     	return view('admin.add_brand_product');
@@ -28,9 +28,10 @@ class BrandProduct extends Controller
 
     public function all_brand_product(Request $request){
         $this->AuthLogin();
+        $request->flash();
         $all_brand_product = DB::table('tbl_brand');
         if($request->search){
-            $all_brand_product = $all_brand_product->where('branch_name', 'like', "%$request->search%");
+            $all_brand_product = $all_brand_product->where('brand_name', 'like', "%$request->search%");
         }
         $all_brand_product = $all_brand_product->paginate(5);
     	$manager_brand_product  = view('admin.all_brand_product')->with('all_brand_product',$all_brand_product);

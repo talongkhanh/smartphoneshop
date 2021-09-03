@@ -36,6 +36,7 @@ class CategoryProduct extends Controller
 
     public function all_category_product(Request $request){
         $this->checkLogin();
+        $request->flash();
     	$all_category_product = DB::table('tbl_category_product');
         if($request->search){
             $all_category_product = $all_category_product->where('category_name', 'like', "%$request->search%");
