@@ -73,7 +73,7 @@
 <footer class="panel-footer">
       <div class="row wrap-navigation">
         <div class="col-sm-5 text-left">
-          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị từ <b><?php echo Session::get('start_page') ?> đến <?php echo Session::get('end_page') ?></b> Trên <b><?php echo Session::get('total_record') ?></b> Slider / Mỗi trang <b><?php echo Session::get('page_size') ?></b> bản ghi</small>
+          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị từ <b><?php echo Session::get('start_page') ?> đến <?php echo Session::get('end_page') ?></b> Trên <b><?php echo Session::get('total_record') ?></b> Đơn hàng / Mỗi trang <b><?php echo Session::get('page_size') ?></b> bản ghi</small>
         </div>
         <div class="col-sm-7" style="display: flex; justify-content: flex-end">                
           <ul style="display: flex;" class="pagination pagination-sm m-t-none m-b-none">

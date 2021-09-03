@@ -45,8 +45,13 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Hiển thị</label>
                                   <select name="slider_status" class="form-control input-sm m-bot15" value="{{$slide->slider_status}}">
-                                        <option selected="<?php echo $slide->slider_status == 0 ? 'selected' : ''; ?>" value="0">Ẩn slider</option>
-                                        <option selected="<?php echo $slide->slider_status == 1 ? 'selected' : ''; ?>" value="1">Hiển thị slider</option>
+                                    @if($slide->slider_status == 0)
+                                    <option selected="selected>" value="0">Ẩn slider</option>
+                                    <option value="1">Hiển thị slider</option>
+                                    @else
+                                    <option value="0">Ẩn slider</option>
+                                    <option selected="selected>" value="1">Hiển thị slider</option>
+                                    @endif
                                         
                                 </select>
                             </div>

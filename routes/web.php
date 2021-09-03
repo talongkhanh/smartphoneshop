@@ -80,9 +80,9 @@ Route::get('/unset-coupon','CouponController@unset_coupon');
 // form thêm mới mã giảm giá
 Route::get('/insert-coupon','CouponController@insert_coupon');
 // chi tiết mã giảm giá
-Route::get('/update-coupon/{coupon_id}','CouponController@detail_coupon');
+Route::get('/list-coupon/{coupon_id}','CouponController@detail_coupon');
 // cập nhật mã giảm giá
-Route::post('/update-coupon/{coupon_id}','CouponController@update_coupon');
+Route::post('/list-coupon/{coupon_id}','CouponController@update_coupon');
 // xóa mã giảm giá
 Route::get('/delete-coupon/{coupon_id}','CouponController@delete_coupon');
 // danh sách mã giảm giá
