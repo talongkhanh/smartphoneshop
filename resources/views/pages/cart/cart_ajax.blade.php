@@ -25,11 +25,11 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Hình ảnh</td>
-							<td class="description">Tên sản phẩm</td>
-							<td class="price">Giá sản phẩm</td>
-							<td class="quantity">Số lượng</td>
-							<td class="total">Thành tiền</td>
+							<td class="image" style="width:50px";>Hình ảnh</td>
+							<td class="description" style="width:50px";>Tên sản phẩm</td>
+							<td class="price" style="width:50px">Giá sản phẩm</td>
+							<td class="quantity" style="width:50px">Số lượng</td>
+							<td class="total" style="width:50px">Thành tiền</td>
 							<td></td>
 						</tr>
 					</thead>

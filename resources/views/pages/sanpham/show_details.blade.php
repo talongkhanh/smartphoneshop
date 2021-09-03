@@ -2,7 +2,7 @@
 @section('content')
     <style>
 
-        /* ----- Product Section ----- */
+        /* ----- Sản phẩm ----- */
         .product {
             display: grid;
             grid-template-columns: 0.9fr 1fr;
@@ -12,8 +12,11 @@
             background-color: white;
             border-radius: 5px;
         }
-
-        /* ----- Photo Section ----- */
+         h3
+         {
+             font-size: 28px;
+         }
+        /* ----- Ảnh ----- */
         .product__photo {
             position: relative;
         }
@@ -26,12 +29,19 @@
             width: 100%;
             height: 100%;
             border-radius: 6px;
-            box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.3);
+            box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.2);
         }
 
         .photo-main {
-            border-radius: 6px 6px 0 0;
-            background-color: #ffffff;
+            height: 500px;
+            width: 350px;
+        }
+        .photo-main img  {
+            height: 500px;
+            width: 350px;
+            padding-bottom: 180px;
+            padding-left: 0px;
+            padding-top: 50px;
         }
         .controls {
             display: flex;
@@ -45,17 +55,21 @@
             background-color: #fff;
         }
 
-        /* ----- Informations Section ----- */
+        /* ----- Thông tin sản phẩm ----- */
         .product__info {
-            padding: 0.8em 0;
+            padding-left: 2em;
         }
 
         .price {
-            margin: 1.5em 0;
+            margin: 0.8em 0;
             color: #ff3f40;
             font-size: 1.2em;
+            font-size: 30px;
+            font-weight: 900;
         }
-
+        label{
+            font-size: 18px;
+        }
         .variant {
             overflow: auto;
         }
@@ -63,8 +77,13 @@
 
         .description {
             clear: left;
-            margin: 2em 0;
+            margin: 0.2em 0 0.6em;
+            font-size: 20px;
         }
+        .description h5{
+            font-size: 20px;
+        }
+        
     </style>
     @foreach($product_details as $key => $value)
         <section class="product">
@@ -102,23 +121,8 @@
                                class="cart_product_qty_{{$value->product_id}}" value="1"/>
                         <input name="productid_hidden" type="hidden" value="{{$value->product_id}}"/>
                     </div>
-                    <div class="variant">
-                        <h5>Chọn màu sản phẩm</h5>
-                        <ul style="display: flex">
-                            <li>
-                                <button type="checkbox" style="background: blue; color: blue; padding: 10px"></button>
-                            </li>
-                            <li style="padding: 0px 10px">
-                                <button type="checkbox" style="background: red; color: blue; padding: 10px"></button>
-                            </li>
-                            <li>
-                                <button type="checkbox" style="background: yellow; color: blue; padding: 10px"></button>
-                            </li>
-                            <li style="padding: 0px 10px">
-                                <button type="checkbox" style="background: purple; color: blue; padding: 10px"></button>
-                            </li>
-                        </ul>
-                    </div>
+                    <input type="button" value="Thêm giỏ hàng" class="btn btn-primary btn-sm add-to-cart"
+                           data-id_product="{{$value->product_id}}" name="add-to-cart">
                     <div class="description">
                         <h5>Thông Tin</h5>
                         <ul>
@@ -128,8 +132,7 @@
                             <li><b>Danh mục:</b> {{$value->category_name}}</li>
                         </ul>
                     </div>
-                    <input type="button" value="Thêm giỏ hàng" class="btn btn-primary btn-sm add-to-cart"
-                           data-id_product="{{$value->product_id}}" name="add-to-cart">
+                    
                 </div>
             </form>
         </section>

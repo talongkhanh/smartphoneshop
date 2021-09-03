@@ -111,12 +111,12 @@
 							<table class="table table-condensed">
 								<thead>
 									<tr class="cart_menu">
-										<td class="image">Hình ảnh</td>
-										<td class="description">Tên sản phẩm</td>
-										<td class="price">Giá sản phẩm</td>
-										<td class="quantity">Số lượng</td>
-										<td class="total">Thành tiền</td>
-										<td></td>
+									<td class="image" style="width:80px";>Hình ảnh</td>
+							        <td class="description" style="width:80px";>Tên sản phẩm</td>
+						          	<td class="price" style="width:80px">Giá sản phẩm</td>
+							        <td class="quantity" style="width:80px">Số lượng</td>
+							        <td class="total" style="width:200px">Thành tiền</td>
+										
 									</tr>
 								</thead>
 								<tbody>
@@ -132,7 +132,7 @@
 
 									<tr>
 										<td class="cart_product">
-											<img src="{{asset('public/uploads/product/'.$cart['product_image'])}}" width="90" alt="{{$cart['product_name']}}" />
+											<img src="{{asset('public/uploads/product/'.$cart['product_image'])}}" width="80" alt="{{$cart['product_name']}}" />
 										</td>
 										<td class="cart_description">
 											<h4><a href=""></a></h4>
@@ -156,7 +156,7 @@
 												
 											</p>
 										</td>
-										<td class="cart_delete">
+										<td class="cart_delete" style="width:100px">
 											<a class="cart_quantity_delete" href="{{url('/del-product/'.$cart['session_id'])}}"><i class="fa fa-times"></i></a>
 										</td>
 									</tr>

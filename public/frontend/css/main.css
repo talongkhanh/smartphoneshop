@@ -1585,7 +1585,7 @@ h2.title {
 }
 
 #cart_items .cart_info .table.table-condensed thead tr {
-  height: 51px;
+  height: 40px;
 }
 
 
@@ -1638,7 +1638,7 @@ h2.title {
 
 .cart_product {
   display: block;
-  margin: 15px -70px 10px 25px;
+  margin: 15px -60px 10px 25px;
 }
 
 .cart_quantity_button a {
@@ -1649,7 +1649,7 @@ h2.title {
   height: 28px;
   overflow: hidden;
   text-align: center;
-  width: 35px;
+  width: 30px;
   float: left;
 }
 
