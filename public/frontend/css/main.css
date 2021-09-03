@@ -726,7 +726,7 @@ h2.title:before{
 }
 
 .category-products .panel-default .panel-heading .panel-title a {
-  color: #696763;
+  color: #CD1818;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   text-decoration: none;
@@ -740,7 +740,7 @@ h2.title:before{
 .category-products .badge {
   background:none;
   border-radius: 10px;
-  color: #696763;
+  color: #CD1818;
   display: inline-block;
   font-size: 12px;
   font-weight: bold;
@@ -758,7 +758,7 @@ h2.title:before{
 
 
 .panel-body ul li a {
-  color: #696763;
+  color: #CD1818;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
@@ -773,7 +773,7 @@ h2.title:before{
 
 .brands-name .nav-stacked li a {
   background-color: #FFFFFF;
-  color: #696763;
+  color: #CD1818;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   padding: 5px 25px;
@@ -783,7 +783,7 @@ h2.title:before{
 
 .brands-name .nav-stacked li a:hover{
   background-color: #fff;
-  color: #696763;
+  color: #CD1818;
 }
 
 .shipping {
