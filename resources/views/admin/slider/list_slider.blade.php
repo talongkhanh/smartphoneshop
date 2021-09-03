@@ -81,6 +81,11 @@
               ?>
             </span></td>
             <td class="middle-vertical">
+              <a href="{{URL::to('/manage-slider/'.$slide->slider_id)}}" class="active styling-edit btn btn-sm btn-info" ui-toggle-class="">
+                Chi tiết
+              </a>
+            </td>
+            <td class="middle-vertical">
               <a onclick="return confirm('Bạn có chắc là muốn xóa slide này ko?')" href="{{URL::to('/delete-slide/'.$slide->slider_id)}}" class="active styling-edit btn btn-sm btn-danger" ui-toggle-class="">
                 Xóa
               </a>
