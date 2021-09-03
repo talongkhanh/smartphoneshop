@@ -190,7 +190,7 @@
                 <div class="item active">
                     @foreach($relate as $key => $lienquan)
                         <div class="col-sm-4">
-                            <div class="product-image-wrapper">
+                            <a class="product-image-wrapper" href="{{ "/edit-product/".$lienquan->product_id}}>
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="{{URL::to('public/uploads/product/'.$lienquan->product_image)}}"
@@ -202,7 +202,7 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
 
