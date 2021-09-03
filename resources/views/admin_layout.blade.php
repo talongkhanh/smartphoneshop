@@ -181,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <!-- footer -->
 		  <div class="footer">
 			<div class="wthree-copyright">
-			  <p>Học phần Phần mềm mã nguồn mở - Trường đại học Công Nghiệp Hà Nội </p>
+			  <p>Học phần "Phần mềm mã nguồn mở" - Trường đại học Công Nghiệp Hà Nội </p>
 			</div>
 		  </div>
   <!-- / footer -->

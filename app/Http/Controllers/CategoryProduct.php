@@ -18,7 +18,7 @@ class CategoryProduct extends Controller
 {
     //kiểm tra xem user đã login hay chưa
     //nếu chưa lohin thì trở về trang login,
-    public function AuthLogin(){
+    public function checkLogin(){
         if(Session::get('admin_id'))
         {
             return Redirect::to('dashboard');
@@ -30,19 +30,24 @@ class CategoryProduct extends Controller
 
     //hiển thị màn hình thêm danh mục sản phẩm
     public function add_category_product(){
-        $this->AuthLogin();
+        $this->checkLogin();
     	return view('admin.add_category_product');
     }
 
-    public function all_category_product(){
-        $this->AuthLogin();
-    	$all_category_product = DB::table('tbl_category_product')->paginate(5);
-    	$manager_category_product  = view('admin.all_category_product')->with('all_category_product',$all_category_product);
-    	return view('admin_layout')->with('admin.all_category_product', $manager_category_product);
+    public function all_category_product(Request $request){
+        $this->checkLogin();
+    	$all_category_product = DB::table('tbl_category_product');
+        if($request->search){
+            $all_category_product = $all_category_product->where('category_name', 'like', "%$request->search%");
+        }
+        $all_category_product = $all_category_product->paginate(5);
+    	$manager_category_product = view('admin.all_category_product')->with('all_category_product',$all_category_product);
+    	return view('admin_layout')
+        ->with('admin.all_category_product', $manager_category_product);
     }
 
     public function save_category_product(Request $request){
-        $this->AuthLogin();
+        $this->checkLogin();
     	$data = array();
 
     	$data['category_name'] = $request->category_product_name;
@@ -58,7 +63,7 @@ class CategoryProduct extends Controller
 
 
     public function unactive_category_product($category_product_id){
-        $this->AuthLogin();
+        $this->checkLogin();
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>1]);
         Session::put('message','Không kích hoạt danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
@@ -67,7 +72,7 @@ class CategoryProduct extends Controller
 
 
     public function active_category_product($category_product_id){
-        $this->AuthLogin();
+        $this->checkLogin();
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>0]);
         Session::put('message','Kích hoạt danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
@@ -75,7 +80,7 @@ class CategoryProduct extends Controller
 
 
     public function edit_category_product($category_product_id){
-        $this->AuthLogin();
+        $this->checkLogin();
         $edit_category_product = DB::table('tbl_category_product')->where('category_id',$category_product_id)->get();
 
         $manager_category_product  = view('admin.edit_category_product')->with('edit_category_product',$edit_category_product);
@@ -85,7 +90,7 @@ class CategoryProduct extends Controller
 
 
     public function update_category_product(Request $request,$category_product_id){
-        $this->AuthLogin();
+        $this->checkLogin();
         $data = array();
         $data['category_name'] = $request->category_product_name;
         $data['meta_keywords'] = $request->category_product_keywords;
@@ -98,7 +103,7 @@ class CategoryProduct extends Controller
 
 
     public function delete_category_product($category_product_id){
-        $this->AuthLogin();
+        $this->checkLogin();
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->delete();
         Session::put('message','Xóa danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
@@ -125,5 +130,6 @@ class CategoryProduct extends Controller
     public function export_csv(){
         return Excel::download(new ExcelExports , 'category_product.xlsx');
     }
+
 
 }

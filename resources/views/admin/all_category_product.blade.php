@@ -8,8 +8,13 @@
     <div class="row w3-res-tb">
       <div class="col-sm-4">
       </div>
-      <div class="col-sm-3">
-
+      <div class="col-sm-3 m-r-auto">
+        <form class="input-group" action="{{URL::to('/all-category-product')}}" method="get">
+          <input value="" name="search" type="text" class="input-sm form-control" placeholder="Tìm kiếm">
+          <span class="input-group-btn">
+            <button class="ml-2 btn btn-sm btn-success" type="submit">Tìm kiếm</button>
+          </span>
+        </form>
       </div>
     </div>
     <div class="table-responsive">
@@ -68,7 +73,7 @@
       <div class="row">
 
         <div class="col-sm-5 text-left">
-          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị {{ $all_category_product->count() }} trên tổng số {{ $all_category_product->total() }} bản ghi. </small>
+          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị <b>{{ $all_category_product->count() }}</b> trên tổng số <b>{{ $all_category_product->total() }}</b> bản ghi. </small>
         </div>
         <div class="col-sm-7 text-right text-center-xs">
             {{ $all_category_product->links() }}
