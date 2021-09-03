@@ -16,17 +16,19 @@ session_start();
 
 class CategoryProduct extends Controller
 {
-    //checklogin wether user loged in or not, checkby session,
-    //if user didn't login, redirect to login page
+    //kiểm tra xem user đã login hay chưa
+    //nếu chưa lohin thì trở về trang login,
     public function AuthLogin(){
-        $admin_id = Session::get('admin_id');
-        if($admin_id){
+        if(Session::get('admin_id'))
+        {
             return Redirect::to('dashboard');
-        }else{
+        }else
+        {
             return Redirect::to('admin')->send();
         }
     }
 
+    //hiển thị màn hình thêm danh mục sản phẩm
     public function add_category_product(){
         $this->AuthLogin();
     	return view('admin.add_category_product');
@@ -34,11 +36,9 @@ class CategoryProduct extends Controller
 
     public function all_category_product(){
         $this->AuthLogin();
-    	$all_category_product = DB::table('tbl_category_product')->paginate(1);
+    	$all_category_product = DB::table('tbl_category_product')->paginate(5);
     	$manager_category_product  = view('admin.all_category_product')->with('all_category_product',$all_category_product);
     	return view('admin_layout')->with('admin.all_category_product', $manager_category_product);
-
-
     }
 
     public function save_category_product(Request $request){
