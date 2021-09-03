@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 02, 2021 lúc 06:07 AM
--- Phiên bản máy phục vụ: 10.4.19-MariaDB
--- Phiên bản PHP: 7.4.20
+-- Host: 127.0.0.1
+-- Generation Time: Sep 03, 2021 at 06:52 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `elaravel`
+-- Database: `elaravel`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -36,7 +36,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_admin`
+-- Table structure for table `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -50,7 +50,7 @@ CREATE TABLE `tbl_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_admin`
+-- Dumping data for table `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_name`, `admin_phone`, `created_at`, `updated_at`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `tbl_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_nam
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_brand`
+-- Table structure for table `tbl_brand`
 --
 
 CREATE TABLE `tbl_brand` (
@@ -73,7 +73,7 @@ CREATE TABLE `tbl_brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_brand`
+-- Dumping data for table `tbl_brand`
 --
 
 INSERT INTO `tbl_brand` (`brand_id`, `brand_name`, `brand_slug`, `brand_desc`, `brand_status`, `created_at`, `updated_at`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `tbl_brand` (`brand_id`, `brand_name`, `brand_slug`, `brand_desc`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_category_product`
+-- Table structure for table `tbl_category_product`
 --
 
 CREATE TABLE `tbl_category_product` (
@@ -100,21 +100,22 @@ CREATE TABLE `tbl_category_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_category_product`
+-- Dumping data for table `tbl_category_product`
 --
 
 INSERT INTO `tbl_category_product` (`category_id`, `meta_keywords`, `category_name`, `slug_category_product`, `category_desc`, `category_status`, `created_at`, `updated_at`) VALUES
-(1, 'samsung,samsung phone,dien thoai samsung,galaxy', 'Samsung Galaxy', 'samsung', 'Samsung là hãng điện thoại nổi tiếng', 0, NULL, NULL),
-(2, 'samsung,samsung note,điện thoại samsung,note', 'Samsung Note', 'samsung-note', 'Dong cao cấp của samsung', 0, NULL, NULL),
-(3, 'iphone,điện thoại iphone,iphone', 'Iphone', 'iphone', 'Iphone là sản phẩm cao cấp đến từ apple', 0, NULL, NULL),
-(5, 'ipad,máy ipad', 'Ipad', 'Ipad', 'Ipad là dòng máy tính bảng nổi tiếng nhất thế giới', 0, NULL, NULL),
-(6, 'điện thoại xiaomi,xiaomi', 'Điện thoại Xiaomi', 'xiaomi', 'điện thoại giá rẻ', 0, NULL, NULL),
-(7, 'phụ kiện,sạc,tai nghe,sạc dự phòng', 'Phụ kiện', 'phu-kien', 'Sạc tai nghe điện thoại', 0, NULL, NULL);
+(1, 'dien thoai di dong', 'Điện thoại di động', 'dien-thoai-di-dong', 'điện thoại di động', 0, NULL, NULL),
+(2, 'tai nghe', 'Tai nghe', 'tai-nghe', 'tai nghe', 0, NULL, NULL),
+(3, 'dong ho deo tay', 'Đồng hồ đeo tay', 'dong-ho-deo-tay', 'Đồng hồ đeo tay', 0, NULL, NULL),
+(5, 'Tablet', 'Tablet', 'Tablet', 'Tablet', 0, NULL, NULL),
+(6, 'pin du phong', 'Pin dự phòng', 'pin-du-phong', 'Pin dự phòng', 0, NULL, NULL),
+(7, 'Kinh cuog luc', 'Kính cường lực', 'kinh-cuong-luu', 'Kính cường lực', 0, NULL, NULL),
+(8, 'loa-bluetooth', 'Loa bluetooth', 'loa-bluetooth', 'loa-bluetooth', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_coupon`
+-- Table structure for table `tbl_coupon`
 --
 
 CREATE TABLE `tbl_coupon` (
@@ -127,7 +128,7 @@ CREATE TABLE `tbl_coupon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_coupon`
+-- Dumping data for table `tbl_coupon`
 --
 
 INSERT INTO `tbl_coupon` (`coupon_id`, `coupon_name`, `coupon_time`, `coupon_condition`, `coupon_number`, `coupon_code`) VALUES
@@ -137,7 +138,7 @@ INSERT INTO `tbl_coupon` (`coupon_id`, `coupon_name`, `coupon_time`, `coupon_con
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_customers`
+-- Table structure for table `tbl_customers`
 --
 
 CREATE TABLE `tbl_customers` (
@@ -151,7 +152,7 @@ CREATE TABLE `tbl_customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_customers`
+-- Dumping data for table `tbl_customers`
 --
 
 INSERT INTO `tbl_customers` (`customer_id`, `customer_name`, `customer_email`, `customer_password`, `customer_phone`, `created_at`, `updated_at`) VALUES
@@ -164,7 +165,7 @@ INSERT INTO `tbl_customers` (`customer_id`, `customer_name`, `customer_email`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_feeship`
+-- Table structure for table `tbl_feeship`
 --
 
 CREATE TABLE `tbl_feeship` (
@@ -176,7 +177,7 @@ CREATE TABLE `tbl_feeship` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_feeship`
+-- Dumping data for table `tbl_feeship`
 --
 
 INSERT INTO `tbl_feeship` (`fee_id`, `fee_matp`, `fee_maqh`, `fee_xaid`, `fee_feeship`) VALUES
@@ -189,7 +190,7 @@ INSERT INTO `tbl_feeship` (`fee_id`, `fee_matp`, `fee_maqh`, `fee_xaid`, `fee_fe
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_order`
+-- Table structure for table `tbl_order`
 --
 
 CREATE TABLE `tbl_order` (
@@ -203,7 +204,7 @@ CREATE TABLE `tbl_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_order`
+-- Dumping data for table `tbl_order`
 --
 
 INSERT INTO `tbl_order` (`order_id`, `customer_id`, `shipping_id`, `order_status`, `order_code`, `created_at`, `updated_at`) VALUES
@@ -222,7 +223,7 @@ INSERT INTO `tbl_order` (`order_id`, `customer_id`, `shipping_id`, `order_status
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_order_details`
+-- Table structure for table `tbl_order_details`
 --
 
 CREATE TABLE `tbl_order_details` (
@@ -239,7 +240,7 @@ CREATE TABLE `tbl_order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_order_details`
+-- Dumping data for table `tbl_order_details`
 --
 
 INSERT INTO `tbl_order_details` (`order_details_id`, `order_code`, `product_id`, `product_name`, `product_price`, `product_sales_quantity`, `product_coupon`, `product_feeship`, `created_at`, `updated_at`) VALUES
@@ -278,7 +279,7 @@ INSERT INTO `tbl_order_details` (`order_details_id`, `order_code`, `product_id`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_product`
+-- Table structure for table `tbl_product`
 --
 
 CREATE TABLE `tbl_product` (
@@ -299,29 +300,29 @@ CREATE TABLE `tbl_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_product`
+-- Dumping data for table `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_quantity`, `product_sold`, `product_slug`, `category_id`, `brand_id`, `product_desc`, `product_content`, `product_price`, `product_image`, `product_status`, `created_at`, `updated_at`) VALUES
-(15, 'Xiaomi redmi note 10', '20', NULL, 'xiaomi-redmi-note-10', 6, 4, '<p><strong>Nh&agrave; v&ocirc; địch mới của&nbsp;<a href=\"https://fptshop.com.vn/dien-thoai\" title=\"điện thoại thông minh\" type=\"điện thoại thông minh\">smartphone</a>&nbsp;gi&aacute; rẻ đ&atilde; xuất hiện,&nbsp;<a href=\"https://fptshop.com.vn/dien-thoai/xiaomi-redmi-note-10\" title=\"Redmi Note 10\" type=\"Redmi Note 10\">Xiaomi Redmi Note 10</a>&nbsp;ch&iacute;nh l&agrave; sự lựa chọn ho&agrave;n hảo với sức mạnh v&agrave; tốc độ cực đỉnh, 4 camera 48MP, m&agrave;n h&igrave;nh AMOLED c&ugrave;ng thời lượng pin bền bỉ đ&aacute;ng kinh ngạc.</strong></p>', NULL, '5400000', 'redmi_note1079.png', 0, NULL, NULL),
-(16, 'Xiaomi redmi note 9', '30', NULL, 'xiaomi-redmi-note-9', 6, 1, '<h3><a href=\"https://www.thegioididong.com/dtdd/xiaomi-redmi-note-9\" target=\"_blank\" title=\"Tham khảo giá điện thoại Xiaomi Redmi Note 9 chính hãng\" type=\"Tham khảo giá điện thoại Xiaomi Redmi Note 9 chính hãng\">Xiaomi Redmi Note 9</a>&nbsp;l&agrave; mẫu&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\" title=\"Tham khảo giá điện thoại smartphone chính hãng\" type=\"Tham khảo giá điện thoại smartphone chính hãng\">smartphone</a>&nbsp;tầm trung, c&acirc;n bằng giữa c&aacute;c yếu tố thiết kế, camera v&agrave; hiệu năng, đ&aacute;p ứng mượt m&agrave; hầu hết c&aacute;c nhu cầu từ cơ bản đến n&acirc;ng cao của người d&ugrave;ng.</h3>', NULL, '4190000', 'xiaomi-redmi-note-9-note28.jpg', 0, NULL, NULL),
-(17, 'Samsung galaxy Note 10', '10', NULL, 'samsung-galaxy-note-10', 1, 3, '<p>Samsung Galaxy Note 10 Plus 5G bản H&agrave;n 256GB /12 GB nhập khẩu ch&iacute;nh h&atilde;ng với nhiều ưu đ&atilde;i, trả g&oacute;p 0%.</p>', NULL, '8990000', 'ssnote1063.png', 0, NULL, NULL),
-(18, 'iPhone 11 chính hãng', '18', NULL, 'iphone-11-chinh-hang', 3, 2, '<p>M&aacute;y sử dụng m&agrave;n h&igrave;nh IPS LCD, 6.1&quot;, Liquid Retina. Hỗ trợ hệ điều h&agrave;nh ios 14, sử dụng chip Apple A13 Bionic 6 nh&acirc;n</p>', NULL, '14799000', 'ip1197.png', 0, NULL, NULL),
-(19, 'iPhone 10 chính hãng', '30', NULL, 'iphone-10-chinh-hang', 3, 2, '<p>iPhone X, trả g&oacute;p 0% tại Di Động Mới. L&agrave; điện thoại th&ocirc;ng minh kỷ niệm 10 năm apple iphone được b&aacute;n ra</p>', NULL, '7690000', 'ip1081.png', 0, NULL, NULL),
-(20, 'Samsung galaxy s10', '10', NULL, 'samsung-galaxy-s10', 1, 3, '<h2>L&agrave; chiếc&nbsp;<a href=\"https://www.thegioididong.com/dtdd-oppo\" target=\"_blank\" title=\"Tham khảo các dòng điện thoại OPPO tại Thegioididong.com\" type=\"Tham khảo các dòng điện thoại OPPO tại Thegioididong.com\">s</a>amsung&nbsp;mới nhất sở hữu c&ocirc;ng nghệ sạc VOOC đột ph&aacute;,&nbsp;<a href=\"https://www.thegioididong.com/dtdd/oppo-f9\" target=\"_blank\" title=\"Chi tiết điện thoại OPPO F9 tại Thegioididong.com\" type=\"Chi tiết điện thoại OPPO F9 tại Thegioididong.com\">n</a>&oacute;&nbsp;c&ograve;n được ưu &aacute;i nhiều t&iacute;nh năng nổi trội như thiết kế mặt lưng chuyển m&agrave;u độc đ&aacute;o, m&agrave;n h&igrave;nh tr&agrave;n viền giọt nước v&agrave; camera chụp ch&acirc;n dung t&iacute;ch hợp tr&iacute; tuệ nh&acirc;n tạo AI ho&agrave;n hảo.</h2>', NULL, '7190000', 'opf989.jpg', 0, NULL, NULL),
-(21, 'Ipad Pro 2020', '8', NULL, 'ipad-pro-2020', 5, 2, '<p><a href=\"https://cellphones.com.vn/tablet/ipad-pro.html\">iPad Pro 2020</a>&nbsp;12.9 inch WiFi được trang bị c&ocirc;ng nghệ m&agrave;n h&igrave;nh Liquid Retina Display độ s&aacute;ng 600 nits với c&aacute;c c&ocirc;ng nghệ hỗ trợ như Pro Motion v&agrave; True Tone, gi&uacute;p cho h&igrave;nh ảnh v&agrave; m&agrave;u sắc được thể hiện một c&aacute;ch tự nhi&ecirc;n, sống động v&agrave; trung thực.</p>', NULL, '23500000', 'ipadpro89.jpg', 0, NULL, NULL),
-(22, 'Samsung galaxy Tab S7 Plus', '10', NULL, 'samsung-galaxy-tab-s7-plus', 5, 3, '<p>Chiếc Samsung Tab S7 Plus l&agrave; sản phẩm rất được Samsung ưu &aacute;i, sở hữu thiết kế cứng c&aacute;p với chất liệu kim loại s&aacute;ng b&oacute;ng v&agrave; c&aacute;c g&oacute;c được bo cong một c&aacute;ch ho&agrave;n hảo. Mang đến cho sản phẩm kh&ocirc;ng chỉ l&agrave; sự cứng c&aacute;p, m&agrave; được h&ograve;a hợp tuyệt vời c&ugrave;ng những đường n&eacute;t mềm mại.</p>', NULL, '20700000', 'samsung-galaxy-tab-s7-plus-340.jpg', 0, NULL, NULL),
-(23, 'Loa JBL Charge 4', '20', NULL, 'loa-jbl-4', 7, 4, '<h2>Loa JBL Charge 4 &ndash; Chống nước IPX7, &acirc;m thanh sống động</h2>', NULL, '2650000', 'jbl-charge-497.jpg', 0, NULL, NULL),
+(15, 'Xiaomi redmi note 10', '20', NULL, 'xiaomi-redmi-note-10', 1, 1, 'Thông tin chung :\r\nKích thước màn hình : 6.47\" Amoled , 600 nits, HDR10, Always-on display.\r\nĐộ phân giải màn hình: Full HD+ (1080 x 2340 Pixels)\r\nHệ điều hành: Android 9, Miui 11\r\nChip xử lý (CPU): Snapdragon 730G (8 nm) 8 nhân.\r\nRAM : 8 GB \r\nBộ nhớ trong: 256 GB\r\nMáy ảnh sau: Chính 108 MP (8 lens) F1.7 & Phụ 20 MP, 12 MP, 5 MP, 2 MP\r\nMáy ảnh trước : 32 MP\r\nDung lượng pin: 5260, sạc nhanh 30W, 58% in 30 min, 100% in 65 min\r\nSim hỗ trợ : 2 Sim Nano', NULL, '5400000', 'redmi_note1079.png', 0, NULL, NULL),
+(16, 'Xiaomi redmi note 9', '30', NULL, 'xiaomi-redmi-note-9', 1, 1, 'Kế thừa truyền thống tích hợp nhiều tính năng cực hấp dẫn trong mức giá cực tốt, Redmi Note 9 Pro đã ra mắt với nhiều trang bị ấn tượng: Vi xử lý Snapdragon 720G, màn hình siêu tràn viền, cụm 4 camera 64 “chấm” và một viên pin khủng 5020 mAh. Xiaomi Redmi Note 9 Pro, xứng đáng là một trong những smartphone tầm trung tốt của Xiaomi ở thời điểm hiện tại. Với thiết kế đẹp mắt sang trọng, cấu hình không thể nào ổn hơn trong tầm giá.\r\n\r\nCụm camera 64 MP thiết kế mới, tính năng thời thượng\r\nCó lẽ thiết kế cụm camera trên Redmi Note 9 Pro là khác biệt nhất trong gia đình Note Mi bởi mô đun hình vuông đặt ngay chính giữa thay vì đặt lệch ở mặt lưng, giúp thiết kế của chiếc điện thoại nhìn cân đối và thuận mắt hơn.', NULL, '4190000', 'xiaomi-redmi-note-9-note28.jpg', 0, NULL, NULL),
+(17, 'Samsung galaxy Note 10', '10', NULL, 'samsung-galaxy-note-10', 1, 3, 'Giới thiệu điện thoại Galaxy S21 Ultra 5G. Được thiết kế với camera cắt viền độc đáo, tạo ra một cuộc cách mạng trong nhiếp ảnh – cho phép bạn quay video 8K chất lượng điện ảnh và chụp nhanh những bức ảnh tuyệt vời, tất cả trong một thao tác. Và với chipset nhanh nhất của Galaxy, loại kính mạnh nhất, 5G và pin dùng cả ngày, Ultra dễ dàng tạo nên tên tuổi của mình.', NULL, '8990000', 'ssnote1063.png', 0, NULL, NULL),
+(18, 'iPhone 11 chính hãng', '18', NULL, 'iphone-11-chinh-hang', 1, 2, 'Đánh giá iPhone 11  – Camera nâng cấp, màu sắc trẻ trung\r\niPhone 11 là model có nhiều màu sắc nhất và có giá rẻ nhất trong bộ 3 iPhone 11 series được Apple ra mắt trong năm 2019. Bên cạnh đó, cấu hình máy cũng được nâng cấp đặc biệt về cụm camera sau và Face ID, viên pin dung lượng lớn hơn.\r\n\r\nĐa dạng sự lựa chọn với 6 phiên bản màu sắc\r\nĐiểm nổi bật của iPhone 11 2019 đó là bên cạnh hai phiên bản đen và trắng quen thuộc thì máy còn có thêm bốn phiên bản khác đó là tím, vàng, xanh lá, đỏ. Với tất cả các phiên bản, bao gồm cả điện thoại iPhone 12 sắp ra mắt thì Apple đều thiết kế cạnh bên trùng màu với thân máy, tạo nên một thể thống nhất.', NULL, '14799000', 'ip1197.png', 0, NULL, NULL),
+(19, 'iPhone 10 chính hãng', '30', NULL, 'iphone-10-chinh-hang', 1, 2, 'iPhone X 64 GB là cụm từ được rất nhiều người mong chờ muốn biết và tìm kiếm trên Google bởi đây là chiếc điện thoại mà Apple kỉ niệm 10 năm iPhone đầu tiên được bán ra.\r\nThiết kế mang tính đột phá\r\nNhư các bạn cũng đã biết thì đã 4 năm kể từ chiếc điện thoại iPhone 6 và iPhone 6 Plus thì Apple vẫn chưa có thay đổi nào đáng kể trong thiết kế của mình.', NULL, '7690000', 'ip1081.png', 0, NULL, NULL),
+(20, 'Oppo find X', '10', NULL, 'samsung-galaxy-s10', 1, 4, 'Giới thiệu sản phẩm: Điện Thoại OPPO Find X Chính Hãng\r\n\r\n*Màn hình\r\n-Công nghệ màn hình: AMOLED\r\n- Độ phân giải	Full HD+ (1080 x 2340 Pixels)\r\n- Màn hình rộng 6.42\"\r\n- Mặt kính cảm ứng: Kính cường lực Corning Gorilla Glass 5\r\n\r\n*Camera sau\r\n- Độ phân giải:	Chính 16 MP & Phụ 20 MP\r\n- Quay phim: Quay phim 4K 2160p@30fps\r\n- Đèn Flash: Đèn LED 2 tông màu\r\n- Chụp ảnh nâng cao	Chụp ảnh xóa phông, A.I Camera, Tự động lấy nét, Chạm lấy nét, Nhận diện khuôn mặt, HDR, Panorama, Chống rung quang học (OIS), Làm đẹp (Beautify), Chế độ chụp chuyên nghiệp (Pro)', NULL, '7190000', 'opf989.jpg', 0, NULL, NULL),
+(21, 'Ipad Pro 2020', '8', NULL, 'ipad-pro-2020', 5, 2, 'iPad Pro 2021 11 inch – Tablet cấu mình mạnh với chip M1 mới\r\nNhư thường lệ hằng năm Apple lại cho ra mắt chiếc máy tính bảng của mình. iPad Pro 2021 phiên bản 11 inch hứa hẹn mang đến một trải nghiệm mạnh vẽ với nhiều tính năng nổi bật.\r\n\r\nThiết kế vuông vức sang trọng, màn hình 11 inch\r\niPad Pro 11 inch 2021 sở hữu ngoại hình mang nhiều điểm tương tự về ngoại hình với chiếc iPad Pro trước đó. Apple iPad Pro 2021 sử dụng màn hình kích thước 11 inch và sử dụng màn hình LCD truyền thống.  Màn hình trên iPad Pro 2021 này với công nghệ màu ProMotion cùng độ phân giải cao 264 pixel mỗi inch. Màn hình này cũng được trang bị lớp phủ chống bám vân tay và chống phản xạ, nâng cao trải nghiệm cho người dùng.', NULL, '23500000', 'ipadpro89.jpg', 0, NULL, NULL),
+(22, 'Samsung galaxy Tab S7 Plus', '10', NULL, 'samsung-galaxy-tab-s7-plus', 5, 3, 'Samsung Galaxy Tab S7+ : Màn hình rộng sắc nét cùng pin khủng 10.090 mAh\r\nMáy tính bảng giờ đây đã trở thành một sản phẩm công nghệ quen thuộc và quan trọng đối với rất nhiều người. Ngày qua ngày, người dùng đều mong muốn nhu cầu sử dụng của họ sẽ tốt hơn và đòi hỏi cao hơn về một chiếc Tablet Samsung. Thấu hiểu điều đó, tập đoàn Samsung đã cho ra mắt chiếc tablet Samsung Galaxy Tab S7 Plus. Đây được xem là chiếc máy tính bảng Samsung được trang bị những tính năng hiện đại bậc nhất cùng thời lượng pin cực khủng, giúp giải quyết nỗi lo hụt pin cho cả ngày sử dụng.', NULL, '20700000', 'samsung-galaxy-tab-s7-plus-340.jpg', 0, NULL, NULL),
+(23, 'Loa JBL Charge 4', '20', NULL, 'loa-jbl-4', 8, 4, 'JBL Charge 4 - Thiết kế loa Charge 4 JBL nhỏ gọn, tiện lợi\r\nCác sản phẩm loa của JBL đều có thiết kế dựng đứng được hoặc nằm ngang cực kỳ tiện dụng. Ở bất kỳ nơi nào, loa Charge 4 đều có thể đứng vững. Bên cạnh đó, với thiết kế hình trụ, người dùng dễ dàng cầm loa thẳng đứng. Hai đầu của loa cũng được bọc vải dệt đóng vai trò làm nơi tiếp xúc với nền để loa có thể đứng được và cũng bảo vệ được các phím điều khiển. Giống với phiên bản thứ ba, phiên bản lần này cũng tạo ra nhiều phiên bản màu sắc đa dạng như: xanh, đen, đỏ, xám…', NULL, '2650000', 'jbl-charge-497.jpg', 0, NULL, NULL),
 (24, 'Samsung galaxy Note 20', '10', NULL, 'samsung-galaxy-note-20', 2, 3, '<h3>Với thiết kế camera trước nốt ruồi quen thuộc, cụm camera h&igrave;nh chữ nhật mới lạ c&ugrave;ng với vi xử l&yacute; Exynos 990 cao cấp của ch&iacute;nh&nbsp;<a href=\"https://thegioididong.com/samsung\" target=\"_blank\" title=\"Tham khảo sản phẩm Samsung kinh doanh tại Thegioididong.com\" type=\"Tham khảo sản phẩm Samsung kinh doanh tại Thegioididong.com\">Samsung</a>&nbsp;chắc hẳn sẽ mang lại một trải nghiệm th&uacute; vị c&ugrave;ng hiệu năng mạnh mẽ.</h3>', NULL, '23000000', 'samsung-galaxy-note-20-thumbvideo-780x43322.jpg', 0, NULL, NULL),
-(25, 'Tai nghe Bluetooth True Wireless Galaxy Buds Pro', '30', NULL, 'tai-nghe-bluetooth-trrue-wireless', 7, 4, '<h3>Thiết kế sang trọng, thời thượng c&ugrave;ng hộp sạc đồng nhất m&agrave;u sắc đi k&egrave;m</h3>', NULL, '3990000', 'tai-nghe-bluetooth-true-wireless-galaxy-buds-pro-note12.jpg', 0, NULL, NULL),
-(26, 'I Phone 12 64GB', '16', NULL, 'iphone-12', 3, 2, '<p>Apple đ&atilde; trang bị con chip mới nhất của h&atilde;ng (t&iacute;nh đến 11/2020) cho iPhone 12 đ&oacute; l&agrave;&nbsp;<a href=\"https://www.thegioididong.com/hoi-dap/tim-hieu-ve-chip-apple-a14-bionic-tren-iphone-12-va-ipad-1290695\" target=\"_blank\" title=\"Tìm hiểu chip A14 Bionic là gì?\">A14 Bionic</a>, được sản xuất tr&ecirc;n tiến tr&igrave;nh 5 nm với hiệu suất ổn định hơn so với chip A13 được trang bị tr&ecirc;n phi&ecirc;n bản tiền nhiệm&nbsp;<a href=\"https://www.thegioididong.com/dtdd/iphone-11\" target=\"_blank\" title=\"Tham khảo điện thoại iPhone 11 chính hãng tại Thế Giới Di Động\">iPhone 11</a>.</p>', NULL, '20490000', 'vi-vn-iphone-12-178.jpg', 0, NULL, NULL),
-(27, 'Xiaomi redmi 9T', '22', NULL, 'xiaomi-redmi-9-T', 6, 1, '<h3><a href=\"https://www.thegioididong.com/dtdd-xiaomi\" rel=\"noopener\" target=\"_blank\" title=\"Tham khảo giá điện thoại, smartphone Xiaomi chính hãng tại Thegioididong.com\" type=\"Tham khảo giá điện thoại, smartphone Xiaomi chính hãng tại Thegioididong.com\">Xiaomi</a>&nbsp;tiếp tục &ldquo;ph&aacute; đảo&rdquo; ph&acirc;n kh&uacute;c gi&aacute; rẻ tầm trung với&nbsp;<a href=\"https://www.thegioididong.com/dtdd/xiaomi-redmi-9t-6gb\" rel=\"noopener\" target=\"_blank\" title=\"Tham khảo giá điện thoại Xiaomi Redmi 9T chính hãng tại Thegioididong.com\" type=\"Tham khảo giá điện thoại Xiaomi Redmi 9T chính hãng tại Thegioididong.com\">Redmi 9T 6GB/128GB</a>. Nổi bật với thiết kế trẻ trung, m&agrave;n h&igrave;nh si&ecirc;u lớn, bộ 4 camera AI, pin cực khủng, mẫu&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" rel=\"noopener\" target=\"_blank\" title=\"Tham khảo các dòng điện thoại, smartphone chính hãng, giá tốt đang kinh doanh tại Thegioididong.com\" type=\"Tham khảo các dòng điện thoại, smartphone chính hãng, giá tốt đang kinh doanh tại Thegioididong.com\">smartphone</a>&nbsp;n&agrave;y sẽ thỏa m&atilde;n mọi nhu cầu giải tr&iacute;, niềm đam m&ecirc; s&aacute;ng tạo v&agrave; kh&aacute;m ph&aacute; kh&ocirc;ng ngừng của giới trẻ.</h3>', NULL, '3900000', 'xiaomi-redmi-note-9-note8.jpg', 0, NULL, NULL),
-(28, 'Tai nghe chụp tai Mozard IP-840', '32', NULL, 'tai-nghe', 7, 4, '<p>M&agrave;u sắc trẻ trung, kiểu d&aacute;ng gọn đẹp, ph&ugrave; hợp cho c&aacute;c bạn trẻ.</p>', NULL, '350000', 'tai-nghe-chup-tai-mozard-ip-840-314120-02412244.jpg', 0, NULL, NULL);
+(25, 'Tai nghe Bluetooth True Wireless Galaxy Buds Pro', '30', NULL, 'tai-nghe-bluetooth-trrue-wireless', 2, 3, 'Thiết kế sang trọng, thời thượng cùng hộp sạc đồng nhất màu sắc đi kèm\r\nTai nghe Bluetooth True Wireless Samsung Buds Pro sở hữu vẻ ngoài đẹp mắt thời thượng với hai màu đen và trắng. Thiết kế mới trên hình dạng tai nghe cổ điển, có khả năng làm giảm bớt sự khó chịu khi sử dụng tai nghe trong nhiều giờ và tai nghe cũng nằm chắc chắn phía trong tai khi bạn tập luyện hay vận động. Đồng thời, các lỗ thoát khí giúp cân bằng áp suất trong tai và tăng lưu lượng không khí, tạo cảm giác mềm mại dễ chịu khi sử dụng.\r\n\r\nTai nghe có thiết kế nhỏ gọn nên bạn dễ dàng bỏ vào túi xách, balo và mang theo bên mình di chuyển mọi nơi. Ngoài ra, có kèm theo núm tai nghe với ba kích thước cho người dùng dễ thay đổi sao cho phù hợp.', NULL, '3990000', 'tai-nghe-bluetooth-true-wireless-galaxy-buds-pro-note12.jpg', 0, NULL, NULL),
+(26, 'I Phone 12 64GB', '16', NULL, 'iphone-12', 1, 2, 'Thiết kế mỏng nhẹ, nhỏ gọn và đẳng cấp\r\niPhone 12 đã có sự đột phá về thiết kế với kiểu dáng mới vuông vắn, mạnh mẽ và sang trọng hơn. Không chỉ vậy, iPhone 12 mỏng hơn 11%, nhỏ gọn hơn 15% và nhẹ hơn 16% so với thế hệ trước iPhone 11.\r\n\r\nBất ngờ hơn nữa là dù gọn hơn đáng kể nhưng iPhone 12 vẫn có màn hình 6,1 inch như iPhone 11 mà không hề bị cắt giảm. Phần viền màn hình thu hẹp tối đa cùng sự nỗ lực trong thiết kế đã tạo nên điều kỳ diệu ở iPhone 12.', NULL, '20490000', 'vi-vn-iphone-12-178.jpg', 0, NULL, NULL),
+(27, 'Xiaomi redmi 9T', '22', NULL, 'xiaomi-redmi-9-T', 1, 1, 'Điện thoại Xiaomi Redmi 9T – Smartphone giá rẻ, pin dung lượng lớn\r\nChiếc smartphone Xiaomi Redmi 9T có thể nói là bản dupe của mẫu Redmi Note 9 khi sở hữu cấu hình khá tương đồng chỉ thay đổi ở con chip.\r\n\r\nMàn hình giọt nước 6.53 inch\r\nĐiện thoại Xiaomi này vẫn sở hữu màn hình giọt nước quen thuộc. Máy sở hữu kích thước 6.53 inch trên tấm nền IPS LCD cùng độ phân giải Full HD+. Nhờ đó, máy cho khả năng hiển thị tốt, màu sắc chân thực.', NULL, '3900000', 'xiaomi-redmi-note-9-note8.jpg', 0, NULL, NULL),
+(28, 'Tai nghe chụp tai Mozard IP-840', '32', NULL, 'tai-nghe', 2, 4, 'TOPK đã giành được siêu giải thưởng thương hiệu có ảnh hưởng nhất năm 2020 tại thị trường Đông Nam Á. TOPK chuyên về các sản phẩm điện tử tiêu dùng, hầu hết là các phụ kiện điện thoại.\r\n  Sản phẩm này luôn có sẵn và hoan nghênh bạn đặt hàng.\r\n  Nếu bạn có bất kỳ câu hỏi nào hoặc gặp bất kỳ vấn đề nào về sản phẩm,', NULL, '350000', 'tai-nghe-chup-tai-mozard-ip-840-314120-02412244.jpg', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_quanhuyen`
+-- Table structure for table `tbl_quanhuyen`
 --
 
 CREATE TABLE `tbl_quanhuyen` (
@@ -332,7 +333,7 @@ CREATE TABLE `tbl_quanhuyen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_quanhuyen`
+-- Dumping data for table `tbl_quanhuyen`
 --
 
 INSERT INTO `tbl_quanhuyen` (`maqh`, `name_quanhuyen`, `type`, `matp`) VALUES
@@ -1053,7 +1054,7 @@ INSERT INTO `tbl_quanhuyen` (`maqh`, `name_quanhuyen`, `type`, `matp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_shipping`
+-- Table structure for table `tbl_shipping`
 --
 
 CREATE TABLE `tbl_shipping` (
@@ -1069,7 +1070,7 @@ CREATE TABLE `tbl_shipping` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_shipping`
+-- Dumping data for table `tbl_shipping`
 --
 
 INSERT INTO `tbl_shipping` (`shipping_id`, `shipping_name`, `shipping_address`, `shipping_phone`, `shipping_email`, `shipping_notes`, `shipping_method`, `created_at`, `updated_at`) VALUES
@@ -1078,7 +1079,7 @@ INSERT INTO `tbl_shipping` (`shipping_id`, `shipping_name`, `shipping_address`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_slider`
+-- Table structure for table `tbl_slider`
 --
 
 CREATE TABLE `tbl_slider` (
@@ -1090,7 +1091,7 @@ CREATE TABLE `tbl_slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_slider`
+-- Dumping data for table `tbl_slider`
 --
 
 INSERT INTO `tbl_slider` (`slider_id`, `slider_name`, `slider_status`, `slider_image`, `slider_desc`) VALUES
@@ -1101,7 +1102,7 @@ INSERT INTO `tbl_slider` (`slider_id`, `slider_name`, `slider_status`, `slider_i
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_social`
+-- Table structure for table `tbl_social`
 --
 
 CREATE TABLE `tbl_social` (
@@ -1112,7 +1113,7 @@ CREATE TABLE `tbl_social` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_social`
+-- Dumping data for table `tbl_social`
 --
 
 INSERT INTO `tbl_social` (`user_id`, `provider_user_id`, `provider`, `user`) VALUES
@@ -1122,7 +1123,7 @@ INSERT INTO `tbl_social` (`user_id`, `provider_user_id`, `provider`, `user`) VAL
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_tinhthanhpho`
+-- Table structure for table `tbl_tinhthanhpho`
 --
 
 CREATE TABLE `tbl_tinhthanhpho` (
@@ -1132,7 +1133,7 @@ CREATE TABLE `tbl_tinhthanhpho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_tinhthanhpho`
+-- Dumping data for table `tbl_tinhthanhpho`
 --
 
 INSERT INTO `tbl_tinhthanhpho` (`matp`, `name_city`, `type`) VALUES
@@ -1203,7 +1204,7 @@ INSERT INTO `tbl_tinhthanhpho` (`matp`, `name_city`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_xaphuongthitran`
+-- Table structure for table `tbl_xaphuongthitran`
 --
 
 CREATE TABLE `tbl_xaphuongthitran` (
@@ -1214,7 +1215,7 @@ CREATE TABLE `tbl_xaphuongthitran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_xaphuongthitran`
+-- Dumping data for table `tbl_xaphuongthitran`
 --
 
 INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name_xaphuong`, `type`, `maqh`) VALUES
@@ -12392,7 +12393,7 @@ INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name_xaphuong`, `type`, `maqh`) VALU
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -12407,183 +12408,183 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `tbl_admin`
+-- Indexes for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Chỉ mục cho bảng `tbl_brand`
+-- Indexes for table `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
   ADD PRIMARY KEY (`brand_id`);
 
 --
--- Chỉ mục cho bảng `tbl_category_product`
+-- Indexes for table `tbl_category_product`
 --
 ALTER TABLE `tbl_category_product`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Chỉ mục cho bảng `tbl_coupon`
+-- Indexes for table `tbl_coupon`
 --
 ALTER TABLE `tbl_coupon`
   ADD PRIMARY KEY (`coupon_id`);
 
 --
--- Chỉ mục cho bảng `tbl_customers`
+-- Indexes for table `tbl_customers`
 --
 ALTER TABLE `tbl_customers`
   ADD PRIMARY KEY (`customer_id`);
 
 --
--- Chỉ mục cho bảng `tbl_feeship`
+-- Indexes for table `tbl_feeship`
 --
 ALTER TABLE `tbl_feeship`
   ADD PRIMARY KEY (`fee_id`);
 
 --
--- Chỉ mục cho bảng `tbl_order`
+-- Indexes for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- Chỉ mục cho bảng `tbl_order_details`
+-- Indexes for table `tbl_order_details`
 --
 ALTER TABLE `tbl_order_details`
   ADD PRIMARY KEY (`order_details_id`);
 
 --
--- Chỉ mục cho bảng `tbl_product`
+-- Indexes for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`product_id`);
 
 --
--- Chỉ mục cho bảng `tbl_quanhuyen`
+-- Indexes for table `tbl_quanhuyen`
 --
 ALTER TABLE `tbl_quanhuyen`
   ADD PRIMARY KEY (`maqh`);
 
 --
--- Chỉ mục cho bảng `tbl_shipping`
+-- Indexes for table `tbl_shipping`
 --
 ALTER TABLE `tbl_shipping`
   ADD PRIMARY KEY (`shipping_id`);
 
 --
--- Chỉ mục cho bảng `tbl_slider`
+-- Indexes for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   ADD PRIMARY KEY (`slider_id`);
 
 --
--- Chỉ mục cho bảng `tbl_social`
+-- Indexes for table `tbl_social`
 --
 ALTER TABLE `tbl_social`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Chỉ mục cho bảng `tbl_tinhthanhpho`
+-- Indexes for table `tbl_tinhthanhpho`
 --
 ALTER TABLE `tbl_tinhthanhpho`
   ADD PRIMARY KEY (`matp`);
 
 --
--- Chỉ mục cho bảng `tbl_xaphuongthitran`
+-- Indexes for table `tbl_xaphuongthitran`
 --
 ALTER TABLE `tbl_xaphuongthitran`
   ADD PRIMARY KEY (`xaid`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `tbl_admin`
+-- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `admin_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_brand`
+-- AUTO_INCREMENT for table `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
   MODIFY `brand_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_category_product`
+-- AUTO_INCREMENT for table `tbl_category_product`
 --
 ALTER TABLE `tbl_category_product`
-  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_coupon`
+-- AUTO_INCREMENT for table `tbl_coupon`
 --
 ALTER TABLE `tbl_coupon`
   MODIFY `coupon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_customers`
+-- AUTO_INCREMENT for table `tbl_customers`
 --
 ALTER TABLE `tbl_customers`
   MODIFY `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_feeship`
+-- AUTO_INCREMENT for table `tbl_feeship`
 --
 ALTER TABLE `tbl_feeship`
   MODIFY `fee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_order`
+-- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
   MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_order_details`
+-- AUTO_INCREMENT for table `tbl_order_details`
 --
 ALTER TABLE `tbl_order_details`
   MODIFY `order_details_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_product`
+-- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_shipping`
+-- AUTO_INCREMENT for table `tbl_shipping`
 --
 ALTER TABLE `tbl_shipping`
   MODIFY `shipping_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_slider`
+-- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_social`
+-- AUTO_INCREMENT for table `tbl_social`
 --
 ALTER TABLE `tbl_social`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
