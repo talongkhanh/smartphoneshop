@@ -8,13 +8,20 @@
     </div>
     
     <div class="table-responsive">
-                      <?php
-                            $message = Session::get('message');
-                            if($message){
-                                echo '<span class="text-alert">'.$message.'</span>';
-                                Session::put('message',null);
-                            }
-                            ?>
+      <?php
+        $message = Session::get('message');
+        if($message){
+        ?>
+        <div id="snackbar"><?php echo $message; ?></div>
+        <script>
+          var x = document.getElementById("snackbar");
+          x.className = "show";
+          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+        </script>
+        <?php
+            Session::put('message',null);
+        }
+      ?>
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
@@ -51,13 +58,20 @@
     
     
     <div class="table-responsive">
-                      <?php
-                            $message = Session::get('message');
-                            if($message){
-                                echo '<span class="text-alert">'.$message.'</span>';
-                                Session::put('message',null);
-                            }
-                            ?>
+      <?php
+        $message = Session::get('message');
+        if($message){
+        ?>
+        <div id="snackbar"><?php echo $message; ?></div>
+        <script>
+          var x = document.getElementById("snackbar");
+          x.className = "show";
+          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+        </script>
+        <?php
+            Session::put('message',null);
+        }
+      ?>
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
@@ -100,26 +114,28 @@
   
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt kê chi tiết đơn hàng
+      Chi tiết đơn hàng
     </div>
    
     <div class="table-responsive">
-                      <?php
-                            $message = Session::get('message');
-                            if($message){
-                                echo '<span class="text-alert">'.$message.'</span>';
-                                Session::put('message',null);
-                            }
-                            ?>
-    
+      <?php
+        $message = Session::get('message');
+        if($message){
+        ?>
+        <div id="snackbar"><?php echo $message; ?></div>
+        <script>
+          var x = document.getElementById("snackbar");
+          x.className = "show";
+          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+        </script>
+        <?php
+            Session::put('message',null);
+        }
+      ?>
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-            <th style="width:20px;">
-              <label class="i-checks m-b-none">
-                <input type="checkbox"><i></i>
-              </label>
-            </th>
+            <th style="width:20px;">STT</th>
             <th>Tên sản phẩm</th>
             <th>Số lượng kho còn</th>
             <th>Mã giảm giá</th>
@@ -127,7 +143,6 @@
             <th>Số lượng</th>
             <th>Giá sản phẩm</th>
             <th>Tổng tiền</th>
-            
             <th style="width:30px;"></th>
           </tr>
         </thead>
@@ -194,13 +209,13 @@
 
                   @endphp
               @endif
-
-              Phí ship : {{number_format($details->product_feeship,0,',','.')}}đ</br> 
-             Thanh toán: {{number_format($total_coupon,0,',','.')}}đ 
+              Phí ship : {{number_format($details->product_feeship,0,',','.')}}đ<br> 
+              Thanh toán: {{number_format($total_coupon,0,',','.')}}đ 
             </td>
           </tr>
           <tr>
-            <td colspan="6">
+            <td colspan="2">Trạng thái:</td>
+            <td >
               @foreach($order as $key => $or)
                 @if($or->order_status==1)
                 <form>
@@ -242,7 +257,7 @@
           </tr>
         </tbody>
       </table>
-      <a target="_blank" href="{{url('/print-order/'.$details->order_code)}}">In đơn hàng</a>
+      {{-- <a target="_blank" href="{{url('/print-order/'.$details->order_code)}}">In đơn hàng</a> --}}
     </div>
    
   </div>
