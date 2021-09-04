@@ -1452,10 +1452,10 @@ h2.title {
 }
 
 .login-form h2, .signup-form h2 {
-  color: #696763;
+  color: #000000;
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 25px;
+  font-weight: 700;
   margin-bottom: 30px;
 }
 

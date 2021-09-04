@@ -170,12 +170,12 @@
 
                         <form action="#">
 										<span>
-											<input type="text" placeholder="Tên của bạn"/>
-											<input type="email" placeholder="Email của bạn"/>
+											<input id="a1" type="text" placeholder="Tên của bạn"/>
+											<input id="a2" type="email" placeholder="Email của bạn"/>
 										</span>
-                            <textarea name="" placeholder="Nội dung"></textarea>
+                            <textarea name="" id="a3" placeholder="Nội dung"></textarea>
                             <b>Đánh giá: </b> <img src="images/product-details/rating.png" alt=""/>
-                            <button type="button" class="btn btn-default pull-right">
+                            <button type="button" class="btn btn-default pull-right" id="btn_danhgia">
                                 Gửi đánh giá
                             </button>
                         </form>
@@ -216,4 +216,13 @@
         {!!$relate->links()!!}
     </ul>
 
+    <script>
+
+        document.getElementById("btn_danhgia").addEventListener("click", function(){
+            document.getElementById("a1").value = "";
+            document.getElementById("a2").value = "";
+            document.getElementById("a3").value = "";
+                swal("Thành công", "Gửi đánh giá thành công. Xin cảm ơn !", "success");
+        });
+    </script>
 @endsection

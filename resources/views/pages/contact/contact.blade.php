@@ -88,8 +88,17 @@ h6
 <input type="text" id="fname" name="fname" placeholder="Họ tên"><br>
 <input type="text" id="femail" name="femail" placeholder="Địa chỉ Email"><br>
 <input type="text" id="fcontent" name="fcontent" placeholder="Nội dung yêu cầu"><br>
-<input type="submit" value="Gửi mail">
+<input type="submit" id="btn_mail" value="Gửi mail" onclick="return false">
 </form>
-    </section><!--/form-->
+<script>
+        document.getElementById("btn_mail").addEventListener("click", function(){
+
+            document.getElementById("fname").value = "";
+            document.getElementById("femail").value = "";
+            document.getElementById("fcontent").value = "";
+                swal("Gửi mail thành công", "Chúc bạn mua hàng vui vẻ ạ !", "success");
+        });
+ </script>
+</section><!--/form-->
 
 @endsection
