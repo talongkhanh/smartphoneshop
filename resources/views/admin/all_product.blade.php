@@ -89,7 +89,7 @@
             <small class="text-muted inline m-t-sm m-b-sm">Hiển thị <b>{{ $all_product->count() }}</b> trên tổng số <b>{{ $all_product->total() }}</b> bản ghi. </small>
           </div>
           <div class="col-sm-7 text-right text-center-xs">
-              {{ $all_product->links() }}
+              {{ $all_product->onEachSide(1)->links() }}
           </div>
       </div>
     </footer>
