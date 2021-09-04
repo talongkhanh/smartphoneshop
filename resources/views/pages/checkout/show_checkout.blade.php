@@ -104,18 +104,18 @@
 			                        {{ session()->get('error') }}
 			                    </div>
 			                @endif
-						<div class="table-responsive cart_info">
+						<div class="table-responsive cart_info" style="width:800px">
 
 							<form action="{{url('/update-cart')}}" method="POST">
 								@csrf
 							<table class="table table-condensed">
 								<thead>
 									<tr class="cart_menu">
-									<td class="image" style="width:80px";>Hình ảnh</td>
-							        <td class="description" style="width:80px";>Tên sản phẩm</td>
-						          	<td class="price" style="width:80px">Giá sản phẩm</td>
-							        <td class="quantity" style="width:80px">Số lượng</td>
-							        <td class="total" style="width:200px">Thành tiền</td>
+									<td class="image" style="width:150px";>Hình ảnh</td>
+							        <td class="description" style="width:120px";>Tên sản phẩm</td>
+						          	<td class="price" style="width:180px">Giá sản phẩm</td>
+							        <td class="quantity" style="width:100px">Số lượng</td>
+							        <td class="total" style="width:220px">Thành tiền</td>
 										
 									</tr>
 								</thead>
@@ -156,7 +156,7 @@
 												
 											</p>
 										</td>
-										<td class="cart_delete" style="width:100px">
+										<td class="cart_delete">
 											<a class="cart_quantity_delete" href="{{url('/del-product/'.$cart['session_id'])}}"><i class="fa fa-times"></i></a>
 										</td>
 									</tr>
