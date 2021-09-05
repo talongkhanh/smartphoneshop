@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 03, 2021 at 06:52 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.3.29
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th9 05, 2021 lúc 06:25 AM
+-- Phiên bản máy phục vụ: 10.4.19-MariaDB
+-- Phiên bản PHP: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `elaravel`
+-- Cơ sở dữ liệu: `elaravel`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Cấu trúc bảng cho bảng `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -36,7 +36,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_admin`
+-- Cấu trúc bảng cho bảng `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -50,7 +50,7 @@ CREATE TABLE `tbl_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_admin`
+-- Đang đổ dữ liệu cho bảng `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_name`, `admin_phone`, `created_at`, `updated_at`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `tbl_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_nam
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_brand`
+-- Cấu trúc bảng cho bảng `tbl_brand`
 --
 
 CREATE TABLE `tbl_brand` (
@@ -73,7 +73,7 @@ CREATE TABLE `tbl_brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_brand`
+-- Đang đổ dữ liệu cho bảng `tbl_brand`
 --
 
 INSERT INTO `tbl_brand` (`brand_id`, `brand_name`, `brand_slug`, `brand_desc`, `brand_status`, `created_at`, `updated_at`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `tbl_brand` (`brand_id`, `brand_name`, `brand_slug`, `brand_desc`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_category_product`
+-- Cấu trúc bảng cho bảng `tbl_category_product`
 --
 
 CREATE TABLE `tbl_category_product` (
@@ -100,7 +100,7 @@ CREATE TABLE `tbl_category_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_category_product`
+-- Đang đổ dữ liệu cho bảng `tbl_category_product`
 --
 
 INSERT INTO `tbl_category_product` (`category_id`, `meta_keywords`, `category_name`, `slug_category_product`, `category_desc`, `category_status`, `created_at`, `updated_at`) VALUES
@@ -115,7 +115,7 @@ INSERT INTO `tbl_category_product` (`category_id`, `meta_keywords`, `category_na
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_coupon`
+-- Cấu trúc bảng cho bảng `tbl_coupon`
 --
 
 CREATE TABLE `tbl_coupon` (
@@ -128,7 +128,7 @@ CREATE TABLE `tbl_coupon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_coupon`
+-- Đang đổ dữ liệu cho bảng `tbl_coupon`
 --
 
 INSERT INTO `tbl_coupon` (`coupon_id`, `coupon_name`, `coupon_time`, `coupon_condition`, `coupon_number`, `coupon_code`) VALUES
@@ -138,7 +138,7 @@ INSERT INTO `tbl_coupon` (`coupon_id`, `coupon_name`, `coupon_time`, `coupon_con
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_customers`
+-- Cấu trúc bảng cho bảng `tbl_customers`
 --
 
 CREATE TABLE `tbl_customers` (
@@ -152,7 +152,7 @@ CREATE TABLE `tbl_customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_customers`
+-- Đang đổ dữ liệu cho bảng `tbl_customers`
 --
 
 INSERT INTO `tbl_customers` (`customer_id`, `customer_name`, `customer_email`, `customer_password`, `customer_phone`, `created_at`, `updated_at`) VALUES
@@ -165,7 +165,7 @@ INSERT INTO `tbl_customers` (`customer_id`, `customer_name`, `customer_email`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_feeship`
+-- Cấu trúc bảng cho bảng `tbl_feeship`
 --
 
 CREATE TABLE `tbl_feeship` (
@@ -177,20 +177,21 @@ CREATE TABLE `tbl_feeship` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_feeship`
+-- Đang đổ dữ liệu cho bảng `tbl_feeship`
 --
 
 INSERT INTO `tbl_feeship` (`fee_id`, `fee_matp`, `fee_maqh`, `fee_xaid`, `fee_feeship`) VALUES
-(1, 1, 1, 1, '50.000'),
+(1, 1, 1, 1, '50000'),
 (2, 1, 1, 16, '60000'),
 (3, 1, 2, 40, '150000'),
 (4, 2, 26, 712, '60000'),
-(5, 79, 760, 26734, '80000');
+(5, 79, 760, 26734, '80000'),
+(6, 4, 44, 1366, '120000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_order`
+-- Cấu trúc bảng cho bảng `tbl_order`
 --
 
 CREATE TABLE `tbl_order` (
@@ -204,7 +205,7 @@ CREATE TABLE `tbl_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_order`
+-- Đang đổ dữ liệu cho bảng `tbl_order`
 --
 
 INSERT INTO `tbl_order` (`order_id`, `customer_id`, `shipping_id`, `order_status`, `order_code`, `created_at`, `updated_at`) VALUES
@@ -223,7 +224,7 @@ INSERT INTO `tbl_order` (`order_id`, `customer_id`, `shipping_id`, `order_status
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_order_details`
+-- Cấu trúc bảng cho bảng `tbl_order_details`
 --
 
 CREATE TABLE `tbl_order_details` (
@@ -240,7 +241,7 @@ CREATE TABLE `tbl_order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_order_details`
+-- Đang đổ dữ liệu cho bảng `tbl_order_details`
 --
 
 INSERT INTO `tbl_order_details` (`order_details_id`, `order_code`, `product_id`, `product_name`, `product_price`, `product_sales_quantity`, `product_coupon`, `product_feeship`, `created_at`, `updated_at`) VALUES
@@ -279,7 +280,7 @@ INSERT INTO `tbl_order_details` (`order_details_id`, `order_code`, `product_id`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_product`
+-- Cấu trúc bảng cho bảng `tbl_product`
 --
 
 CREATE TABLE `tbl_product` (
@@ -300,7 +301,7 @@ CREATE TABLE `tbl_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_product`
+-- Đang đổ dữ liệu cho bảng `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_quantity`, `product_sold`, `product_slug`, `category_id`, `brand_id`, `product_desc`, `product_content`, `product_price`, `product_image`, `product_status`, `created_at`, `updated_at`) VALUES
@@ -317,12 +318,22 @@ INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_quantity`, `pr
 (25, 'Tai nghe Bluetooth True Wireless Galaxy Buds Pro', '30', NULL, 'tai-nghe-bluetooth-trrue-wireless', 2, 3, 'Thiết kế sang trọng, thời thượng cùng hộp sạc đồng nhất màu sắc đi kèm\r\nTai nghe Bluetooth True Wireless Samsung Buds Pro sở hữu vẻ ngoài đẹp mắt thời thượng với hai màu đen và trắng. Thiết kế mới trên hình dạng tai nghe cổ điển, có khả năng làm giảm bớt sự khó chịu khi sử dụng tai nghe trong nhiều giờ và tai nghe cũng nằm chắc chắn phía trong tai khi bạn tập luyện hay vận động. Đồng thời, các lỗ thoát khí giúp cân bằng áp suất trong tai và tăng lưu lượng không khí, tạo cảm giác mềm mại dễ chịu khi sử dụng.\r\n\r\nTai nghe có thiết kế nhỏ gọn nên bạn dễ dàng bỏ vào túi xách, balo và mang theo bên mình di chuyển mọi nơi. Ngoài ra, có kèm theo núm tai nghe với ba kích thước cho người dùng dễ thay đổi sao cho phù hợp.', NULL, '3990000', 'tai-nghe-bluetooth-true-wireless-galaxy-buds-pro-note12.jpg', 0, NULL, NULL),
 (26, 'I Phone 12 64GB', '16', NULL, 'iphone-12', 1, 2, 'Thiết kế mỏng nhẹ, nhỏ gọn và đẳng cấp\r\niPhone 12 đã có sự đột phá về thiết kế với kiểu dáng mới vuông vắn, mạnh mẽ và sang trọng hơn. Không chỉ vậy, iPhone 12 mỏng hơn 11%, nhỏ gọn hơn 15% và nhẹ hơn 16% so với thế hệ trước iPhone 11.\r\n\r\nBất ngờ hơn nữa là dù gọn hơn đáng kể nhưng iPhone 12 vẫn có màn hình 6,1 inch như iPhone 11 mà không hề bị cắt giảm. Phần viền màn hình thu hẹp tối đa cùng sự nỗ lực trong thiết kế đã tạo nên điều kỳ diệu ở iPhone 12.', NULL, '20490000', 'vi-vn-iphone-12-178.jpg', 0, NULL, NULL),
 (27, 'Xiaomi redmi 9T', '22', NULL, 'xiaomi-redmi-9-T', 1, 1, 'Điện thoại Xiaomi Redmi 9T – Smartphone giá rẻ, pin dung lượng lớn\r\nChiếc smartphone Xiaomi Redmi 9T có thể nói là bản dupe của mẫu Redmi Note 9 khi sở hữu cấu hình khá tương đồng chỉ thay đổi ở con chip.\r\n\r\nMàn hình giọt nước 6.53 inch\r\nĐiện thoại Xiaomi này vẫn sở hữu màn hình giọt nước quen thuộc. Máy sở hữu kích thước 6.53 inch trên tấm nền IPS LCD cùng độ phân giải Full HD+. Nhờ đó, máy cho khả năng hiển thị tốt, màu sắc chân thực.', NULL, '3900000', 'xiaomi-redmi-note-9-note8.jpg', 0, NULL, NULL),
-(28, 'Tai nghe chụp tai Mozard IP-840', '32', NULL, 'tai-nghe', 2, 4, 'TOPK đã giành được siêu giải thưởng thương hiệu có ảnh hưởng nhất năm 2020 tại thị trường Đông Nam Á. TOPK chuyên về các sản phẩm điện tử tiêu dùng, hầu hết là các phụ kiện điện thoại.\r\n  Sản phẩm này luôn có sẵn và hoan nghênh bạn đặt hàng.\r\n  Nếu bạn có bất kỳ câu hỏi nào hoặc gặp bất kỳ vấn đề nào về sản phẩm,', NULL, '350000', 'tai-nghe-chup-tai-mozard-ip-840-314120-02412244.jpg', 0, NULL, NULL);
+(28, 'Tai nghe chụp tai Mozard IP-840', '32', NULL, 'tai-nghe', 2, 4, 'TOPK đã giành được siêu giải thưởng thương hiệu có ảnh hưởng nhất năm 2020 tại thị trường Đông Nam Á. TOPK chuyên về các sản phẩm điện tử tiêu dùng, hầu hết là các phụ kiện điện thoại.\r\n  Sản phẩm này luôn có sẵn và hoan nghênh bạn đặt hàng.\r\n  Nếu bạn có bất kỳ câu hỏi nào hoặc gặp bất kỳ vấn đề nào về sản phẩm,', NULL, '350000', 'tai-nghe-chup-tai-mozard-ip-840-314120-02412244.jpg', 0, NULL, NULL),
+(29, 'Pin dự phòng 25W 10,000mAh', '20', NULL, 'pin-du-phong', 6, 3, '<h2>Sạc Nhanh Mọi L&uacute;c</h2>', '<p>Tận hưởng t&iacute;nh năng Sạc Nhanh Si&ecirc;u Tốc ấn tượng tr&ecirc;n pin dự ph&ograve;ng 25W Samsung. Nạp đầy năng lượng cho điện thoại chỉ trong t&iacute;ch tắc v&agrave; nhanh ch&oacute;ng sạc lại tức th&igrave; khi pin dự ph&ograve;ng sắp hết. Kiến tạo ho&agrave;n hảo mọi trải nghiệm liền mạch với thiết bị lu&ocirc;n đầy pin suốt ng&agrave;y d&agrave;i.</p>', '693000', 'sac45.webp', 0, NULL, NULL),
+(30, 'Dây đeo Apple Watch 44mm cao su đen', '25', NULL, 'apple-watch', 3, 2, '<h2>Sang trọng, thời trang</h2>', '<p>Galaxy Watch Active 2 mang thiết kế gọn g&agrave;ng, mặt k&iacute;nh tr&ograve;n 44 mm viền cong sang trọng t&ocirc;n d&aacute;ng tay. D&acirc;y đeo chất liệu Silicone mềm mại c&oacute; thể th&aacute;o rời tiện lợi để bạn thay m&agrave;u d&acirc;y t&ugrave;y &yacute;.&nbsp;</p>', '2690000', 'wa91.jpg', 0, NULL, NULL),
+(31, 'Dán chống va đập full màn hình cho Samsung Galaxy A31', '100', NULL, 'cuong-luc', 7, 3, '<h2>Thiết kế bảo vệ tr&agrave;n viền full m&agrave;n h&igrave;nh, chất liệu si&ecirc;u bền hạn chế nứt vỡ</h2>', '<p>C&aacute;c miếng&nbsp;<a href=\"https://cellphones.com.vn/phu-kien/dan-man-hinh.html\" target=\"_blank\" title=\"Dán màn hình chính hãng\">d</a>&aacute;n m&agrave;n h&igrave;nh&nbsp;k&eacute;m chất lượng hiện nay đều kh&ocirc;ng bảo vệ ho&agrave;n to&agrave;n m&agrave;n h&igrave;nh điện thoại khi rơi vỡ vẫn xảy ra vỡ m&agrave;n h&igrave;nh. Với thiết kế tr&agrave;n viền full m&agrave;n h&igrave;nh miếng d&aacute;n chống va đập cho Samsung Galaxy A31 l&agrave; sự lựa chọn ho&agrave;n hảo cho bạn vừa bảo vệ tối đa m&agrave;n h&igrave;nh vừa &ocirc;m s&aacute;t c&aacute;c cạnh viền. Khi rơi vỡ khả năng ảnh hưởng đến m&agrave;n h&igrave;nh sẽ được giảm đ&aacute;ng kể tăng cao thời gian khi sử dụng.</p>', '120000', 'dan-man-hinh-samsung-a30-chinh-hang72.jpg', 0, NULL, NULL),
+(32, 'Dán chống va đập cho iPhone 11 Pro - Full màn hình 4D/5D', '80', NULL, 'cuong-luc', 7, 2, '<h2>K&iacute;ch thước lớn bảo vệ to&agrave;n diện m&agrave;n h&igrave;nh, c&aacute;c đường n&eacute;t 4D/5D viền bo s&aacute;t cạnh tinh tế</h2>', '<p>Đa số c&aacute;c miếng d&aacute;n hiện nay tr&ecirc;n thị trường đều được thiết kế theo độ hiển thị của m&agrave;n h&igrave;nh chỉ bảo vệ những điểm hiển thị v&agrave; cắt theo h&igrave;nh tai thỏ kh&ocirc;ng bảo vệ to&agrave;n diện được m&agrave;n h&igrave;nh. D&aacute;n chống va đập cho iPhone 11 Pro - Full m&agrave;n h&igrave;nh 4D/5D l&agrave; một trong những miếng d&aacute;n mang đến sự an to&agrave;n gần như tuyệt đối đến cho chiếc điện thoại. Phần g&oacute;c cạnh của miếng d&aacute;n được cắt th&agrave;nh h&igrave;nh chữ nhật bảo vệ lu&ocirc;n cả camera v&agrave; loa của iPhone 11 Pro tr&aacute;nh khỏi hư hỏng.</p>', '150000', 'cuong-luc-5d-iphone-xs-max-full-man-hinh-thum-02_286.jpg', 0, NULL, NULL),
+(33, 'Dán màn hình dẻo trong S-Case full cho Apple Watch 44mm', '30', NULL, 'cuong-luc', 7, 2, '<h2>Phụ kiện bảo vệ m&agrave;n h&igrave;nh khỏi trầy xước</h2>', '<p>Mang trong m&igrave;nh một thiết kế trong suốt, c&ugrave;ng với độ bo cong m&agrave;n h&igrave;nh một c&aacute;ch mềm mại.&nbsp;<a href=\"https://cellphones.com.vn/phu-kien/dan-man-hinh/dan-apple-watch.html\" target=\"_blank\" title=\"Dán màn hình Apple Watch chính hãng\">D</a>&aacute;n m&agrave;n h&igrave;nh Apple Watch&nbsp;44mm S-Case c&oacute; thể đạt được một sự tinh tế nhất định v&agrave; c&oacute; thể gi&uacute;p cho người nh&igrave;n c&oacute; cảm gi&aacute;c như d&aacute;n. B&ecirc;n cạnh khả năng bảo vệ m&agrave;n h&igrave;nh Apple Watch 44mm khỏi c&aacute;c trầy xước th&igrave; miếng d&aacute;n m&agrave;n h&igrave;nh n&agrave;y c&ograve;n gi&uacute;p t&ocirc;n l&ecirc;n vẻ đẹp, sự tinh tế của chiếc m&aacute;y.</p>', '200000', 'w7.jpg', 0, NULL, NULL),
+(34, 'Pin sạc dự phòng Polymer 10.000 mAh Type C PD QC3.0 OPPO PBT02', '20', NULL, 'pin-du-phong', 6, 4, '<h2>Chuẩn sạc nhanh Power Delivery&nbsp;hỗ trợ tr&ecirc;n 1 cổng Type C v&agrave; Quick Charge 3.0 tr&ecirc;n 2 cổng USB</h2>', '<ul>\r\n	<li>Thiết kế nhỏ gọn, c&oacute; 2 m&agrave;u đen, trắng thời trang.</li>\r\n	<li>Dung lượng pin lớn 10.000 mAh, l&otilde;i pin Polymer an to&agrave;n.</li>\r\n	<li>Cổng Type C trang bị c&ocirc;ng nghệ sạc nhanh Power Delivery 18W cho cả nguồn ra v&agrave; nguồn v&agrave;o.</li>\r\n	<li>Cổng USB t&iacute;ch hợp c&ocirc;ng nghệ sạc nhanh Quick Charge 3.0 18W.</li>\r\n	<li>Tương th&iacute;ch với nhiều loại điện thoại v&agrave; m&aacute;y t&iacute;nh bảng.</li>\r\n</ul>', '980000', 'oppo-pbt02-trang-1-org30.jpg', 0, NULL, NULL),
+(35, 'Đồng hồ thông minh Đồng hồ thông minh Xiaomi Mi Watch Lite - Chính hãng', '20', NULL, 'watch', 3, 1, '<h2 dir=\"ltr\">Thiết kế hiện đại. Chống nước vượt trội</h2>', '<p>Đồng hồ th&ocirc;ng minh Xiaomi Mi Watch Lite g&acirc;y ấn tượng với người d&ugrave;ng bởi thiết kế độc đ&aacute;o. Thay v&igrave; m&agrave;n h&igrave;nh tr&ograve;n như thế hệ trước th&igrave; Mi Watch Lite được trang bị mặt vu&ocirc;ng với 4 g&oacute;c bo tr&ograve;n mềm mại. B&ecirc;n cạnh đ&oacute;, khung viền của đồng hồ được l&agrave;m bằng nh&ocirc;m chắc chắn mang đến sự sang trọng v&agrave; bền bỉ vượt trội.</p>', '1280000', 'mi54.png', 0, NULL, NULL),
+(36, 'SAMSUNG GALAXY WATCH4 SERIES', '20', NULL, 'watch', 3, 3, '<h2>Thiết kế cổ điển, sang trọng</h2>', '<p>Điều hướng linh hoạt với v&ograve;ng xoay bezel độc đ&aacute;o, chất liệu th&eacute;p kh&ocirc;ng gỉ cao cấp, mạnh mẽ</p>', '6490000', 'SP-728x51181.png', 0, NULL, NULL),
+(37, 'Pin dự phòng MagSafe Battery Pack', '20', NULL, 'pin-du-phong', 6, 2, '<h3>MagSafe Battery Pack c&oacute; thiết kế h&igrave;nh chữ nhật ph&ugrave; hợp với h&igrave;nh dạng của &zwnj;iPhone&zwnj; v&agrave; n&oacute; được gắn v&agrave;o mặt sau của &zwnj;iPhone 12&zwnj;, 12 mini, 12 Pro hoặc 12 Pro Max để cung cấp th&ecirc;m năng lượng.</h3>', '<p>MagSafe Battery Pack c&oacute; t&iacute;nh năng sạc ngược kh&ocirc;ng d&acirc;y. Điều n&agrave;y c&oacute; nghĩa l&agrave; nếu bạn sạc &zwnj;iPhone&zwnj; của m&igrave;nh, mẫu pin dự ph&ograve;ng n&agrave;y cũng sẽ sạc c&ugrave;ng l&uacute;c. V&igrave; vậy, bạn c&oacute; thể sạc cả &zwnj;iPhone&zwnj; v&agrave; MagSafe Battery Pack th&ocirc;ng qua cổng Lightning tr&ecirc;n MagSafe Battery Pack hoặc qua cổng Lightning tr&ecirc;n &zwnj;iPhone&zwnj;.</p>\r\n\r\n<p>Apple n&oacute;i rằng phương ph&aacute;p sạc n&agrave;y hữu &iacute;ch khi &zwnj;iPhone&zwnj; được cắm v&agrave;o một thiết bị kh&aacute;c, chẳng hạn như thiết lập CarPlay c&oacute; d&acirc;y hoặc khi &zwnj;iPhone&zwnj; được kết nối với m&aacute;y Mac. Khi sạc đồng thời &zwnj;iPhone&zwnj; v&agrave; MagSafe Battery Pack, &zwnj;iPhone&zwnj; sẽ sạc đến 80% hoặc cao hơn trước khi MagSafe Battery Pack bắt đầu sạc. Tuy nhi&ecirc;n, người d&ugrave;ng n&ecirc;n sử dụng củ sạc c&oacute; c&ocirc;ng suất 20W hoặc lớn hơn để sạc cho combo điện thoại + pin dự ph&ograve;ng n&agrave;y.</p>', '2300000', 'magsafe-battery-pack-16.jpg', 0, NULL, NULL),
+(38, 'iPad Pro M1 12.9 inch 128gb wifi 2021 Chính hãng Apple Việt Nam', '20', NULL, 'tablet', 5, 2, '<h2>iPad Pro 12.9 inch 2021 - M&aacute;y t&iacute;nh bảng hiệu năng mạnh mẽ</h2>', '<p>Giống với những d&ograve;ng iPad tiền nhiệm, iPad Pro 12.9 phi&ecirc;n bản 2021 tiếp tục được Apple thiết kế với vẻ ngo&agrave;i sang trọng, hiện đại. K&iacute;ch thước của iPad 2021 gần giống với phi&ecirc;n bản năm 2020.</p>', '26790000', 'aa57.png', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_quanhuyen`
+-- Cấu trúc bảng cho bảng `tbl_quanhuyen`
 --
 
 CREATE TABLE `tbl_quanhuyen` (
@@ -333,7 +344,7 @@ CREATE TABLE `tbl_quanhuyen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_quanhuyen`
+-- Đang đổ dữ liệu cho bảng `tbl_quanhuyen`
 --
 
 INSERT INTO `tbl_quanhuyen` (`maqh`, `name_quanhuyen`, `type`, `matp`) VALUES
@@ -1054,7 +1065,7 @@ INSERT INTO `tbl_quanhuyen` (`maqh`, `name_quanhuyen`, `type`, `matp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_shipping`
+-- Cấu trúc bảng cho bảng `tbl_shipping`
 --
 
 CREATE TABLE `tbl_shipping` (
@@ -1070,16 +1081,16 @@ CREATE TABLE `tbl_shipping` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_shipping`
+-- Đang đổ dữ liệu cho bảng `tbl_shipping`
 --
 
 INSERT INTO `tbl_shipping` (`shipping_id`, `shipping_name`, `shipping_address`, `shipping_phone`, `shipping_email`, `shipping_notes`, `shipping_method`, `created_at`, `updated_at`) VALUES
-(17, 'Hieu Tấn', '245 Nguyễn Văn Khạ, Tân An Hội .Thị trấn Củ Chi,TPHCM', '0932023992', 'Hieu dep giai', 'Nhanh nha mày', 1, NULL, NULL);
+(17, 'Trần Tâm', 'Nguyên Xá', '0932023992', 'tran@gmail.com', 'Hàng dễ vỡ', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_slider`
+-- Cấu trúc bảng cho bảng `tbl_slider`
 --
 
 CREATE TABLE `tbl_slider` (
@@ -1091,7 +1102,7 @@ CREATE TABLE `tbl_slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_slider`
+-- Đang đổ dữ liệu cho bảng `tbl_slider`
 --
 
 INSERT INTO `tbl_slider` (`slider_id`, `slider_name`, `slider_status`, `slider_image`, `slider_desc`) VALUES
@@ -1102,7 +1113,7 @@ INSERT INTO `tbl_slider` (`slider_id`, `slider_name`, `slider_status`, `slider_i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_social`
+-- Cấu trúc bảng cho bảng `tbl_social`
 --
 
 CREATE TABLE `tbl_social` (
@@ -1113,7 +1124,7 @@ CREATE TABLE `tbl_social` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_social`
+-- Đang đổ dữ liệu cho bảng `tbl_social`
 --
 
 INSERT INTO `tbl_social` (`user_id`, `provider_user_id`, `provider`, `user`) VALUES
@@ -1123,7 +1134,7 @@ INSERT INTO `tbl_social` (`user_id`, `provider_user_id`, `provider`, `user`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tinhthanhpho`
+-- Cấu trúc bảng cho bảng `tbl_tinhthanhpho`
 --
 
 CREATE TABLE `tbl_tinhthanhpho` (
@@ -1133,7 +1144,7 @@ CREATE TABLE `tbl_tinhthanhpho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `tbl_tinhthanhpho`
+-- Đang đổ dữ liệu cho bảng `tbl_tinhthanhpho`
 --
 
 INSERT INTO `tbl_tinhthanhpho` (`matp`, `name_city`, `type`) VALUES
@@ -1204,7 +1215,7 @@ INSERT INTO `tbl_tinhthanhpho` (`matp`, `name_city`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_xaphuongthitran`
+-- Cấu trúc bảng cho bảng `tbl_xaphuongthitran`
 --
 
 CREATE TABLE `tbl_xaphuongthitran` (
@@ -1215,7 +1226,7 @@ CREATE TABLE `tbl_xaphuongthitran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_xaphuongthitran`
+-- Đang đổ dữ liệu cho bảng `tbl_xaphuongthitran`
 --
 
 INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name_xaphuong`, `type`, `maqh`) VALUES
@@ -12393,7 +12404,7 @@ INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name_xaphuong`, `type`, `maqh`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -12408,183 +12419,183 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `tbl_admin`
+-- Chỉ mục cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indexes for table `tbl_brand`
+-- Chỉ mục cho bảng `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
   ADD PRIMARY KEY (`brand_id`);
 
 --
--- Indexes for table `tbl_category_product`
+-- Chỉ mục cho bảng `tbl_category_product`
 --
 ALTER TABLE `tbl_category_product`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `tbl_coupon`
+-- Chỉ mục cho bảng `tbl_coupon`
 --
 ALTER TABLE `tbl_coupon`
   ADD PRIMARY KEY (`coupon_id`);
 
 --
--- Indexes for table `tbl_customers`
+-- Chỉ mục cho bảng `tbl_customers`
 --
 ALTER TABLE `tbl_customers`
   ADD PRIMARY KEY (`customer_id`);
 
 --
--- Indexes for table `tbl_feeship`
+-- Chỉ mục cho bảng `tbl_feeship`
 --
 ALTER TABLE `tbl_feeship`
   ADD PRIMARY KEY (`fee_id`);
 
 --
--- Indexes for table `tbl_order`
+-- Chỉ mục cho bảng `tbl_order`
 --
 ALTER TABLE `tbl_order`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- Indexes for table `tbl_order_details`
+-- Chỉ mục cho bảng `tbl_order_details`
 --
 ALTER TABLE `tbl_order_details`
   ADD PRIMARY KEY (`order_details_id`);
 
 --
--- Indexes for table `tbl_product`
+-- Chỉ mục cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`product_id`);
 
 --
--- Indexes for table `tbl_quanhuyen`
+-- Chỉ mục cho bảng `tbl_quanhuyen`
 --
 ALTER TABLE `tbl_quanhuyen`
   ADD PRIMARY KEY (`maqh`);
 
 --
--- Indexes for table `tbl_shipping`
+-- Chỉ mục cho bảng `tbl_shipping`
 --
 ALTER TABLE `tbl_shipping`
   ADD PRIMARY KEY (`shipping_id`);
 
 --
--- Indexes for table `tbl_slider`
+-- Chỉ mục cho bảng `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   ADD PRIMARY KEY (`slider_id`);
 
 --
--- Indexes for table `tbl_social`
+-- Chỉ mục cho bảng `tbl_social`
 --
 ALTER TABLE `tbl_social`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `tbl_tinhthanhpho`
+-- Chỉ mục cho bảng `tbl_tinhthanhpho`
 --
 ALTER TABLE `tbl_tinhthanhpho`
   ADD PRIMARY KEY (`matp`);
 
 --
--- Indexes for table `tbl_xaphuongthitran`
+-- Chỉ mục cho bảng `tbl_xaphuongthitran`
 --
 ALTER TABLE `tbl_xaphuongthitran`
   ADD PRIMARY KEY (`xaid`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `tbl_admin`
+-- AUTO_INCREMENT cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `admin_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_brand`
+-- AUTO_INCREMENT cho bảng `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
   MODIFY `brand_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_category_product`
+-- AUTO_INCREMENT cho bảng `tbl_category_product`
 --
 ALTER TABLE `tbl_category_product`
   MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbl_coupon`
+-- AUTO_INCREMENT cho bảng `tbl_coupon`
 --
 ALTER TABLE `tbl_coupon`
   MODIFY `coupon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_customers`
+-- AUTO_INCREMENT cho bảng `tbl_customers`
 --
 ALTER TABLE `tbl_customers`
   MODIFY `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbl_feeship`
+-- AUTO_INCREMENT cho bảng `tbl_feeship`
 --
 ALTER TABLE `tbl_feeship`
-  MODIFY `fee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `fee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_order`
+-- AUTO_INCREMENT cho bảng `tbl_order`
 --
 ALTER TABLE `tbl_order`
   MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `tbl_order_details`
+-- AUTO_INCREMENT cho bảng `tbl_order_details`
 --
 ALTER TABLE `tbl_order_details`
   MODIFY `order_details_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `tbl_product`
+-- AUTO_INCREMENT cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `tbl_shipping`
+-- AUTO_INCREMENT cho bảng `tbl_shipping`
 --
 ALTER TABLE `tbl_shipping`
   MODIFY `shipping_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `tbl_slider`
+-- AUTO_INCREMENT cho bảng `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tbl_social`
+-- AUTO_INCREMENT cho bảng `tbl_social`
 --
 ALTER TABLE `tbl_social`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
