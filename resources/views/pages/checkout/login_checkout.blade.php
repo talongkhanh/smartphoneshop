@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-
+	<?php $shipping = Session::get('shipping');?>
 	<section id="form" style="margin: 0 auto"><!--Form đăng kí đăng nhập-->
 		<div class="container">
 			<div class="row">
@@ -12,10 +12,6 @@
 								{{csrf_field()}}
 								<input type="text" name="email_account" placeholder="Tài khoản" />
 								<input type="password" name="password_account" placeholder="Password" />
-								<span>
-								<input type="checkbox" class="checkbox">
-								Ghi nhớ đăng nhập
-							</span>
 								<button type="submit" class="btn btn-default">Đăng nhập</button>
 
 							</form>
