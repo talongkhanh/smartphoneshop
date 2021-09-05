@@ -117,6 +117,7 @@ Route::post('/confirm-order','CheckoutController@confirm_order');
 //Order
 
 Route::get('/print-order/{checkout_code}','OrderController@print_order');
+Route::get('/delete-order/{checkout_code}','OrderController@delete_order');
 Route::get('/manage-order','OrderController@manage_order');
 Route::get('/view-order/{order_code}','OrderController@view_order');
 Route::post('/update-order-qty','OrderController@update_order_qty');
