@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Session;
 use App\Feeship;
 use App\Shipping;
@@ -315,4 +316,11 @@ class OrderController extends Controller
 
     	return view('admin.manage_order')->with(compact('order'));
     }
+	// delete_order
+
+	public function delete_order($order_code) {
+		Order::where('order_code',$order_code)->delete();
+		Session::put('message','Xóa đơn hàng thành công');
+		return Redirect::to('manage-order');
+	}
 }
