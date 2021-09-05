@@ -192,7 +192,7 @@
 														@endphp
 														</p>
 													@elseif($cou['coupon_condition']==2)
-														Mã giảm : {{number_format($cou['coupon_number'],0,',','.')}} k
+														Mã giảm : {{number_format($cou['coupon_number'],0,',','.')}} đ
 														<p>
 															@php 
 															$total_coupon = $total - $cou['coupon_number'];
