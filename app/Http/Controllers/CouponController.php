@@ -37,6 +37,7 @@ class CouponController extends Controller
     }
 	// danh sách mã giảm giá
     public function list_coupon(Request $request){
+		Session::put('dataCoupon', null);
 		$search = $request->input('q');
         $page_size = 6;
         $all_coupons = Coupon::orderBy('coupon_id','DESC')->get();
@@ -54,7 +55,7 @@ class CouponController extends Controller
         if(isset($search)) {
             Session::put('q',$search);
             $coupon = Coupon::query()
-            ->where('slider_name', 'LIKE', "%{$search}%")
+            ->where('coupon_name', 'LIKE', "%{$search}%")
             ->offset($offset)
             ->limit($page_size)
             ->get();
@@ -137,7 +138,7 @@ class CouponController extends Controller
 	// thêm mới mã giảm giá
     public function insert_coupon_code(Request $request){
     	$data = $request->all();
-
+		Session::put('dataCoupon', $data);
     	$coupon = new Coupon;
 
     	if(!isset($data['coupon_name'])) {
@@ -169,7 +170,7 @@ class CouponController extends Controller
 		}
     	$coupon->coupon_condition = $data['coupon_condition'];
     	$coupon->save();
-
+		Session::put('dataCoupon', null);
     	Session::put('message','Thêm mã giảm giá thành công');
         return Redirect::to('list-coupon');
 
