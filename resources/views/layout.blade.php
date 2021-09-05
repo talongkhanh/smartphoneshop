@@ -430,7 +430,11 @@
                     url : '{{url('/calculate-fee')}}',
                     method: 'POST',
                     data:{matp:matp,maqh:maqh,xaid:xaid,_token:_token},
+                    success:function(){
+                       location.reload(); 
+                    }
                     });
+                    
                 } 
         });
     });
