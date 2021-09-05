@@ -204,7 +204,7 @@
                   @endphp
               @else 
                   @php
-                  echo 'Tổng giảm :'.number_format($coupon_number,0,',','.').'k'.'</br>';
+                  echo 'Tổng giảm :'.number_format($coupon_number,0,',','.').'đ'.'</br>';
                   $total_coupon = $total + $details->product_feeship - $coupon_number ;
 
                   @endphp

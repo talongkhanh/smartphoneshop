@@ -71,14 +71,14 @@
                 <?php
                  }else{
                 ?>  
-                Giảm {{$cou->coupon_number}} k
+                Giảm {{number_format($cou->coupon_number, 0, '', ',')}} đ
                 <?php
                }
               ?>
             </span></td>
             <td class="middle-vertical">
               <a href="{{URL::to('/list-coupon/'.$cou->coupon_id)}}" class="active styling-edit btn btn-sm btn-info" ui-toggle-class="">
-                Chi tiết
+                Sửa
               </a>
             </td>
             <td>

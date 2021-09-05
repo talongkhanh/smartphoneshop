@@ -19,6 +19,7 @@ class SliderController extends Controller
         }
     }
     public function manage_slider(Request $request){
+        Session::put('dataSlide', null);
         $search = $request->input('q');
         $page_size = 3;
         $all_sliders = Slider::orderBy('slider_id','DESC')->get();
@@ -73,6 +74,7 @@ class SliderController extends Controller
             $this->AuthLogin();
     
             $data = $request->all();
+            Session::put('dataSlide', $data);
             $get_image = request('slider_image');
             $slider = new Slider();
             if(isset($data['slider_name'])) {
@@ -91,10 +93,13 @@ class SliderController extends Controller
                 $slider->slider_status = $data['slider_status'];
                 if(isset($data['slider_desc'])) {
                     $slider->slider_desc = $data['slider_desc'];
+                } else {
+                    $slider->slider_desc = '';
                 }
                 $slider->save();
                 Session::put('message','Thêm slider thành công');
-                return Redirect::to('add-slider');
+                Session::put('dataSlide', null);
+                return Redirect::to('manage-slider');
             }else{
                 Session::put('message','Hãy chọn hình ảnh cho slide!');
                 return Redirect::to('add-slider');
