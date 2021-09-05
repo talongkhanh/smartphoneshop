@@ -417,7 +417,8 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.calculate_delivery').click(function(){
+            $('.calculate_delivery').click(function(e){
+                e.preventDefault();
                 var matp = $('.city').val();
                 var maqh = $('.province').val();
                 var xaid = $('.wards').val();
@@ -429,9 +430,6 @@
                     url : '{{url('/calculate-fee')}}',
                     method: 'POST',
                     data:{matp:matp,maqh:maqh,xaid:xaid,_token:_token},
-                    success:function(){
-                       location.reload(); 
-                    }
                     });
                 } 
         });

@@ -32,11 +32,12 @@ class CheckoutController extends Controller
          $shipping->shipping_address = $data['shipping_address'];
          $shipping->shipping_notes = $data['shipping_notes'];
          $shipping->shipping_method = $data['shipping_method'];
+
          $shipping->save();
          $shipping_id = $shipping->shipping_id;
 
          $checkout_code = substr(md5(microtime()),rand(0,26),5);
-
+         Session::set('shipping', $shipping);
   
          $order = new Order;
          $order->customer_id = Session::get('customer_id');

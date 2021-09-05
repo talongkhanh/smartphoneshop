@@ -10,9 +10,13 @@
 				</ol>
 			</div>
 
+			@if(Session::get('customer_id'))
+			@else 
 			<div class="register-req">
 				<p>Làm ơn đăng ký hoặc đăng nhập để thanh toán giỏ hàng và xem lại lịch sử mua hàng</p>
 			</div><!--/register-req-->
+			@endif
+			
 
 			<div class="shopper-informations">
 				<div class="row">
@@ -49,16 +53,15 @@
 										 <div class="form-group">
 		                                    <label for="exampleInputPassword1">Chọn hình thức thanh toán</label>
 		                                      <select name="payment_select"  class="form-control input-sm m-bot15 payment_select">
+												  	<option value="1">Tiền mặt</option>   
 		                                            <option value="0">Qua chuyển khoản</option>
-		                                            <option value="1">Tiền mặt</option>   
 		                                    </select>
 		                                </div>
 									</div>
 									<input type="button" value="Xác nhận đơn hàng" name="send_order" class="btn btn-primary btn-sm send_order">
 								</form>
-								<form>
+								<form id="cpa-form">
                                     @csrf 
-                             
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Chọn thành phố</label>
                                       <select name="city" id="city" class="form-control input-sm m-bot15 choose city">
@@ -85,8 +88,7 @@
                                 </div>
                                
                                
-                              	<input type="button" value="Tính phí vận chuyển" name="calculate_order" class="btn btn-primary btn-sm calculate_delivery">
-
+                              	<button type="button" name="calculate_order" class="btn btn-primary btn-sm calculate_delivery">Tính phí vận chuyển </button>
 
                                 </form>
 
@@ -196,7 +198,6 @@
 														<p>
 															@php 
 															$total_coupon = $total - $cou['coupon_number'];
-														
 															@endphp
 														</p>
 														@php 
