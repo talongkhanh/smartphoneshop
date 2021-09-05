@@ -82,7 +82,7 @@
             </span></td>
             <td class="middle-vertical">
               <a href="{{URL::to('/manage-slider/'.$slide->slider_id)}}" class="active styling-edit btn btn-sm btn-info" ui-toggle-class="">
-                Chi tiết
+                Sửa
               </a>
             </td>
             <td class="middle-vertical">

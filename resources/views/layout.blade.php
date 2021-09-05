@@ -417,8 +417,7 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.calculate_delivery').click(function(e){
-                e.preventDefault();
+            $('.calculate_delivery').click(function(){
                 var matp = $('.city').val();
                 var maqh = $('.province').val();
                 var xaid = $('.wards').val();
@@ -434,7 +433,6 @@
                        location.reload(); 
                     }
                     });
-                    
                 } 
         });
     });
