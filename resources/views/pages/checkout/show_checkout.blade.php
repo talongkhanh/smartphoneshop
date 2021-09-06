@@ -13,7 +13,8 @@
 			@if(Session::get('customer_id'))
 			@else 
 			<div class="register-req">
-				<p>Làm ơn đăng ký hoặc đăng nhập để thanh toán giỏ hàng và xem lại lịch sử mua hàng</p>
+				<p>Làm ơn đăng ký hoặc đăng nhập để thanh toán giỏ hàng và xem lại lịch sử mua hàng. </p>
+				<p>Chú ý chọn địa chỉ nhận hàng để tính phí vận chuyển trước khi nhập thông tin người nhận và gửi hàng </p>
 			</div><!--/register-req-->
 			@endif
 			
@@ -23,15 +24,15 @@
 					
 					<div class="col-sm-12 clearfix">
 						<div class="bill-to">
-							<p>Điền thông tin gửi hàng</p>
+							<p>Điền thông tin người nhận hàng</p>
 							<div class="form-one">
 								<form method="POST">
 									@csrf
 									<input type="text" name="shipping_email" class="shipping_email" placeholder="Điền email">
-									<input type="text" name="shipping_name" class="shipping_name" placeholder="Họ và tên người gửi">
-									<input type="text" name="shipping_address" class="shipping_address" placeholder="Địa chỉ gửi hàng">
+									<input type="text" name="shipping_name" class="shipping_name" placeholder="Họ và tên người nhận">
+									<input type="text" name="shipping_address" class="shipping_address" placeholder="Địa chỉ nhận hàng">
 									<input type="text" name="shipping_phone" class="shipping_phone" placeholder="Số điện thoại">
-									<textarea name="shipping_notes" class="shipping_notes" placeholder="Ghi chú đơn hàng của bạn" rows="5"></textarea>
+									<textarea name="shipping_notes" class="shipping_notes" placeholder="Ghi chú " rows="5"></textarea>
 									
 									@if(Session::get('fee'))
 										<input type="hidden" name="order_fee" class="order_fee" value="{{Session::get('fee')}}">
@@ -166,7 +167,7 @@
 									@endforeach
 									<tr>
 										<td><input type="submit" value="Cập nhật giỏ hàng" name="update_qty" class="check_out btn btn-default btn-sm"></td>
-										<td><a class="btn btn-default check_out" href="{{url('/del-all-product')}}">Xóa tất cả</a></td>
+										
 										<td>
 											@if(Session::get('coupon'))
 				                          	<a class="btn btn-default check_out" href="{{url('/unset-coupon')}}">Xóa mã khuyến mãi</a>
