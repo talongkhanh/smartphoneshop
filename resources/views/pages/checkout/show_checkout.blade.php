@@ -10,24 +10,29 @@
 				</ol>
 			</div>
 
+			@if(Session::get('customer_id'))
+			@else 
 			<div class="register-req">
-				<p>Làm ơn đăng ký hoặc đăng nhập để thanh toán giỏ hàng và xem lại lịch sử mua hàng</p>
+				<p>Làm ơn đăng ký hoặc đăng nhập để thanh toán giỏ hàng và xem lại lịch sử mua hàng. </p>
+				<p>Chú ý chọn địa chỉ nhận hàng để tính phí vận chuyển trước khi nhập thông tin người nhận và gửi hàng </p>
 			</div><!--/register-req-->
+			@endif
+			
 
 			<div class="shopper-informations">
 				<div class="row">
 					
 					<div class="col-sm-12 clearfix">
 						<div class="bill-to">
-							<p>Điền thông tin gửi hàng</p>
+							<p>Điền thông tin người nhận hàng</p>
 							<div class="form-one">
 								<form method="POST">
 									@csrf
 									<input type="text" name="shipping_email" class="shipping_email" placeholder="Điền email">
-									<input type="text" name="shipping_name" class="shipping_name" placeholder="Họ và tên người gửi">
-									<input type="text" name="shipping_address" class="shipping_address" placeholder="Địa chỉ gửi hàng">
+									<input type="text" name="shipping_name" class="shipping_name" placeholder="Họ và tên người nhận">
+									<input type="text" name="shipping_address" class="shipping_address" placeholder="Địa chỉ nhận hàng">
 									<input type="text" name="shipping_phone" class="shipping_phone" placeholder="Số điện thoại">
-									<textarea name="shipping_notes" class="shipping_notes" placeholder="Ghi chú đơn hàng của bạn" rows="5"></textarea>
+									<textarea name="shipping_notes" class="shipping_notes" placeholder="Ghi chú " rows="5"></textarea>
 									
 									@if(Session::get('fee'))
 										<input type="hidden" name="order_fee" class="order_fee" value="{{Session::get('fee')}}">
@@ -49,16 +54,15 @@
 										 <div class="form-group">
 		                                    <label for="exampleInputPassword1">Chọn hình thức thanh toán</label>
 		                                      <select name="payment_select"  class="form-control input-sm m-bot15 payment_select">
+												  	<option value="1">Tiền mặt</option>   
 		                                            <option value="0">Qua chuyển khoản</option>
-		                                            <option value="1">Tiền mặt</option>   
 		                                    </select>
 		                                </div>
 									</div>
 									<input type="button" value="Xác nhận đơn hàng" name="send_order" class="btn btn-primary btn-sm send_order">
 								</form>
-								<form>
+								<form id="cpa-form">
                                     @csrf 
-                             
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Chọn thành phố</label>
                                       <select name="city" id="city" class="form-control input-sm m-bot15 choose city">
@@ -85,8 +89,7 @@
                                 </div>
                                
                                
-                              	<input type="button" value="Tính phí vận chuyển" name="calculate_order" class="btn btn-primary btn-sm calculate_delivery">
-
+                              	<button type="button" name="calculate_order" class="btn btn-primary btn-sm calculate_delivery">Tính phí vận chuyển </button>
 
                                 </form>
 
@@ -104,19 +107,19 @@
 			                        {{ session()->get('error') }}
 			                    </div>
 			                @endif
-						<div class="table-responsive cart_info">
+						<div class="table-responsive cart_info" style="width:800px">
 
 							<form action="{{url('/update-cart')}}" method="POST">
 								@csrf
 							<table class="table table-condensed">
 								<thead>
 									<tr class="cart_menu">
-										<td class="image">Hình ảnh</td>
-										<td class="description">Tên sản phẩm</td>
-										<td class="price">Giá sản phẩm</td>
-										<td class="quantity">Số lượng</td>
-										<td class="total">Thành tiền</td>
-										<td></td>
+									<td class="image" style="width:150px";>Hình ảnh</td>
+							        <td class="description" style="width:120px";>Tên sản phẩm</td>
+						          	<td class="price" style="width:180px">Giá sản phẩm</td>
+							        <td class="quantity" style="width:100px">Số lượng</td>
+							        <td class="total" style="width:220px">Thành tiền</td>
+										
 									</tr>
 								</thead>
 								<tbody>
@@ -132,7 +135,7 @@
 
 									<tr>
 										<td class="cart_product">
-											<img src="{{asset('public/uploads/product/'.$cart['product_image'])}}" width="90" alt="{{$cart['product_name']}}" />
+											<img src="{{asset('public/uploads/product/'.$cart['product_image'])}}" width="80" alt="{{$cart['product_name']}}" />
 										</td>
 										<td class="cart_description">
 											<h4><a href=""></a></h4>
@@ -164,7 +167,7 @@
 									@endforeach
 									<tr>
 										<td><input type="submit" value="Cập nhật giỏ hàng" name="update_qty" class="check_out btn btn-default btn-sm"></td>
-										<td><a class="btn btn-default check_out" href="{{url('/del-all-product')}}">Xóa tất cả</a></td>
+										
 										<td>
 											@if(Session::get('coupon'))
 				                          	<a class="btn btn-default check_out" href="{{url('/unset-coupon')}}">Xóa mã khuyến mãi</a>
@@ -192,11 +195,10 @@
 														@endphp
 														</p>
 													@elseif($cou['coupon_condition']==2)
-														Mã giảm : {{number_format($cou['coupon_number'],0,',','.')}} k
+														Mã giảm : {{number_format($cou['coupon_number'],0,',','.')}} đ
 														<p>
 															@php 
 															$total_coupon = $total - $cou['coupon_number'];
-														
 															@endphp
 														</p>
 														@php 

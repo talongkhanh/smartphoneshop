@@ -6,24 +6,15 @@
       Liệt kê danh mục sản phẩm
     </div>
     <div class="row w3-res-tb">
-      <div class="col-sm-5 m-b-xs">
-        <select class="input-sm form-control w-sm inline v-middle">
-          <option value="0">Bulk action</option>
-          <option value="1">Delete selected</option>
-          <option value="2">Bulk edit</option>
-          <option value="3">Export</option>
-        </select>
-        <button class="btn btn-sm btn-default">Apply</button>                
-      </div>
       <div class="col-sm-4">
       </div>
-      <div class="col-sm-3">
-        <div class="input-group">
-          <input type="text" class="input-sm form-control" placeholder="Search">
+      <div class="col-sm-3 m-r-auto">
+        <form class="input-group" action="{{URL::to('/all-category-product')}}" method="get">
+          <input value="{{ old('search') }}" name="search" type="text" class="input-sm form-control" placeholder="Tìm kiếm">
           <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">Go!</button>
+            <button class="ml-2 btn btn-sm btn-success" type="submit">Tìm kiếm</button>
           </span>
-        </div>
+        </form>
       </div>
     </div>
     <div class="table-responsive">
@@ -37,42 +28,39 @@
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-            <th style="width:20px;">
-              <label class="i-checks m-b-none">
-                <input type="checkbox"><i></i>
-              </label>
+            <th style="width:5%" class="text-center">STT
             </th>
-            <th>Tên danh mục</th>
-            <th>Slug</th>
-            <th>Hiển thị</th>
-            
-            <th style="width:30px;"></th>
+            <th style="width: 40%" class="text-left">Tên danh mục</th>
+            <th style="width: 20%" >Slug</th>
+            <th style="width: 15%" class="text-center">Hiển thị</th>
+
+            <th style="width: 15%" class="text-center">Hành động</th>
           </tr>
         </thead>
         <tbody>
           @foreach($all_category_product as $key => $cate_pro)
           <tr>
-            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td class="text-center">{{ $loop->index + 1 }}</td>
             <td>{{ $cate_pro->category_name }}</td>
             <td>{{ $cate_pro->slug_category_product }}</td>
-            <td><span class="text-ellipsis">
+            <td style="width: 15%" class="text-center"><span class="text-ellipsis">
               <?php
                if($cate_pro->category_status==0){
                 ?>
-                <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumb-styling fa fa-thumbs-up"></span></a>
+                <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}" style="color: red;">False</a>
                 <?php
                  }else{
-                ?>  
-                 <a href="{{URL::to('/active-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumb-styling fa fa-thumbs-down"></span></a>
+                ?>
+                 <a href="{{URL::to('/active-category-product/'.$cate_pro->category_id)}}">True</a>
                 <?php
                }
               ?>
             </span></td>
-           
-            <td>
-              <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active styling-edit" ui-toggle-class="">
+
+            <td style="width: 15%" class="text-center">
+              <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active styling-edit m-r-5" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active styling-edit" ui-toggle-class="">
+              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active styling-edit" ui-toggle-class="" style="margin-left: 20px">
                 <i class="fa fa-times text-danger text"></i>
               </a>
             </td>
@@ -80,38 +68,15 @@
           @endforeach
         </tbody>
       </table>
-      <!-----import data---->
-      <form action="{{url('import-csv')}}" method="POST" enctype="multipart/form-data">
-          @csrf
-          
-        <input type="file" name="file" accept=".xlsx"><br>
-
-       <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning">
-      </form>
-
-    <!-----export data---->
-       <form action="{{url('export-csv')}}" method="POST">
-          @csrf
-       <input type="submit" value="Export file Excel" name="export_csv" class="btn btn-success">
-      </form>
-
-
     </div>
     <footer class="panel-footer">
       <div class="row">
-        
-        <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+
+        <div class="col-sm-5 text-left">
+          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị <b>{{ $all_category_product->count() }}</b> trên tổng số <b>{{ $all_category_product->total() }}</b> bản ghi. </small>
         </div>
-        <div class="col-sm-7 text-right text-center-xs">                
-          <ul class="pagination pagination-sm m-t-none m-b-none">
-            <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
-          </ul>
+        <div class="col-sm-7 text-right text-center-xs">
+            {{ $all_category_product->links() }}
         </div>
       </div>
     </footer>

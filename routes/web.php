@@ -10,10 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Frontend 
+//Frontend
 Route::get('/','HomeController@index' );
 Route::get('/trang-chu','HomeController@index');
 Route::post('/tim-kiem','HomeController@search');
+Route::get('/lien-he','ContactController@contact');
 
 //Danh muc san pham trang chu
 Route::get('/danh-muc/{slug_category_product}','CategoryProduct@show_category_home');
@@ -26,20 +27,16 @@ Route::get('/dashboard','AdminController@show_dashboard');
 Route::get('/logout','AdminController@logout');
 Route::post('/admin-dashboard','AdminController@dashboard');
 
-//Category Product
+//Danh mục sản phẩm admin
 Route::get('/add-category-product','CategoryProduct@add_category_product');
 Route::get('/edit-category-product/{category_product_id}','CategoryProduct@edit_category_product');
 Route::get('/delete-category-product/{category_product_id}','CategoryProduct@delete_category_product');
+//list danh mục
 Route::get('/all-category-product','CategoryProduct@all_category_product');
-
-Route::post('/export-csv','CategoryProduct@export_csv');
-Route::post('/import-csv','CategoryProduct@import_csv');
-
-
 Route::get('/unactive-category-product/{category_product_id}','CategoryProduct@unactive_category_product');
 Route::get('/active-category-product/{category_product_id}','CategoryProduct@active_category_product');
 
-//Send Mail 
+//Send Mail
 Route::get('/send-mail','HomeController@send_mail');
 
 //Login facebook
@@ -53,15 +50,13 @@ Route::get('/google/callback','AdminController@callback_google');
 Route::post('/save-category-product','CategoryProduct@save_category_product');
 Route::post('/update-category-product/{category_product_id}','CategoryProduct@update_category_product');
 
-//Brand Product
+//Nhãn hàng
 Route::get('/add-brand-product','BrandProduct@add_brand_product');
 Route::get('/edit-brand-product/{brand_product_id}','BrandProduct@edit_brand_product');
 Route::get('/delete-brand-product/{brand_product_id}','BrandProduct@delete_brand_product');
 Route::get('/all-brand-product','BrandProduct@all_brand_product');
-
 Route::get('/unactive-brand-product/{brand_product_id}','BrandProduct@unactive_brand_product');
 Route::get('/active-brand-product/{brand_product_id}','BrandProduct@active_brand_product');
-
 Route::post('/save-brand-product','BrandProduct@save_brand_product');
 Route::post('/update-brand-product/{brand_product_id}','BrandProduct@update_brand_product');
 
@@ -79,11 +74,18 @@ Route::post('/update-product/{product_id}','ProductController@update_product');
 
 //Coupon
 Route::post('/check-coupon','CartController@check_coupon');
-
 Route::get('/unset-coupon','CouponController@unset_coupon');
+// form thêm mới mã giảm giá
 Route::get('/insert-coupon','CouponController@insert_coupon');
+// chi tiết mã giảm giá
+Route::get('/list-coupon/{coupon_id}','CouponController@detail_coupon');
+// cập nhật mã giảm giá
+Route::post('/list-coupon/{coupon_id}','CouponController@update_coupon');
+// xóa mã giảm giá
 Route::get('/delete-coupon/{coupon_id}','CouponController@delete_coupon');
+// danh sách mã giảm giá
 Route::get('/list-coupon','CouponController@list_coupon');
+// thêm mới mã giảm giá
 Route::post('/insert-coupon-code','CouponController@insert_coupon_code');
 
 //Cart
@@ -115,6 +117,7 @@ Route::post('/confirm-order','CheckoutController@confirm_order');
 //Order
 
 Route::get('/print-order/{checkout_code}','OrderController@print_order');
+Route::get('/delete-order/{checkout_code}','OrderController@delete_order');
 Route::get('/manage-order','OrderController@manage_order');
 Route::get('/view-order/{order_code}','OrderController@view_order');
 Route::post('/update-order-qty','OrderController@update_order_qty');
@@ -129,14 +132,19 @@ Route::post('/select-feeship','DeliveryController@select_feeship');
 Route::post('/update-delivery','DeliveryController@update_delivery');
 
 //Banner
+// lấy slider theo id
 Route::get('/manage-slider/{slide_id}','SliderController@detail_slider');
+// sửa slider
 Route::post('/manage-slider/{slide_id}','SliderController@update_slider');
+// lấy tất cả slider
 Route::get('/manage-slider','SliderController@manage_slider');
+// mở form add slider
 Route::get('/add-slider','SliderController@add_slider');
+// insert slider
 Route::post('/insert-slider','SliderController@insert_slider');
+// bỏ kích hoạt slider
 Route::get('/unactive-slide/{slide_id}','SliderController@unactive_slide');
+// kích hoạt slider
 Route::get('/active-slide/{slide_id}','SliderController@active_slide');
+// xóa slider
 Route::get('/delete-slide/{slide_id}','SliderController@delete_slide');
-
-
-

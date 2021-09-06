@@ -54,8 +54,8 @@ class CartController extends Controller
         $slider = Slider::orderBy('slider_id','DESC')->where('slider_status','1')->take(4)->get();
 
         $meta_desc = "Giỏ hàng của bạn"; 
-        $meta_keywords = "Giỏ hàng Ajax";
-        $meta_title = "Giỏ hàng Ajax";
+        $meta_keywords = "Giỏ hàng của bạn";
+        $meta_title = "Giỏ hàng của bạn";
         $url_canonical = $request->url();
         //--seo
         $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get(); 

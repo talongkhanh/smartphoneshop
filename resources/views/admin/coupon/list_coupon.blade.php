@@ -3,50 +3,43 @@
     <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt kê mã giảm giá
+      Danh sách mã giảm giá
     </div>
     <div class="row w3-res-tb">
-      <div class="col-sm-5 m-b-xs">
-        <select class="input-sm form-control w-sm inline v-middle">
-          <option value="0">Bulk action</option>
-          <option value="1">Delete selected</option>
-          <option value="2">Bulk edit</option>
-          <option value="3">Export</option>
-        </select>
-        <button class="btn btn-sm btn-default">Apply</button>                
-      </div>
-      <div class="col-sm-4">
-      </div>
-      <div class="col-sm-3">
-        <div class="input-group">
-          <input type="text" class="input-sm form-control" placeholder="Search">
+      <div class="col-sm-3 m-r-auto">
+        <form class="input-group"action="{{URL::to('/list-coupon')}}" method="get">
+          <input value="<?php $q = Session::get('q'); if($q) echo $q?>" name="q" type="text" class="input-sm form-control" placeholder="Tìm kiếm">
           <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">Go!</button>
+            <button class="ml-2 btn btn-sm btn-success" type="submit">Tìm kiếm!</button>
           </span>
-        </div>
+        </form>
       </div>
+      <a href="{{URL::to('/insert-coupon')}}" class="btn btn-sm btn-info">Thêm mới</a>
     </div>
     <div class="table-responsive">
-                      <?php
-                            $message = Session::get('message');
-                            if($message){
-                                echo '<span class="text-alert">'.$message.'</span>';
-                                Session::put('message',null);
-                            }
-                            ?>
+      <?php
+        $message = Session::get('message');
+        if($message){
+        ?>
+        <div id="snackbar"><?php echo $message; ?></div>
+        <script>
+          var x = document.getElementById("snackbar");
+          x.className = "show";
+          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+        </script>
+        <?php
+            Session::put('message',null);
+        }
+      ?>
+
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-           
-
             <th>Tên mã giảm giá</th>
             <th>Mã giảm giá</th>
             <th>Số lượng giảm giá</th>
             <th>Điều kiện giảm giá</th>
             <th>Số giảm</th>
-          
-            
-           
           </tr>
         </thead>
         <tbody>
@@ -78,16 +71,19 @@
                 <?php
                  }else{
                 ?>  
-                Giảm {{$cou->coupon_number}} k
+                Giảm {{number_format($cou->coupon_number, 0, '', ',')}} đ
                 <?php
                }
               ?>
             </span></td>
-           
+            <td class="middle-vertical">
+              <a href="{{URL::to('/list-coupon/'.$cou->coupon_id)}}" class="active styling-edit btn btn-sm btn-info" ui-toggle-class="">
+                Sửa
+              </a>
+            </td>
             <td>
-             
-              <a onclick="return confirm('Bạn có chắc là muốn xóa mã này ko?')" href="{{URL::to('/delete-coupon/'.$cou->coupon_id)}}" class="active styling-edit" ui-toggle-class="">
-                <i class="fa fa-times text-danger text"></i>
+              <a onclick="return confirm('Bạn có chắc là muốn xóa mã này ko?')" href="{{URL::to('/delete-coupon/'.$cou->coupon_id)}}" class="active styling-edit btn btn-sm btn-danger" ui-toggle-class="">
+                Xóa
               </a>
             </td>
           </tr>
@@ -96,19 +92,17 @@
       </table>
     </div>
     <footer class="panel-footer">
-      <div class="row">
-        
-        <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+      <div class="row wrap-navigation">
+        <div class="col-sm-5 text-left">
+          <small class="text-muted inline m-t-sm m-b-sm">Hiển thị từ <b><?php echo Session::get('start_page') ?> đến <?php echo Session::get('end_page') ?></b> Trên <b><?php echo Session::get('total_record') ?></b> Mã giảm giá / Mỗi trang <b><?php echo Session::get('page_size') ?></b> bản ghi</small>
         </div>
-        <div class="col-sm-7 text-right text-center-xs">                
-          <ul class="pagination pagination-sm m-t-none m-b-none">
-            <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
+        <div class="col-sm-7 text-center-xs" style="display: flex; justify-content: flex-end">                
+          <ul style="display: flex;" class="pagination pagination-sm m-t-none m-b-none">
+            <li><a class="<?php if(Session::get('page_index') == 1) {echo 'disable-btn';} ?>" href="{{URL::to('/list-coupon?page='.Session::get('prev_page'))}}"><i class="fa fa-chevron-left"></i></a></li>
+              @for ($i = 1; $i <= Session::get('total_page'); $i++)
+                <li><a class="<?php if(Session::get('page_index') == $i) {echo 'active-btn';} ?>" href="{{URL::to('/list-coupon?page='.$i)}}">{{$i}}</a></li>
+              @endfor
+            <li><a class="<?php if(Session::get('page_index') == Session::get('total_page')) {echo 'disable-btn';} ?>" href="{{URL::to('/list-coupon?page='.Session::get('next_page'))}}"><i class="fa fa-chevron-right"></i></a></li>
           </ul>
         </div>
       </div>

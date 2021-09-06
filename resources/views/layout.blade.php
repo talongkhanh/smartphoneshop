@@ -81,18 +81,22 @@
                                     <span class="icon-bar"></span>
                                 </button>
                             </div>
-                            <div class="mainmenu pull-left" style="padding-top: 6px">
+                            <div class="mainmenu pull-left" style="padding-top: 6px; font-weight: 600 !important;">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="{{URL::to('/trang-chu')}}" class="active">Trang chủ</a></li>
-                                    <li class="dropdown"><a href="#">Sản phẩm</a>
+                                    <li class="dropdown"><a href="#">Sản phẩm <i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
                                             @foreach($category as $key => $danhmuc)
                                                 <li><a href="{{URL::to('/danh-muc/'.$danhmuc->slug_category_product)}}">{{$danhmuc->category_name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
-
+                                    <li class="dropdown"><a href="#">Hãng <i class="fa fa-angle-down"></i></a>
+                                        <ul role="menu" class="sub-menu">
+                                            @foreach($brand as $key => $value)
+                                                <li><a href="{{URL::to('/thuong-hieu/'.$value->brand_slug)}}">{{$value->brand_name}}</a></li>
+                                            @endforeach
+                                        </ul>
                                     </li>
                                     <li><a href="{{URL::to('/gio-hang')}}">Giỏ hàng</a></li>
                                     <li><a href="{{URL::to('/lien-he')}}">Liên hệ</a></li>
@@ -116,8 +120,8 @@
                             <form action="{{URL::to('/tim-kiem')}}" method="POST">
                                 {{csrf_field()}}
                                 <div class="search_box pull-right">
-                                    <input type="text" name="keywords_submit" placeholder="Tìm kiếm sản phẩm"/>
-                                    <input type="submit" style="margin-top:0;color:#666; background: #6fcbff" name="search_items" class="btn btn-success btn-sm" value="Tìm kiếm">
+                                    <input type="text" name="keywords_submit" style="width: 250px" placeholder="Tìm kiếm sản phẩm"/>
+                                    <button type="submit" name="search_items" style="padding: 6px 10px"><i class="fa fa-search"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -191,7 +195,7 @@
                         </div><!--/category-products-->
                     
                         <div class="brands_products"><!--brands_products-->
-                            <h2>Thương hiệu sản phẩm</h2>
+                            <h2>Hãng sản xuất</h2>
                             <div class="panel-group " id="accordian" style="padding-bottom: 30px">
                                 @foreach($brand as $key => $brand)
                                     <div class="panel panel-default">
@@ -217,65 +221,67 @@
         </div>
     </section>
 
-    <footer class="footer-distributed">
+    <footer class="footer-distributed" style="background: #1E232B">
+        <div class="container">
+            <div class="footer-left">
 
-        <div class="footer-left">
+                <h3>S<span>-Phone</span></h3>
 
-            <h3>S<span>-Phone</span></h3>
+                <p class="footer-links">
+                    <a href="#" class="link-1">Home</a>
 
-            <p class="footer-links">
-                <a href="#" class="link-1">Home</a>
+                    <a href="#">Blog</a>
 
-                <a href="#">Blog</a>
+                    <a href="#">Pricing</a>
 
-                <a href="#">Pricing</a>
+                    <a href="#">About</a>
 
-                <a href="#">About</a>
+                    <a href="#">Faq</a>
 
-                <a href="#">Faq</a>
+                    <a href="#">Contact</a>
+                </p>
 
-                <a href="#">Contact</a>
-            </p>
+                <p class="footer-company-name" style="color: white">Copyright 2021 Design Nhom18</p>
+            </div>
 
-            <p class="footer-company-name">Copyright 2021 Deign Nhom18</p>
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>295 Minh Khai</span> Bắc Từ Liêm, Hà Nội</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+84 0981 110 557</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:nhom18mnm@company.com" style="color: white">nhom18mnm@company.com</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span style="font-size: 20px">Shop smartphone</span>
+                    Chuyên cung cấp những loại điện thoại tốt nhất hiện nay
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
         </div>
 
-        <div class="footer-center">
-
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span>295 Minh Khai</span> Bắc Từ Liêm, Hà Nội</p>
-            </div>
-
-            <div>
-                <i class="fa fa-phone"></i>
-                <p>+84 0981 110 557</p>
-            </div>
-
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="mailto:support@company.com">nhom18mnm@company.com</a></p>
-            </div>
-
-        </div>
-
-        <div class="footer-right">
-
-            <p class="footer-company-about">
-                <span>Shop smartphone</span>
-                Chuyên cung cấp những loại điện thoại tốt nhất hiện nay
-            </p>
-
-            <div class="footer-icons">
-
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
-
-            </div>
-
-        </div>
 
     </footer>
     
@@ -299,13 +305,13 @@
             $('.send_order').click(function(){
                 swal({
                   title: "Xác nhận đơn hàng",
-                  text: "Đơn hàng sẽ không được hoàn trả khi đặt,bạn có muốn đặt không?",
+                  text: "Đơn hàng sẽ không được hoàn trả khi đặt, bạn có muốn đặt không?",
                   type: "warning",
                   showCancelButton: true,
                   confirmButtonClass: "btn-danger",
-                  confirmButtonText: "Cảm ơn, Mua hàng",
+                  confirmButtonText: "Cảm ơn đã Mua hàng",
 
-                    cancelButtonText: "Đóng,chưa mua",
+                    cancelButtonText: "Đóng",
                     closeOnConfirm: false,
                     closeOnCancel: false
                 },
@@ -326,7 +332,7 @@
                             method: 'POST',
                             data:{shipping_email:shipping_email,shipping_name:shipping_name,shipping_address:shipping_address,shipping_phone:shipping_phone,shipping_notes:shipping_notes,_token:_token,order_fee:order_fee,order_coupon:order_coupon,shipping_method:shipping_method},
                             success:function(){
-                               swal("Đơn hàng", "Đơn hàng của bạn đã được gửi thành công", "success");
+                               swal("Đơn hàng", "Đơn hàng của bạn đã được gửi thành công !", "success");
                             }
                         });
 
@@ -335,7 +341,7 @@
                         } ,3000);
 
                       } else {
-                        swal("Đóng", "Đơn hàng chưa được gửi, làm ơn hoàn tất đơn hàng", "error");
+                        swal("Đóng", "Đơn hàng chưa được gửi, làm ơn hoàn tất đơn hàng !", "error");
 
                       }
               
@@ -366,12 +372,12 @@
                     success:function(){
 
                         swal({
-                                title: "Đã thêm sản phẩm vào giỏ hàng",
-                                text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán",
+                                title: "Đã thêm vào giỏ hàng",
+                                text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán. Xin cảm ơn !",
                                 showCancelButton: true,
-                                cancelButtonText: "Xem tiếp",
+                                cancelButtonText: "Tiếp tục mua hàng",
                                 confirmButtonClass: "btn-success",
-                                confirmButtonText: "Đi đến giỏ hàng",
+                                confirmButtonText: "Giỏ hàng",
                                 closeOnConfirm: false
                             },
                             function() {
@@ -417,7 +423,7 @@
                 var xaid = $('.wards').val();
                 var _token = $('input[name="_token"]').val();
                 if(matp == '' && maqh =='' && xaid ==''){
-                    alert('Làm ơn chọn để tính phí vận chuyển');
+                    alert('Làm ơn chọn để tính phí vận chuyển, xin cảm ơn!');
                 }else{
                     $.ajax({
                     url : '{{url('/calculate-fee')}}',

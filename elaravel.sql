@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 26, 2020 lúc 07:11 PM
--- Phiên bản máy phục vụ: 10.1.40-MariaDB
--- Phiên bản PHP: 7.3.5
+-- Thời gian đã tạo: Th9 05, 2021 lúc 06:25 AM
+-- Phiên bản máy phục vụ: 10.4.19-MariaDB
+-- Phiên bản PHP: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -55,7 +54,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_name`, `admin_phone`, `created_at`, `updated_at`) VALUES
-(1, 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'hieu tan', '0932023992', NULL, NULL);
+(1, 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'tran tam', '0932023992', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -78,9 +77,10 @@ CREATE TABLE `tbl_brand` (
 --
 
 INSERT INTO `tbl_brand` (`brand_id`, `brand_name`, `brand_slug`, `brand_desc`, `brand_status`, `created_at`, `updated_at`) VALUES
-(1, 'Sony', 'sony', 'Sony', 0, NULL, NULL),
-(2, 'Samsung', 'samsung', 'Samsung ok lắm ,xài rât ổn định', 0, NULL, NULL),
-(3, 'Dell', 'dell', 'Dell ok lắm dùng rất bền', 0, NULL, NULL);
+(1, 'Xiaomi', 'xiaomi', 'Xiaomi', 0, NULL, NULL),
+(2, 'Apple', 'Apple', 'Apple', 0, NULL, NULL),
+(3, 'SamSung', 'samsung', 'SamSung', 0, NULL, NULL),
+(4, 'Oppo', 'oppo', 'Oppo', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -104,11 +104,13 @@ CREATE TABLE `tbl_category_product` (
 --
 
 INSERT INTO `tbl_category_product` (`category_id`, `meta_keywords`, `category_name`, `slug_category_product`, `category_desc`, `category_status`, `created_at`, `updated_at`) VALUES
-(1, 'xbox game,mua game xbox ,xbox 360', 'Xbox one', 'xbox-one', 'Xbox 360 là thế hệ thứ 2 của dòng máy chơi game console do Microsoft phát triển, cạnh tranh trực tiếp với Playstation 3 của Sony.', 0, NULL, NULL),
-(2, 'ps4,may choi game ps4', 'Máy PS4', 'may-ps4', 'PS4 là game cầm tay hay nhất mọi thời đại', 0, NULL, NULL),
-(3, 'tay cam ps4,tay cầm ps4', 'Tay cầm chơi game', 'tay-cam-choi-game', 'Tay cầm chơi game hạng nhất từ các hãng sản xuất số 1 hàng đầu châu mỹ', 0, NULL, NULL),
-(5, 'dia-ps4-gaming', 'Đĩa PS4 gaming', 'dia-ps4-gaming', 'Dia cd ps4', 0, NULL, NULL),
-(6, 'Màn hình gaming,gaming', 'Màn hình gaming', 'man-hinh-gaming', 'Màn hình gaming', 0, NULL, NULL);
+(1, 'dien thoai di dong', 'Điện thoại di động', 'dien-thoai-di-dong', 'điện thoại di động', 0, NULL, NULL),
+(2, 'tai nghe', 'Tai nghe', 'tai-nghe', 'tai nghe', 0, NULL, NULL),
+(3, 'dong ho deo tay', 'Đồng hồ đeo tay', 'dong-ho-deo-tay', 'Đồng hồ đeo tay', 0, NULL, NULL),
+(5, 'Tablet', 'Tablet', 'Tablet', 'Tablet', 0, NULL, NULL),
+(6, 'pin du phong', 'Pin dự phòng', 'pin-du-phong', 'Pin dự phòng', 0, NULL, NULL),
+(7, 'Kinh cuog luc', 'Kính cường lực', 'kinh-cuong-luu', 'Kính cường lực', 0, NULL, NULL),
+(8, 'loa-bluetooth', 'Loa bluetooth', 'loa-bluetooth', 'loa-bluetooth', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,7 +159,8 @@ INSERT INTO `tbl_customers` (`customer_id`, `customer_name`, `customer_email`, `
 (4, 'Hiếu Tấn', 'tanhieu@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
 (5, 'Hoàng thị yến vi', 'yenvi@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
 (6, 'Trương Ngọc Tấn Hiếu', 'hieu123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
-(7, 'Anh hieu dep giai 123', 'depgiai123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL);
+(7, 'Anh hieu dep giai 123', 'depgiai123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
+(8, 'Trần Trung Dũng', 'trungdungd3design@gmail.com', 'c8e370a1b393f2d19b7d5ecd9ed80da6', '0335569901', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -178,11 +181,12 @@ CREATE TABLE `tbl_feeship` (
 --
 
 INSERT INTO `tbl_feeship` (`fee_id`, `fee_matp`, `fee_maqh`, `fee_xaid`, `fee_feeship`) VALUES
-(1, 1, 1, 1, '50.000'),
+(1, 1, 1, 1, '50000'),
 (2, 1, 1, 16, '60000'),
 (3, 1, 2, 40, '150000'),
 (4, 2, 26, 712, '60000'),
-(5, 79, 760, 26734, '80000');
+(5, 79, 760, 26734, '80000'),
+(6, 4, 44, 1366, '120000');
 
 -- --------------------------------------------------------
 
@@ -283,12 +287,12 @@ CREATE TABLE `tbl_product` (
   `product_id` int(10) UNSIGNED NOT NULL,
   `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_quantity` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_sold` int(11) NOT NULL,
+  `product_sold` int(11) DEFAULT NULL,
   `product_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category_id` int(11) NOT NULL,
   `brand_id` int(11) NOT NULL,
   `product_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_status` int(11) NOT NULL,
@@ -301,19 +305,30 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_quantity`, `product_sold`, `product_slug`, `category_id`, `brand_id`, `product_desc`, `product_content`, `product_price`, `product_image`, `product_status`, `created_at`, `updated_at`) VALUES
-(1, 'Tay cầm chơi game PS4 màu đỏ', '5', 5, 'tay-cam-ps4-1', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 0, NULL, NULL),
-(2, 'Tay cầm chơi game PS4 màu trắng', '44', 6, 'tay-cam-choi-game-ps4-mau-trang-1', 3, 1, 'Tay cầm chơi game PS4 màu trắng', 'Tay cầm chơi game PS4 màu trắng', '500000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Trắng-Dualshock-4-white-GameStation89.jpg', 0, NULL, NULL),
-(3, 'Máy PS4 màu đỏ', '30', 0, 'may-ps4-mau-do', 2, 1, 'Máy PS4 màu đỏ', 'Máy PS4 màu đỏ', '3500000', 'sony-tung-ra-thi-truong-may-ps4-pro-marvels-spider-man-phien-ban-gioi-han-anh-382.jpg', 0, NULL, NULL),
-(4, 'Tay cầm chơi game PS4 màu đỏ', '30', 0, 'tay-cam-ps4-2', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 0, NULL, NULL),
-(5, 'Tay cầm chơi game PS4 màu trắng', '15', 5, 'tay-cam-choi-game-ps4-mau-trang-2', 3, 1, 'Tay cầm chơi game PS4 màu trắng', 'Tay cầm chơi game PS4 màu trắng', '500000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Trắng-Dualshock-4-white-GameStation89.jpg', 0, NULL, NULL),
-(6, 'Máy PS4 màu đỏ', '70', 0, 'may-ps4-mau-do', 2, 1, 'Máy PS4 màu đỏ', 'Máy PS4 màu đỏ', '5600000', 'sony-tung-ra-thi-truong-may-ps4-pro-marvels-spider-man-phien-ban-gioi-han-anh-382.jpg', 0, NULL, NULL),
-(7, 'Tay cầm chơi game PS4 màu đỏ', '70', 127, 'tay-cam-ps4-3', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 0, NULL, NULL),
-(8, 'Tay cầm chơi game PS4 màu trắng', '50', 20, 'tay-cam-choi-game-ps4-mau-trang-3', 3, 1, 'Tay cầm chơi game PS4 màu trắng', 'Tay cầm chơi game PS4 màu trắng', '500000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Trắng-Dualshock-4-white-GameStation89.jpg', 0, NULL, NULL),
-(9, 'Máy PS4 màu đỏ', '30', 27, 'may-ps4-mau-do', 2, 1, 'Máy PS4 màu đỏ', 'Máy PS4 màu đỏ', '5006000', 'sony-tung-ra-thi-truong-may-ps4-pro-marvels-spider-man-phien-ban-gioi-han-anh-382.jpg', 0, NULL, NULL),
-(10, 'Tay cầm chơi game PS4 màu đỏ', '20', 30, 'tay-cam-ps4-4', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 0, NULL, NULL),
-(11, 'Tay cầm chơi game PS4 màu trắng', '9', 11, 'tay-cam-choi-game-ps4-mau-trang-4', 3, 1, 'Tay cầm chơi game PS4 màu trắng', 'Tay cầm chơi game PS4 màu trắng', '500000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Trắng-Dualshock-4-white-GameStation89.jpg', 0, NULL, NULL),
-(12, 'Máy PS4 màu đỏ', '49', 1, 'may-ps4-mau-do', 2, 1, 'Máy PS4 màu đỏ', 'Máy PS4 màu đỏ', '5000000', 'sony-tung-ra-thi-truong-may-ps4-pro-marvels-spider-man-phien-ban-gioi-han-anh-382.jpg', 0, NULL, NULL),
-(14, 'Xbox 11233', '19', 1, 'xbox-1-1', 1, 1, '<p>dasdasd</p>', '<p>asdasd</p>', '1500000', '471937-microsoft-xbox-one-x69.jpg', 0, NULL, NULL);
+(15, 'Xiaomi redmi note 10', '20', NULL, 'xiaomi-redmi-note-10', 1, 1, 'Thông tin chung :\r\nKích thước màn hình : 6.47\" Amoled , 600 nits, HDR10, Always-on display.\r\nĐộ phân giải màn hình: Full HD+ (1080 x 2340 Pixels)\r\nHệ điều hành: Android 9, Miui 11\r\nChip xử lý (CPU): Snapdragon 730G (8 nm) 8 nhân.\r\nRAM : 8 GB \r\nBộ nhớ trong: 256 GB\r\nMáy ảnh sau: Chính 108 MP (8 lens) F1.7 & Phụ 20 MP, 12 MP, 5 MP, 2 MP\r\nMáy ảnh trước : 32 MP\r\nDung lượng pin: 5260, sạc nhanh 30W, 58% in 30 min, 100% in 65 min\r\nSim hỗ trợ : 2 Sim Nano', NULL, '5400000', 'redmi_note1079.png', 0, NULL, NULL),
+(16, 'Xiaomi redmi note 9', '30', NULL, 'xiaomi-redmi-note-9', 1, 1, 'Kế thừa truyền thống tích hợp nhiều tính năng cực hấp dẫn trong mức giá cực tốt, Redmi Note 9 Pro đã ra mắt với nhiều trang bị ấn tượng: Vi xử lý Snapdragon 720G, màn hình siêu tràn viền, cụm 4 camera 64 “chấm” và một viên pin khủng 5020 mAh. Xiaomi Redmi Note 9 Pro, xứng đáng là một trong những smartphone tầm trung tốt của Xiaomi ở thời điểm hiện tại. Với thiết kế đẹp mắt sang trọng, cấu hình không thể nào ổn hơn trong tầm giá.\r\n\r\nCụm camera 64 MP thiết kế mới, tính năng thời thượng\r\nCó lẽ thiết kế cụm camera trên Redmi Note 9 Pro là khác biệt nhất trong gia đình Note Mi bởi mô đun hình vuông đặt ngay chính giữa thay vì đặt lệch ở mặt lưng, giúp thiết kế của chiếc điện thoại nhìn cân đối và thuận mắt hơn.', NULL, '4190000', 'xiaomi-redmi-note-9-note28.jpg', 0, NULL, NULL),
+(17, 'Samsung galaxy Note 10', '10', NULL, 'samsung-galaxy-note-10', 1, 3, 'Giới thiệu điện thoại Galaxy S21 Ultra 5G. Được thiết kế với camera cắt viền độc đáo, tạo ra một cuộc cách mạng trong nhiếp ảnh – cho phép bạn quay video 8K chất lượng điện ảnh và chụp nhanh những bức ảnh tuyệt vời, tất cả trong một thao tác. Và với chipset nhanh nhất của Galaxy, loại kính mạnh nhất, 5G và pin dùng cả ngày, Ultra dễ dàng tạo nên tên tuổi của mình.', NULL, '8990000', 'ssnote1063.png', 0, NULL, NULL),
+(18, 'iPhone 11 chính hãng', '18', NULL, 'iphone-11-chinh-hang', 1, 2, 'Đánh giá iPhone 11  – Camera nâng cấp, màu sắc trẻ trung\r\niPhone 11 là model có nhiều màu sắc nhất và có giá rẻ nhất trong bộ 3 iPhone 11 series được Apple ra mắt trong năm 2019. Bên cạnh đó, cấu hình máy cũng được nâng cấp đặc biệt về cụm camera sau và Face ID, viên pin dung lượng lớn hơn.\r\n\r\nĐa dạng sự lựa chọn với 6 phiên bản màu sắc\r\nĐiểm nổi bật của iPhone 11 2019 đó là bên cạnh hai phiên bản đen và trắng quen thuộc thì máy còn có thêm bốn phiên bản khác đó là tím, vàng, xanh lá, đỏ. Với tất cả các phiên bản, bao gồm cả điện thoại iPhone 12 sắp ra mắt thì Apple đều thiết kế cạnh bên trùng màu với thân máy, tạo nên một thể thống nhất.', NULL, '14799000', 'ip1197.png', 0, NULL, NULL),
+(19, 'iPhone 10 chính hãng', '30', NULL, 'iphone-10-chinh-hang', 1, 2, 'iPhone X 64 GB là cụm từ được rất nhiều người mong chờ muốn biết và tìm kiếm trên Google bởi đây là chiếc điện thoại mà Apple kỉ niệm 10 năm iPhone đầu tiên được bán ra.\r\nThiết kế mang tính đột phá\r\nNhư các bạn cũng đã biết thì đã 4 năm kể từ chiếc điện thoại iPhone 6 và iPhone 6 Plus thì Apple vẫn chưa có thay đổi nào đáng kể trong thiết kế của mình.', NULL, '7690000', 'ip1081.png', 0, NULL, NULL),
+(20, 'Oppo find X', '10', NULL, 'samsung-galaxy-s10', 1, 4, 'Giới thiệu sản phẩm: Điện Thoại OPPO Find X Chính Hãng\r\n\r\n*Màn hình\r\n-Công nghệ màn hình: AMOLED\r\n- Độ phân giải	Full HD+ (1080 x 2340 Pixels)\r\n- Màn hình rộng 6.42\"\r\n- Mặt kính cảm ứng: Kính cường lực Corning Gorilla Glass 5\r\n\r\n*Camera sau\r\n- Độ phân giải:	Chính 16 MP & Phụ 20 MP\r\n- Quay phim: Quay phim 4K 2160p@30fps\r\n- Đèn Flash: Đèn LED 2 tông màu\r\n- Chụp ảnh nâng cao	Chụp ảnh xóa phông, A.I Camera, Tự động lấy nét, Chạm lấy nét, Nhận diện khuôn mặt, HDR, Panorama, Chống rung quang học (OIS), Làm đẹp (Beautify), Chế độ chụp chuyên nghiệp (Pro)', NULL, '7190000', 'opf989.jpg', 0, NULL, NULL),
+(21, 'Ipad Pro 2020', '8', NULL, 'ipad-pro-2020', 5, 2, 'iPad Pro 2021 11 inch – Tablet cấu mình mạnh với chip M1 mới\r\nNhư thường lệ hằng năm Apple lại cho ra mắt chiếc máy tính bảng của mình. iPad Pro 2021 phiên bản 11 inch hứa hẹn mang đến một trải nghiệm mạnh vẽ với nhiều tính năng nổi bật.\r\n\r\nThiết kế vuông vức sang trọng, màn hình 11 inch\r\niPad Pro 11 inch 2021 sở hữu ngoại hình mang nhiều điểm tương tự về ngoại hình với chiếc iPad Pro trước đó. Apple iPad Pro 2021 sử dụng màn hình kích thước 11 inch và sử dụng màn hình LCD truyền thống.  Màn hình trên iPad Pro 2021 này với công nghệ màu ProMotion cùng độ phân giải cao 264 pixel mỗi inch. Màn hình này cũng được trang bị lớp phủ chống bám vân tay và chống phản xạ, nâng cao trải nghiệm cho người dùng.', NULL, '23500000', 'ipadpro89.jpg', 0, NULL, NULL),
+(22, 'Samsung galaxy Tab S7 Plus', '10', NULL, 'samsung-galaxy-tab-s7-plus', 5, 3, 'Samsung Galaxy Tab S7+ : Màn hình rộng sắc nét cùng pin khủng 10.090 mAh\r\nMáy tính bảng giờ đây đã trở thành một sản phẩm công nghệ quen thuộc và quan trọng đối với rất nhiều người. Ngày qua ngày, người dùng đều mong muốn nhu cầu sử dụng của họ sẽ tốt hơn và đòi hỏi cao hơn về một chiếc Tablet Samsung. Thấu hiểu điều đó, tập đoàn Samsung đã cho ra mắt chiếc tablet Samsung Galaxy Tab S7 Plus. Đây được xem là chiếc máy tính bảng Samsung được trang bị những tính năng hiện đại bậc nhất cùng thời lượng pin cực khủng, giúp giải quyết nỗi lo hụt pin cho cả ngày sử dụng.', NULL, '20700000', 'samsung-galaxy-tab-s7-plus-340.jpg', 0, NULL, NULL),
+(23, 'Loa JBL Charge 4', '20', NULL, 'loa-jbl-4', 8, 4, 'JBL Charge 4 - Thiết kế loa Charge 4 JBL nhỏ gọn, tiện lợi\r\nCác sản phẩm loa của JBL đều có thiết kế dựng đứng được hoặc nằm ngang cực kỳ tiện dụng. Ở bất kỳ nơi nào, loa Charge 4 đều có thể đứng vững. Bên cạnh đó, với thiết kế hình trụ, người dùng dễ dàng cầm loa thẳng đứng. Hai đầu của loa cũng được bọc vải dệt đóng vai trò làm nơi tiếp xúc với nền để loa có thể đứng được và cũng bảo vệ được các phím điều khiển. Giống với phiên bản thứ ba, phiên bản lần này cũng tạo ra nhiều phiên bản màu sắc đa dạng như: xanh, đen, đỏ, xám…', NULL, '2650000', 'jbl-charge-497.jpg', 0, NULL, NULL),
+(24, 'Samsung galaxy Note 20', '10', NULL, 'samsung-galaxy-note-20', 2, 3, '<h3>Với thiết kế camera trước nốt ruồi quen thuộc, cụm camera h&igrave;nh chữ nhật mới lạ c&ugrave;ng với vi xử l&yacute; Exynos 990 cao cấp của ch&iacute;nh&nbsp;<a href=\"https://thegioididong.com/samsung\" target=\"_blank\" title=\"Tham khảo sản phẩm Samsung kinh doanh tại Thegioididong.com\" type=\"Tham khảo sản phẩm Samsung kinh doanh tại Thegioididong.com\">Samsung</a>&nbsp;chắc hẳn sẽ mang lại một trải nghiệm th&uacute; vị c&ugrave;ng hiệu năng mạnh mẽ.</h3>', NULL, '23000000', 'samsung-galaxy-note-20-thumbvideo-780x43322.jpg', 0, NULL, NULL),
+(25, 'Tai nghe Bluetooth True Wireless Galaxy Buds Pro', '30', NULL, 'tai-nghe-bluetooth-trrue-wireless', 2, 3, 'Thiết kế sang trọng, thời thượng cùng hộp sạc đồng nhất màu sắc đi kèm\r\nTai nghe Bluetooth True Wireless Samsung Buds Pro sở hữu vẻ ngoài đẹp mắt thời thượng với hai màu đen và trắng. Thiết kế mới trên hình dạng tai nghe cổ điển, có khả năng làm giảm bớt sự khó chịu khi sử dụng tai nghe trong nhiều giờ và tai nghe cũng nằm chắc chắn phía trong tai khi bạn tập luyện hay vận động. Đồng thời, các lỗ thoát khí giúp cân bằng áp suất trong tai và tăng lưu lượng không khí, tạo cảm giác mềm mại dễ chịu khi sử dụng.\r\n\r\nTai nghe có thiết kế nhỏ gọn nên bạn dễ dàng bỏ vào túi xách, balo và mang theo bên mình di chuyển mọi nơi. Ngoài ra, có kèm theo núm tai nghe với ba kích thước cho người dùng dễ thay đổi sao cho phù hợp.', NULL, '3990000', 'tai-nghe-bluetooth-true-wireless-galaxy-buds-pro-note12.jpg', 0, NULL, NULL),
+(26, 'I Phone 12 64GB', '16', NULL, 'iphone-12', 1, 2, 'Thiết kế mỏng nhẹ, nhỏ gọn và đẳng cấp\r\niPhone 12 đã có sự đột phá về thiết kế với kiểu dáng mới vuông vắn, mạnh mẽ và sang trọng hơn. Không chỉ vậy, iPhone 12 mỏng hơn 11%, nhỏ gọn hơn 15% và nhẹ hơn 16% so với thế hệ trước iPhone 11.\r\n\r\nBất ngờ hơn nữa là dù gọn hơn đáng kể nhưng iPhone 12 vẫn có màn hình 6,1 inch như iPhone 11 mà không hề bị cắt giảm. Phần viền màn hình thu hẹp tối đa cùng sự nỗ lực trong thiết kế đã tạo nên điều kỳ diệu ở iPhone 12.', NULL, '20490000', 'vi-vn-iphone-12-178.jpg', 0, NULL, NULL),
+(27, 'Xiaomi redmi 9T', '22', NULL, 'xiaomi-redmi-9-T', 1, 1, 'Điện thoại Xiaomi Redmi 9T – Smartphone giá rẻ, pin dung lượng lớn\r\nChiếc smartphone Xiaomi Redmi 9T có thể nói là bản dupe của mẫu Redmi Note 9 khi sở hữu cấu hình khá tương đồng chỉ thay đổi ở con chip.\r\n\r\nMàn hình giọt nước 6.53 inch\r\nĐiện thoại Xiaomi này vẫn sở hữu màn hình giọt nước quen thuộc. Máy sở hữu kích thước 6.53 inch trên tấm nền IPS LCD cùng độ phân giải Full HD+. Nhờ đó, máy cho khả năng hiển thị tốt, màu sắc chân thực.', NULL, '3900000', 'xiaomi-redmi-note-9-note8.jpg', 0, NULL, NULL),
+(28, 'Tai nghe chụp tai Mozard IP-840', '32', NULL, 'tai-nghe', 2, 4, 'TOPK đã giành được siêu giải thưởng thương hiệu có ảnh hưởng nhất năm 2020 tại thị trường Đông Nam Á. TOPK chuyên về các sản phẩm điện tử tiêu dùng, hầu hết là các phụ kiện điện thoại.\r\n  Sản phẩm này luôn có sẵn và hoan nghênh bạn đặt hàng.\r\n  Nếu bạn có bất kỳ câu hỏi nào hoặc gặp bất kỳ vấn đề nào về sản phẩm,', NULL, '350000', 'tai-nghe-chup-tai-mozard-ip-840-314120-02412244.jpg', 0, NULL, NULL),
+(29, 'Pin dự phòng 25W 10,000mAh', '20', NULL, 'pin-du-phong', 6, 3, '<h2>Sạc Nhanh Mọi L&uacute;c</h2>', '<p>Tận hưởng t&iacute;nh năng Sạc Nhanh Si&ecirc;u Tốc ấn tượng tr&ecirc;n pin dự ph&ograve;ng 25W Samsung. Nạp đầy năng lượng cho điện thoại chỉ trong t&iacute;ch tắc v&agrave; nhanh ch&oacute;ng sạc lại tức th&igrave; khi pin dự ph&ograve;ng sắp hết. Kiến tạo ho&agrave;n hảo mọi trải nghiệm liền mạch với thiết bị lu&ocirc;n đầy pin suốt ng&agrave;y d&agrave;i.</p>', '693000', 'sac45.webp', 0, NULL, NULL),
+(30, 'Dây đeo Apple Watch 44mm cao su đen', '25', NULL, 'apple-watch', 3, 2, '<h2>Sang trọng, thời trang</h2>', '<p>Galaxy Watch Active 2 mang thiết kế gọn g&agrave;ng, mặt k&iacute;nh tr&ograve;n 44 mm viền cong sang trọng t&ocirc;n d&aacute;ng tay. D&acirc;y đeo chất liệu Silicone mềm mại c&oacute; thể th&aacute;o rời tiện lợi để bạn thay m&agrave;u d&acirc;y t&ugrave;y &yacute;.&nbsp;</p>', '2690000', 'wa91.jpg', 0, NULL, NULL),
+(31, 'Dán chống va đập full màn hình cho Samsung Galaxy A31', '100', NULL, 'cuong-luc', 7, 3, '<h2>Thiết kế bảo vệ tr&agrave;n viền full m&agrave;n h&igrave;nh, chất liệu si&ecirc;u bền hạn chế nứt vỡ</h2>', '<p>C&aacute;c miếng&nbsp;<a href=\"https://cellphones.com.vn/phu-kien/dan-man-hinh.html\" target=\"_blank\" title=\"Dán màn hình chính hãng\">d</a>&aacute;n m&agrave;n h&igrave;nh&nbsp;k&eacute;m chất lượng hiện nay đều kh&ocirc;ng bảo vệ ho&agrave;n to&agrave;n m&agrave;n h&igrave;nh điện thoại khi rơi vỡ vẫn xảy ra vỡ m&agrave;n h&igrave;nh. Với thiết kế tr&agrave;n viền full m&agrave;n h&igrave;nh miếng d&aacute;n chống va đập cho Samsung Galaxy A31 l&agrave; sự lựa chọn ho&agrave;n hảo cho bạn vừa bảo vệ tối đa m&agrave;n h&igrave;nh vừa &ocirc;m s&aacute;t c&aacute;c cạnh viền. Khi rơi vỡ khả năng ảnh hưởng đến m&agrave;n h&igrave;nh sẽ được giảm đ&aacute;ng kể tăng cao thời gian khi sử dụng.</p>', '120000', 'dan-man-hinh-samsung-a30-chinh-hang72.jpg', 0, NULL, NULL),
+(32, 'Dán chống va đập cho iPhone 11 Pro - Full màn hình 4D/5D', '80', NULL, 'cuong-luc', 7, 2, '<h2>K&iacute;ch thước lớn bảo vệ to&agrave;n diện m&agrave;n h&igrave;nh, c&aacute;c đường n&eacute;t 4D/5D viền bo s&aacute;t cạnh tinh tế</h2>', '<p>Đa số c&aacute;c miếng d&aacute;n hiện nay tr&ecirc;n thị trường đều được thiết kế theo độ hiển thị của m&agrave;n h&igrave;nh chỉ bảo vệ những điểm hiển thị v&agrave; cắt theo h&igrave;nh tai thỏ kh&ocirc;ng bảo vệ to&agrave;n diện được m&agrave;n h&igrave;nh. D&aacute;n chống va đập cho iPhone 11 Pro - Full m&agrave;n h&igrave;nh 4D/5D l&agrave; một trong những miếng d&aacute;n mang đến sự an to&agrave;n gần như tuyệt đối đến cho chiếc điện thoại. Phần g&oacute;c cạnh của miếng d&aacute;n được cắt th&agrave;nh h&igrave;nh chữ nhật bảo vệ lu&ocirc;n cả camera v&agrave; loa của iPhone 11 Pro tr&aacute;nh khỏi hư hỏng.</p>', '150000', 'cuong-luc-5d-iphone-xs-max-full-man-hinh-thum-02_286.jpg', 0, NULL, NULL),
+(33, 'Dán màn hình dẻo trong S-Case full cho Apple Watch 44mm', '30', NULL, 'cuong-luc', 7, 2, '<h2>Phụ kiện bảo vệ m&agrave;n h&igrave;nh khỏi trầy xước</h2>', '<p>Mang trong m&igrave;nh một thiết kế trong suốt, c&ugrave;ng với độ bo cong m&agrave;n h&igrave;nh một c&aacute;ch mềm mại.&nbsp;<a href=\"https://cellphones.com.vn/phu-kien/dan-man-hinh/dan-apple-watch.html\" target=\"_blank\" title=\"Dán màn hình Apple Watch chính hãng\">D</a>&aacute;n m&agrave;n h&igrave;nh Apple Watch&nbsp;44mm S-Case c&oacute; thể đạt được một sự tinh tế nhất định v&agrave; c&oacute; thể gi&uacute;p cho người nh&igrave;n c&oacute; cảm gi&aacute;c như d&aacute;n. B&ecirc;n cạnh khả năng bảo vệ m&agrave;n h&igrave;nh Apple Watch 44mm khỏi c&aacute;c trầy xước th&igrave; miếng d&aacute;n m&agrave;n h&igrave;nh n&agrave;y c&ograve;n gi&uacute;p t&ocirc;n l&ecirc;n vẻ đẹp, sự tinh tế của chiếc m&aacute;y.</p>', '200000', 'w7.jpg', 0, NULL, NULL),
+(34, 'Pin sạc dự phòng Polymer 10.000 mAh Type C PD QC3.0 OPPO PBT02', '20', NULL, 'pin-du-phong', 6, 4, '<h2>Chuẩn sạc nhanh Power Delivery&nbsp;hỗ trợ tr&ecirc;n 1 cổng Type C v&agrave; Quick Charge 3.0 tr&ecirc;n 2 cổng USB</h2>', '<ul>\r\n	<li>Thiết kế nhỏ gọn, c&oacute; 2 m&agrave;u đen, trắng thời trang.</li>\r\n	<li>Dung lượng pin lớn 10.000 mAh, l&otilde;i pin Polymer an to&agrave;n.</li>\r\n	<li>Cổng Type C trang bị c&ocirc;ng nghệ sạc nhanh Power Delivery 18W cho cả nguồn ra v&agrave; nguồn v&agrave;o.</li>\r\n	<li>Cổng USB t&iacute;ch hợp c&ocirc;ng nghệ sạc nhanh Quick Charge 3.0 18W.</li>\r\n	<li>Tương th&iacute;ch với nhiều loại điện thoại v&agrave; m&aacute;y t&iacute;nh bảng.</li>\r\n</ul>', '980000', 'oppo-pbt02-trang-1-org30.jpg', 0, NULL, NULL),
+(35, 'Đồng hồ thông minh Đồng hồ thông minh Xiaomi Mi Watch Lite - Chính hãng', '20', NULL, 'watch', 3, 1, '<h2 dir=\"ltr\">Thiết kế hiện đại. Chống nước vượt trội</h2>', '<p>Đồng hồ th&ocirc;ng minh Xiaomi Mi Watch Lite g&acirc;y ấn tượng với người d&ugrave;ng bởi thiết kế độc đ&aacute;o. Thay v&igrave; m&agrave;n h&igrave;nh tr&ograve;n như thế hệ trước th&igrave; Mi Watch Lite được trang bị mặt vu&ocirc;ng với 4 g&oacute;c bo tr&ograve;n mềm mại. B&ecirc;n cạnh đ&oacute;, khung viền của đồng hồ được l&agrave;m bằng nh&ocirc;m chắc chắn mang đến sự sang trọng v&agrave; bền bỉ vượt trội.</p>', '1280000', 'mi54.png', 0, NULL, NULL),
+(36, 'SAMSUNG GALAXY WATCH4 SERIES', '20', NULL, 'watch', 3, 3, '<h2>Thiết kế cổ điển, sang trọng</h2>', '<p>Điều hướng linh hoạt với v&ograve;ng xoay bezel độc đ&aacute;o, chất liệu th&eacute;p kh&ocirc;ng gỉ cao cấp, mạnh mẽ</p>', '6490000', 'SP-728x51181.png', 0, NULL, NULL),
+(37, 'Pin dự phòng MagSafe Battery Pack', '20', NULL, 'pin-du-phong', 6, 2, '<h3>MagSafe Battery Pack c&oacute; thiết kế h&igrave;nh chữ nhật ph&ugrave; hợp với h&igrave;nh dạng của &zwnj;iPhone&zwnj; v&agrave; n&oacute; được gắn v&agrave;o mặt sau của &zwnj;iPhone 12&zwnj;, 12 mini, 12 Pro hoặc 12 Pro Max để cung cấp th&ecirc;m năng lượng.</h3>', '<p>MagSafe Battery Pack c&oacute; t&iacute;nh năng sạc ngược kh&ocirc;ng d&acirc;y. Điều n&agrave;y c&oacute; nghĩa l&agrave; nếu bạn sạc &zwnj;iPhone&zwnj; của m&igrave;nh, mẫu pin dự ph&ograve;ng n&agrave;y cũng sẽ sạc c&ugrave;ng l&uacute;c. V&igrave; vậy, bạn c&oacute; thể sạc cả &zwnj;iPhone&zwnj; v&agrave; MagSafe Battery Pack th&ocirc;ng qua cổng Lightning tr&ecirc;n MagSafe Battery Pack hoặc qua cổng Lightning tr&ecirc;n &zwnj;iPhone&zwnj;.</p>\r\n\r\n<p>Apple n&oacute;i rằng phương ph&aacute;p sạc n&agrave;y hữu &iacute;ch khi &zwnj;iPhone&zwnj; được cắm v&agrave;o một thiết bị kh&aacute;c, chẳng hạn như thiết lập CarPlay c&oacute; d&acirc;y hoặc khi &zwnj;iPhone&zwnj; được kết nối với m&aacute;y Mac. Khi sạc đồng thời &zwnj;iPhone&zwnj; v&agrave; MagSafe Battery Pack, &zwnj;iPhone&zwnj; sẽ sạc đến 80% hoặc cao hơn trước khi MagSafe Battery Pack bắt đầu sạc. Tuy nhi&ecirc;n, người d&ugrave;ng n&ecirc;n sử dụng củ sạc c&oacute; c&ocirc;ng suất 20W hoặc lớn hơn để sạc cho combo điện thoại + pin dự ph&ograve;ng n&agrave;y.</p>', '2300000', 'magsafe-battery-pack-16.jpg', 0, NULL, NULL),
+(38, 'iPad Pro M1 12.9 inch 128gb wifi 2021 Chính hãng Apple Việt Nam', '20', NULL, 'tablet', 5, 2, '<h2>iPad Pro 12.9 inch 2021 - M&aacute;y t&iacute;nh bảng hiệu năng mạnh mẽ</h2>', '<p>Giống với những d&ograve;ng iPad tiền nhiệm, iPad Pro 12.9 phi&ecirc;n bản 2021 tiếp tục được Apple thiết kế với vẻ ngo&agrave;i sang trọng, hiện đại. K&iacute;ch thước của iPad 2021 gần giống với phi&ecirc;n bản năm 2020.</p>', '26790000', 'aa57.png', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1070,7 +1085,7 @@ CREATE TABLE `tbl_shipping` (
 --
 
 INSERT INTO `tbl_shipping` (`shipping_id`, `shipping_name`, `shipping_address`, `shipping_phone`, `shipping_email`, `shipping_notes`, `shipping_method`, `created_at`, `updated_at`) VALUES
-(17, 'Hieu Tấn', '245 Nguyễn Văn Khạ, Tân An Hội .Thị trấn Củ Chi,TPHCM', '0932023992', 'Hieu dep giai', 'Nhanh nha mày', 1, NULL, NULL);
+(17, 'Trần Tâm', 'Nguyên Xá', '0932023992', 'tran@gmail.com', 'Hàng dễ vỡ', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1091,10 +1106,9 @@ CREATE TABLE `tbl_slider` (
 --
 
 INSERT INTO `tbl_slider` (`slider_id`, `slider_name`, `slider_status`, `slider_image`, `slider_desc`) VALUES
-(1, 'Slider 1', 1, 'slider149.jpg', 'Thông tin khuyến mãi nạp thẻ game'),
-(2, 'Slider 1', 1, 'slider188.jpg', 'dasdasdasdasdasd'),
-(3, 'Slider 2', 1, 'slider275.jpg', 'dsadasdas'),
-(4, 'Slider 3', 0, 'slider318.jpg', 'dasdasdasd');
+(5, 'Slide 1', 1, 'banner110.jpg', 'f'),
+(6, 'banner 2', 1, 'banner211.jpg', 'd'),
+(7, 'banner 3', 1, 'banner318.jpg', 'd');
 
 -- --------------------------------------------------------
 
@@ -12518,13 +12532,13 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT cho bảng `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
-  MODIFY `brand_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `brand_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_category_product`
 --
 ALTER TABLE `tbl_category_product`
-  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_coupon`
@@ -12536,13 +12550,13 @@ ALTER TABLE `tbl_coupon`
 -- AUTO_INCREMENT cho bảng `tbl_customers`
 --
 ALTER TABLE `tbl_customers`
-  MODIFY `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_feeship`
 --
 ALTER TABLE `tbl_feeship`
-  MODIFY `fee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `fee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_order`
@@ -12560,7 +12574,7 @@ ALTER TABLE `tbl_order_details`
 -- AUTO_INCREMENT cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_shipping`
@@ -12572,7 +12586,7 @@ ALTER TABLE `tbl_shipping`
 -- AUTO_INCREMENT cho bảng `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_social`

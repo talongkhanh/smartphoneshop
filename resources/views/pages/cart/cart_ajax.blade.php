@@ -2,11 +2,11 @@
 @section('content')
 
 	<section id="cart_items">
-		<div class="container">
+		<div class="container" style="width: 100%">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
 				  <li><a href="{{URL::to('/')}}">Trang chủ</a></li>
-				  <li class="active">Giỏ hàng của bạn</li>
+				  <li class="active">Giỏ hàng</li>
 				</ol>
 			</div>
 			  @if(session()->has('message'))
@@ -25,11 +25,11 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Hình ảnh</td>
-							<td class="description">Tên sản phẩm</td>
-							<td class="price">Giá sản phẩm</td>
-							<td class="quantity">Số lượng</td>
-							<td class="total">Thành tiền</td>
+							<td class="image" style="width:200px";>Hình ảnh</td>
+							<td class="description" style="width:150px";>Tên sản phẩm</td>
+							<td class="price" style="width:150px">Giá sản phẩm</td>
+							<td class="quantity" style="width:150px">Số lượng</td>
+							<td class="total" style="width:150px">Thành tiền</td>
 							<td></td>
 						</tr>
 					</thead>
@@ -86,7 +86,7 @@
 							</td>
 
 							<td>
-								@if(Session::get('customer'))
+								@if(Session::get('customer_id'))
 	                          	<a class="btn btn-default check_out" href="{{url('/checkout')}}">Đặt hàng</a>
 	                          	@else 
 	                          	<a class="btn btn-default check_out" href="{{url('/dang-nhap')}}">Đặt hàng</a>
@@ -135,7 +135,7 @@
 						<tr>
 							<td colspan="5"><center>
 							@php 
-							echo 'Làm ơn thêm sản phẩm vào giỏ hàng';
+							echo 'Bạn cần thêm sản phẩm vào giỏ hàng';
 							@endphp
 							</center></td>
 						</tr>
@@ -152,7 +152,6 @@
 								@csrf
 									<input type="text" class="form-control" name="coupon" placeholder="Nhập mã giảm giá"><br>
 	                          		<input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">
-	                          	
                           		</form>
                           	</td>
 					</tr>
