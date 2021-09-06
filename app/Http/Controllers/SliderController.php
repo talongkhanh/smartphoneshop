@@ -129,7 +129,7 @@ class SliderController extends Controller
             'slider_status' => $data['slider_status'],
         ];
         if(isset($data['slider_desc'])) {
-            $slider->slider_desc = $data['slider_desc'];
+            $slider['slider_desc'] = $data['slider_desc'];
         }
         if(isset($new_image)) {
         $slider['slider_image'] = $new_image;
