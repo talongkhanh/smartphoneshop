@@ -2462,6 +2462,7 @@ h2.title {
   font-size: 16px;
   border-radius: 4px;
   box-shadow:inherit;
+  padding-top: 30px;
 }
 
 #contact-page #message {
