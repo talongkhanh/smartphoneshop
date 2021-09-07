@@ -36,8 +36,6 @@ class BrandProduct extends Controller
         $all_brand_product = $all_brand_product->paginate(5);
     	$manager_brand_product  = view('admin.all_brand_product')->with('all_brand_product',$all_brand_product);
     	return view('admin_layout')->with('admin.all_brand_product', $manager_brand_product);
-
-
     }
 
     public function save_brand_product(Request $request){
@@ -58,7 +56,6 @@ class BrandProduct extends Controller
         DB::table('tbl_brand')->where('brand_id',$brand_product_id)->update(['brand_status'=>1]);
         Session::put('message','Kích hoạt thương hiệu sản phẩm thành công');
         return Redirect::to('all-brand-product');
-
     }
 
     public function active_brand_product($brand_product_id){
@@ -66,7 +63,6 @@ class BrandProduct extends Controller
         DB::table('tbl_brand')->where('brand_id',$brand_product_id)->update(['brand_status'=>0]);
         Session::put('message','Không kích hoạt thương hiệu sản phẩm thành công');
         return Redirect::to('all-brand-product');
-
     }
 
     public function edit_brand_product($brand_product_id){
